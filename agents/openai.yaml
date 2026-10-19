@@ -1,0 +1,6 @@
+interface:
+  display_name: "Daxuan Scientific Assets"
+  short_description: "Editable scientific assets and methodology SVG schematics"
+  default_prompt: "Use $daxuan-science-assets to create a transparent editable SVG and PNG, either an individual scientific object or a methodology schematic grounded in my papers and idea, with traceable sources and native labels and relations."
+policy:
+  allow_implicit_invocation: true

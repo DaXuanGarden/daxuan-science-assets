@@ -1,0 +1,112 @@
+{
+  "evidence_kind": "recorded_fixture",
+  "baseline_output": "missing evidence: no matched model-generation comparison; fixture preservation is checked separately",
+  "cases": [
+    {
+      "id": "chromosome",
+      "prompt": "Generic replicated chromosome with two sister chromatids and a centromeric region; no gene loci. Use warm gold, transparent native SVG, and named editable parts.",
+      "input_files": [
+        "assets/examples/chromosome/brief.json",
+        "assets/examples/chromosome/palette.json"
+      ],
+      "with_skill_output": "assets/examples/chromosome/asset.svg",
+      "assertions": [
+        "Native paths, no embedded bitmap",
+        "Transparent rendered edges",
+        "Named editable parts",
+        "Palette recolor preserves geometry"
+      ],
+      "human_notes": "Agent visually inspected the gallery; not independent human review. Adapted from the user's approved native gold illustration."
+    },
+    {
+      "id": "mitochondrion",
+      "prompt": "Generic mitochondrion with double membrane and cristae; no species-specific or molecular mechanism claim. Use warm gold, transparent native SVG, and named editable parts.",
+      "input_files": [
+        "assets/examples/mitochondrion/brief.json",
+        "assets/examples/mitochondrion/palette.json"
+      ],
+      "with_skill_output": "assets/examples/mitochondrion/asset.svg",
+      "assertions": [
+        "Native paths, no embedded bitmap",
+        "Transparent rendered edges",
+        "Inner membrane inside outer membrane (visual review)",
+        "Palette recolor preserves geometry"
+      ],
+      "human_notes": "Generic simplified schematic, not to scale or species-specific. Agent visual inspection only."
+    },
+    {
+      "id": "pipette",
+      "prompt": "Generic unbranded single-channel pipette and one illustrative droplet; no quantitative volume markings. Use warm gold, transparent native SVG, and named editable parts.",
+      "input_files": [
+        "assets/examples/pipette/brief.json",
+        "assets/examples/pipette/palette.json"
+      ],
+      "with_skill_output": "assets/examples/pipette/asset.svg",
+      "assertions": [
+        "Plunger, body, shaft, tip, droplet are grouped",
+        "Native paths and transparent edges",
+        "Palette recolor preserves geometry"
+      ],
+      "human_notes": "Unbranded generic instrument; no volume, precision or real model claim. Agent visual inspection only."
+    },
+    {
+      "id": "methodology-demo",
+      "prompt": "Show an authored proposed paired-assay idea, with a sample and control feeding an assay, then comparison and a readout. Native editable labels and dataflow connections; no measured results or invented papers.",
+      "input_files": [
+        "assets/examples/methodology-demo/brief.json",
+        "assets/examples/methodology-demo/diagram.json",
+        "assets/examples/methodology-demo/palette.json"
+      ],
+      "with_skill_output": "assets/examples/methodology-demo/asset.svg",
+      "assertions": [
+        "Source access and support statuses are honest",
+        "All planned nodes, labels, endpoints and relation types have native SVG bindings",
+        "True transparent PNG with clear canvas edges",
+        "Recolor preserves native labels and topology"
+      ],
+      "human_notes": "Authored proposed teaching idea only; agent visual review, not a source-grounded paper-method benchmark."
+    },
+    {
+      "id": "deseq2-method",
+      "prompt": "Create a bounded native dependency schematic from inspected DESeq2 2014 passages. Keep raw counts, size factors, design and dispersions as distinct model inputs; show coefficient testing, no computed results. Check local source excerpts.",
+      "input_files": [
+        "assets/examples/deseq2-method/diagram.json",
+        "assets/examples/deseq2-method/sources/deseq2-methods.txt",
+        "assets/examples/deseq2-method/palette.json"
+      ],
+      "with_skill_output": "assets/examples/deseq2-method/asset.svg",
+      "assertions": [
+        "Local source hash and every locator/excerpt match",
+        "Raw counts remain a direct model input",
+        "Explicit plan regenerates the same native SVG",
+        "Actual alpha PNG and geometry-preserving recolor",
+        "Distinct target ports for separate model inputs"
+      ],
+      "human_notes": "Agent source and visual review of selected primary-paper passages; not independent scientific review or a current software tutorial."
+    }
+  ],
+  "negative_cases": {
+    "fixture_source": "tests/test_asset_tool.py",
+    "behaviors": [
+      "Reject embedded PNG/SVG",
+      "Reject opaque canvas",
+      "Reject external resources and XML stylesheets",
+      "Fail unknown palette role before write",
+      "Refuse implicit overwrite",
+      "Dry-run makes no image request",
+      "Reject missing evidence source and dangling method edges",
+      "Reject identifier-only or abstract-only support for method-detail claims",
+      "Reject unresolved final diagrams and plan/SVG mismatches",
+      "Reject changed source extracts, absent locators and invented quotations",
+      "Reject declared content-budget and print-size violations",
+      "Reject incomplete layouts, node-crossing rails and unsupported direct skips"
+    ]
+  },
+  "execution": "python3 scripts/evaluate_examples.py --output reports/output-evidence.json",
+  "not_proven": [
+    "Live model generation",
+    "Fair output comparison",
+    "Independent scientific or human blind review",
+    "Editor-specific import and edit workflow"
+  ]
+}

@@ -1,0 +1,30 @@
+name: Native SVG checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.9', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/validate_package.py
+      - run: python -m unittest discover -s tests -p 'test_*.py'
+      - run: python scripts/evaluate_examples.py --output output/ci/examples.json
+      - run: python scripts/methodology_tool.py build assets/examples/deseq2-method/diagram.json --palette assets/examples/deseq2-method/palette.json --sources-dir assets/examples/deseq2-method --outdir output/ci/method --width 1600
+      - run: python scripts/build_color_example.py --outdir output/ci/color
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-outputs-python-${{ matrix.python }}
+          path: output/ci/
+          if-no-files-found: error

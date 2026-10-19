@@ -1,0 +1,288 @@
+{
+  "reviewer": "independent publication acceptance agent",
+  "checked_on": "2026-10-19",
+  "status": "local_acceptance_passed_remote_publication_checks_pending",
+  "scope": "Local package audit, deterministic native CLI replay and dry-run task comprehension; no image-model, human-comprehension or scientific-validity benchmark.",
+  "baseline": {
+    "version": "0.5.0",
+    "readme_sha256": "c8fe6eabe10cd4604314f78ac9d0f3e7570c89f64c57a8ed021f0f2c7e8c344d",
+    "package_validation_passed": true,
+    "unit_tests_passed": 94,
+    "probes": {
+      "first_png": {
+        "command": "python3 scripts/asset_tool.py render assets/examples/chromosome/asset.svg --out <fresh>/chromosome.png --qa <fresh>/qa.json",
+        "passed": true,
+        "png_size": [
+          720,
+          1852
+        ],
+        "edge_alpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "source_aware_method": {
+        "command": "python3 scripts/methodology_tool.py build assets/examples/deseq2-method/diagram.json --palette assets/examples/deseq2-method/palette.json --sources-dir assets/examples/deseq2-method --outdir <fresh> --width 1600",
+        "passed": true,
+        "png_size": [
+          1600,
+          1000
+        ],
+        "sources": 1,
+        "nodes": 6,
+        "edges": 9,
+        "checked_claims": 20
+      },
+      "recolor": {
+        "passed": true,
+        "palette_bindings": 21,
+        "geometry_preserved": true
+      }
+    },
+    "findings": [
+      {
+        "priority": "P1",
+        "finding": "README advertises local-preview and extracted-package installation only; public source installation is missing."
+      },
+      {
+        "priority": "P1",
+        "finding": "Dependencies are prose only, with no isolated setup/bootstrap sequence before first render."
+      },
+      {
+        "priority": "P1",
+        "finding": "Color-context workflow has no bundled inspectable context fixture or one-command end-to-end replay."
+      },
+      {
+        "priority": "P2",
+        "finding": "Historical trust review is correctly version-scoped, but a current trust/publication review pointer would prevent stale capability interpretation."
+      },
+      {
+        "priority": "P1",
+        "finding": "Manifest still describes publication as not requested."
+      }
+    ],
+    "privacy": "No personal absolute paths found by package validator or initial text review; no apparent credential values found. This is not an exhaustive security audit.",
+    "dry_run_tasks": [
+      {
+        "task": "Public installation and first visible output",
+        "assessment": "Local package installation and first output are described and native render succeeds; a public repository source and setup sequence are missing."
+      },
+      {
+        "task": "Source-aware method plus figure-dependent recolor",
+        "assessment": "Source-based method build succeeds; recolor preserves geometry. Color provenance rules are clear, but a new user must construct color-context JSON from reference prose without a runnable bundled fixture."
+      }
+    ],
+    "visual_review": "Inspected the rendered DESeq2 native output; visible nodes and arrows match its bounded model overview. No new scientific-validation claim."
+  },
+  "candidate": {
+    "version": "0.5.1",
+    "readme_sha256": "044a662ccc37b0938ce551e189deb0fe2621a0d16a070cd6d79a77a9c4c8c6ce",
+    "disposition": "Pass for local publication readiness. Complete remote source installation, hosted CI artifact inspection and release verification during publication.",
+    "local_blockers": [],
+    "executed_checks": {
+      "package_validation": {
+        "passed": true,
+        "english_package": true,
+        "lexical_trigger_cases": [
+          28,
+          28
+        ]
+      },
+      "unit_tests": {
+        "passed": 94,
+        "total": 94
+      },
+      "fixture_evaluation": {
+        "passed": 5,
+        "total": 5
+      },
+      "first_render": {
+        "passed": true,
+        "actual_alpha": true,
+        "size": [
+          720,
+          1852
+        ]
+      },
+      "method_build": {
+        "passed": true,
+        "size": [
+          1600,
+          1000
+        ],
+        "sources": 1,
+        "nodes": 6,
+        "edges": 9,
+        "checked_source_claims": 20,
+        "minimum_label_pt": 10.72
+      },
+      "color_example": {
+        "passed": true,
+        "geometry_preserved": true,
+        "actual_alpha": true,
+        "recorded_color_context": true
+      },
+      "color_recheck": {
+        "passed": true,
+        "roles": 11,
+        "svg_bindings": 25,
+        "declared_text_contrast_ratio": 9.87
+      },
+      "isolated_local_install": {
+        "passed": true,
+        "source": "local candidate package",
+        "command": "npx skills add <candidate> --skill daxuan-science-assets --agent codex --copy --yes",
+        "scope": "Temporary project install; no HOME or CODEX_HOME override, no global install",
+        "installed_first_render_passed": true,
+        "installed_color_example_passed": true
+      },
+      "readme_pipette_recolor": {
+        "passed": true,
+        "geometry_preserved": true,
+        "palette_bindings": 21
+      },
+      "preservation": {
+        "nine_prior_python_tools_identical": true,
+        "prior_individual_fixture_files_compared": 38,
+        "all_identical": true,
+        "baseline_candidate_first_png_identical": true,
+        "baseline_candidate_method_svg_identical": true
+      },
+      "privacy_scan": {
+        "personal_absolute_paths": 0,
+        "long_sk_or_bearer_patterns": 0,
+        "scope": "Text-pattern and source review; not exhaustive security certification"
+      }
+    },
+    "dry_run_task_comparisons": [
+      {
+        "task": "Install and get a first visible local output",
+        "baseline": "Extracted-package source only; dependencies are prose; native render works in the prepared environment.",
+        "candidate": "Adds repository installation command, renderer setup by supported OS, venv with pinned Python dependencies, explicit existing-SVG first output and expected paths. Local isolated install and installed-copy render pass.",
+        "assessment": "Documentation/reproducibility improved; dry-run comprehension judgment, not measured human usability. Remote public source command remains unexecuted by this reviewer."
+      },
+      {
+        "task": "Build a source-backed method and coordinate reference/target colors without geometry loss",
+        "baseline": "Source-backed DESeq2 build works; color rules and schema are documented, but no single runnable color-context fixture is bundled.",
+        "candidate": "Source-backed method output is unchanged; adds original reference/target snapshots, explicit color decision/lock example and one-command build plus recheck. Actual build/recheck pass with unchanged geometry and transparent render.",
+        "assessment": "Replayability/discoverability improved. This is not a claim of improved generated art, scientific interpretation or perceptual harmony."
+      }
+    ],
+    "editorial_score": {
+      "scope": "Independent editorial estimates informed by executed local probes and dry-run task review. Neither a model benchmark nor measured human comprehension.",
+      "baseline": 81,
+      "candidate": 89,
+      "maximum": 100,
+      "dimensions": [
+        {
+          "dimension": "Frontmatter and triggers",
+          "weight": 7,
+          "baseline_editorial": 6,
+          "candidate_editorial": 6,
+          "evidence": "SKILL identity/version pass; 28 lexical trigger cases pass. Routing is not model-benchmarked.",
+          "remaining_limit": "Model-based trigger accuracy remains untested."
+        },
+        {
+          "dimension": "Workflow clarity",
+          "weight": 12,
+          "baseline_editorial": 10,
+          "candidate_editorial": 11,
+          "evidence": "README now separates installation, first local result, source-aware method and color replay, with dependency/setup commands.",
+          "remaining_limit": "Dense organic compositions still depend on agent construction."
+        },
+        {
+          "dimension": "Failure-mode encoding",
+          "weight": 12,
+          "baseline_editorial": 10,
+          "candidate_editorial": 10,
+          "evidence": "Implicit overwrite refusal, native fallback disclosure and provider/credential boundaries retained. Cairo/rsvg prerequisites now explicit.",
+          "remaining_limit": "Live official and relay edit paths remain untested."
+        },
+        {
+          "dimension": "Checkpoints",
+          "weight": 6,
+          "baseline_editorial": 5,
+          "candidate_editorial": 5,
+          "evidence": "Structural/alpha/source/color/geometry checks and isolated/placement review instructions are explicit.",
+          "remaining_limit": "Scientific and perception judgments remain manual."
+        },
+        {
+          "dimension": "Executable specificity",
+          "weight": 17,
+          "baseline_editorial": 13,
+          "candidate_editorial": 16,
+          "evidence": "Fresh deterministic render, method build, color build/recheck and isolated installation all pass documented commands.",
+          "remaining_limit": "Remote source-install proof awaits repository publication."
+        },
+        {
+          "dimension": "Resource integration",
+          "weight": 4,
+          "baseline_editorial": 3,
+          "candidate_editorial": 4,
+          "evidence": "Original color-context fixture, attributed DESeq2 extracts, pinned requirements and showcase reproduction are linked.",
+          "remaining_limit": "No claim of a current-software DESeq2 tutorial."
+        },
+        {
+          "dimension": "Architecture",
+          "weight": 12,
+          "baseline_editorial": 10,
+          "candidate_editorial": 11,
+          "evidence": "Single entrypoint; references/tooling/fixtures/evidence separated; nine prior Python tools and 38 fixtures unchanged; CI produces actual artifacts.",
+          "remaining_limit": "Hosted CI has not yet been independently inspected."
+        },
+        {
+          "dimension": "Executed performance",
+          "weight": 23,
+          "baseline_editorial": 18,
+          "candidate_editorial": 20,
+          "evidence": "94 tests, five fixture evaluations, 20 method source claims, actual alpha renders and installed-copy execution passed independently.",
+          "remaining_limit": "No model-generation comparison, human comprehension test or editor import test."
+        },
+        {
+          "dimension": "Counterexamples and exclusions",
+          "weight": 7,
+          "baseline_editorial": 6,
+          "candidate_editorial": 6,
+          "evidence": "No invented evidence/results, source instruction injection, hidden paid retries or private manuscript examples; current trust review corrects historical scope.",
+          "remaining_limit": "Not a hostile-file sandbox or third-party security audit."
+        }
+      ]
+    },
+    "visual_review": {
+      "inspected": [
+        "Fresh source-backed DESeq2 native render",
+        "Fresh blue color-example PNG",
+        "390-pixel stacked mobile gallery"
+      ],
+      "observation": "Native example components and labels are visible; mobile gallery labels are not clipped. Transparent PNG checks are numerical as well as visual.",
+      "scope": "Agent inspection only; no human blind/perception study or editor import test."
+    },
+    "publisher_followup": [
+      "Run the documented public repository installation after the source exists and retain its exact commit/ref.",
+      "Inspect the hosted Actions outputs/artifacts, not merely green status.",
+      "Replace pending publication-check/report placeholders with final executed evidence before tagging/release.",
+      "Verify release assets and public repository links from the remote record."
+    ],
+    "unchanged_limitations": [
+      "No new image API request",
+      "Official live image generation and relay reference-image edits untested",
+      "Scientific peer review and editor import/edit/reopen untested",
+      "Windows and equivalent cross-agent behavior untested"
+    ],
+    "structural_shell_review": {
+      "source": "Publisher-reported Luban shell; independent reviewer did not execute this shell",
+      "pass": 13,
+      "warn": 1,
+      "fail": 0,
+      "warning_scope": "Heuristic requests a *.tape; actual GIF reproduction is provided by scripts/build_showcase.py. No fake tape added."
+    }
+  },
+  "publication_card": {
+    "version": "0.5.1",
+    "score_line": "Editorial estimate: 81 -> 89 / 100",
+    "validation_line": "94 tool tests / 5 fixture replays / isolated install",
+    "next_step": "Next: collect real editor import and user feedback"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "mode": "methodology",
+  "subject": "DESeq2: model inputs and coefficient testing",
+  "scope": "Bounded high-level input/dependency overview of the original 2014 paper. Raw counts remain the response of the NB GLM; size factors enter the mean model. The dispersion-estimation node includes trend sharing and the outlier exception. Independent filtering, multiple-testing correction, full algorithm iteration, diagnostics, and current software defaults are outside this module.",
+  "target_width_mm": 180,
+  "content_budget": {
+    "detail": "overview",
+    "max_nodes": 6,
+    "max_label_words": 3,
+    "min_font_pt": 8,
+    "panels": 1
+  },
+  "sources": [
+    {
+      "id": "deseq2-2014",
+      "kind": "paper",
+      "access": "excerpt",
+      "citation": "Love MI, Huber W, Anders S. Genome Biology 15, 550 (2014). doi:10.1186/s13059-014-0550-8",
+      "doi": "10.1186/s13059-014-0550-8",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4302049/",
+      "snapshot": "sources/deseq2-methods.txt",
+      "snapshot_sha256": "293e651ad6e0db25c25221f2bc2538373c94bd6ede352b0a05626d04597acfdb",
+      "license": "CC BY 4.0; original text by Love et al."
+    }
+  ],
+  "route": "native-base-layout",
+  "image_generation": {
+    "executed": false
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "name": "daxuan-science-assets",
+  "version": "0.5.1",
+  "owner": "Daxuan",
+  "updated_at": "2026-10-19",
+  "status": "public-preview",
+  "maturity_tier": "production",
+  "lifecycle_stage": "public-preview",
+  "context_budget_tier": "production",
+  "review_cadence": "After scientific or visual feedback, workflow or image-backend changes; otherwise quarterly",
+  "upstream_inspiration": "Rimagination/scansci-svg; lgwrightlab/schematic-figure; K-Dense-AI/scientific-agent-skills; qiaomu-meta-skill; daxuan-image-relay; skill-creator",
+  "intent": {
+    "job_to_be_done": "Create transparent native SVG scientific objects and source-traceable methodology schematics with editable parts, labels, relationships, and palette roles.",
+    "target_users": [
+      "Daxuan",
+      "Researchers assembling scientific flowcharts"
+    ],
+    "inputs": [
+      "Subject and scientific scope",
+      "Optional reference image or existing SVG",
+      "Palette and edit requirements",
+      "Supplied papers, inspected methods, figures or supplements",
+      "Preliminary idea, proposed adaptation, and figure scope/size/detail budget",
+      "Reference-author colors and the destination figure, with explicit color meanings or author palette reports"
+    ],
+    "outputs": [
+      "Editable transparent SVG",
+      "Transparent PNG preview",
+      "Palette",
+      "Brief",
+      "Structural/render QA",
+      "Methodology semantic plan and source/evidence map when applicable",
+      "Verified local source extracts and reproducible base diagram when applicable",
+      "Color context, source snapshots and palette/contrast checks when reference or target colors matter"
+    ],
+    "exclusions": [
+      "Statistical result plots",
+      "Invented methods, mechanisms, citations or results",
+      "Manuscript-wide figure planning",
+      "Raster-only photorealism"
+    ]
+  },
+  "release_gates": [
+    "package_validation",
+    "trigger_smoke_eval",
+    "output_contract",
+    "geometry_preserving_recolor",
+    "transparent_render",
+    "isolated_local_install",
+    "secret_scan",
+    "evidence_bound_claims",
+    "english_package",
+    "baseline_geometry_preservation",
+    "active_image_source_selection",
+    "single_transparent_asset_handoff",
+    "credential_origin_binding",
+    "methodology_source_consistency",
+    "methodology_graph_svg_bindings",
+    "source_extract_integrity",
+    "methodology_native_build",
+    "print_size_and_content_budget",
+    "color_context_and_target_figure_review",
+    "public_source_install",
+    "reproducible_public_examples",
+    "native_output_ci"
+  ],
+  "evidence_boundary": {
+    "native_svg_tooling": "Existing native vector tools and three bundled fixtures remain unchanged; source-selection and alpha checks are covered by current tests.",
+    "image_provider": "One live active-relay gpt-image-2 generation returned HTTP 200 and a saved RGB reference PNG. Official live generation and relay edits remain untested.",
+    "human_blind_review": "missing evidence",
+    "editor_application_import": "missing evidence",
+    "publication": "GitHub distribution v0.5.1; see publication-checks.json and the release-attached remote verification record.",
+    "trigger_routing": "28/28 English lexical smoke cases; not measured model-routing accuracy",
+    "local_install": "Historical 0.5.0 installation remains in install-evidence.json; current publication installation is recorded in publication-checks.json.",
+    "methodology": "One primary-paper excerpt-to-SVG example (Love et al., 2014), with verified local extract hashes and quotation containment, plus one authored idea fixture. Native output reproduces from the explicit plan; agent source/visual review only, not an independent scientific benchmark.",
+    "color_context": "Local paint/raster inspection and color-decision checks pass 12 focused tests. A two-material local revision passes alpha, source, role-lock and geometry checks, with agent slot/full-figure inspection; no independent perception benchmark."
+  },
+  "display_name": "Daxuan Scientific Assets",
+  "language": {
+    "package": "English",
+    "conversation": "Match the user",
+    "figure_labels": "Follow the user brief"
+  },
+  "repository": "https://github.com/DaXuanGarden/daxuan-science-assets"
+}

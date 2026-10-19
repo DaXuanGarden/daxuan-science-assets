@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="390" viewBox="0 0 270 390" role="img" aria-labelledby="title desc">
+  <title id="title">Generic single-channel pipette</title>
+  <desc id="desc">A schematic unbranded laboratory pipette with a removable tip and one illustrative droplet. No volume or accuracy is represented.</desc>
+  <defs>
+    <linearGradient id="barrel-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B39857" data-stop-role="body_shadow"/>
+      <stop offset="40%" stop-color="#E3C98A" data-stop-role="body_light"/>
+      <stop offset="100%" stop-color="#D4B66C" data-stop-role="body"/>
+    </linearGradient>
+  </defs>
+  <g id="pipette-and-droplet" transform="rotate(24 135 195)">
+    <g id="plunger">
+      <rect x="121" y="31" width="28" height="11" rx="4" fill="#B39857" data-fill-role="body_shadow"/>
+      <path d="M 130 42 L 130 68 L 140 68 L 140 42 Z" fill="#C4B99F" stroke="#AC8E4C" stroke-width="1.4" data-fill-role="muted" data-stroke-role="outline"/>
+    </g>
+    <g id="body-and-grip">
+      <path d="M 119 66 Q 135 60 151 66 L 158 91 L 156 188 Q 153 204 143 211 L 125 211 Q 113 202 112 188 L 112 92 Z" fill="url(#barrel-gold)" stroke="#AC8E4C" stroke-width="1.9" data-stroke-role="outline"/>
+      <path d="M 151 79 L 168 81 Q 177 85 169 90 L 158 91" fill="#D4B66C" stroke="#AC8E4C" stroke-width="1.7" data-fill-role="body" data-stroke-role="outline"/>
+      <path d="M 123 78 C 120 111 120 157 123 180" fill="none" stroke="#F2E0AD" stroke-width="3.2" stroke-linecap="round" data-stroke-role="highlight"/>
+      <rect x="125" y="111" width="23" height="33" rx="3" fill="#EEE9DE" stroke="#BDA67B" stroke-width="1.3" data-fill-role="field" data-stroke-role="detail"/>
+      <path d="M 119 159 L 151 159 M 119 166 L 151 166" stroke="#BDA67B" stroke-width="1.3" data-stroke-role="detail"/>
+    </g>
+    <g id="shaft">
+      <path d="M 126 211 L 143 211 L 141 256 L 129 256 Z" fill="#B39857" stroke="#AC8E4C" stroke-width="1.4" data-fill-role="body_shadow" data-stroke-role="outline"/>
+    </g>
+    <g id="removable-tip">
+      <path d="M 126 254 L 144 254 L 138 314 Q 135 320 132 314 Z" fill="#E3C98A" fill-opacity="0.68" stroke="#AC8E4C" stroke-width="1.4" data-fill-role="body_light" data-stroke-role="outline"/>
+      <path d="M 132 264 L 134 302" stroke="#F2E0AD" stroke-width="1.8" stroke-linecap="round" data-stroke-role="highlight"/>
+    </g>
+    <g id="droplet">
+      <path d="M 135 330 C 132 337 123 344 123 352 C 123 369 147 369 147 352 C 147 344 138 337 135 330 Z" fill="#D4B66C" stroke="#AC8E4C" stroke-width="1.3" data-fill-role="body" data-stroke-role="outline"/>
+      <path d="M 130 346 Q 126 354 131 358" fill="none" stroke="#F2E0AD" stroke-width="2.1" stroke-linecap="round" data-stroke-role="highlight"/>
+    </g>
+  </g>
+</svg>

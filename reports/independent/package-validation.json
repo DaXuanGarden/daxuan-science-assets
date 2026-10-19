@@ -1,0 +1,150 @@
+{
+  "ok": true,
+  "name": "daxuan-science-assets",
+  "version": "0.1.1",
+  "display_name": "Daxuan Scientific Assets",
+  "failures": [],
+  "language": {
+    "cjk_files": 0,
+    "cjk_characters": 0,
+    "files": {}
+  },
+  "single_entrypoint": true,
+  "trigger_smoke": {
+    "ok": true,
+    "total": 20,
+    "passed": 20,
+    "cases": [
+      {
+        "family": "genetics",
+        "passed": true
+      },
+      {
+        "family": "organ",
+        "passed": true
+      },
+      {
+        "family": "recolor",
+        "passed": true
+      },
+      {
+        "family": "reconstruct",
+        "passed": true
+      },
+      {
+        "family": "image-to-vector",
+        "passed": true
+      },
+      {
+        "family": "set",
+        "passed": true
+      },
+      {
+        "family": "lab",
+        "passed": true
+      },
+      {
+        "family": "palette",
+        "passed": true
+      },
+      {
+        "family": "reference",
+        "passed": true
+      },
+      {
+        "family": "brand",
+        "passed": true
+      },
+      {
+        "family": "explain",
+        "passed": true
+      },
+      {
+        "family": "translate",
+        "passed": true
+      },
+      {
+        "family": "whole-flowchart",
+        "passed": true
+      },
+      {
+        "family": "data-plot",
+        "passed": true
+      },
+      {
+        "family": "raster",
+        "passed": true
+      },
+      {
+        "family": "statistics",
+        "passed": true
+      },
+      {
+        "family": "format-explanation",
+        "passed": true
+      },
+      {
+        "family": "non-scientific",
+        "passed": true
+      },
+      {
+        "family": "pipeline",
+        "passed": true
+      },
+      {
+        "family": "literature",
+        "passed": true
+      }
+    ],
+    "scope": "Lexical configuration smoke test, not measured model-routing accuracy"
+  },
+  "baseline_comparison": {
+    "baseline_language": {
+      "cjk_files": 25,
+      "cjk_characters": 9635,
+      "files": {
+        "LICENSE": 2,
+        "README.md": 1118,
+        "SKILL.md": 1147,
+        "agents/interface.yaml": 173,
+        "agents/openai.yaml": 52,
+        "assets/examples/chromosome/brief.json": 48,
+        "assets/examples/chromosome/image_prompt.txt": 24,
+        "assets/examples/mitochondrion/brief.json": 56,
+        "assets/examples/mitochondrion/image_prompt.txt": 28,
+        "assets/examples/pipette/brief.json": 40,
+        "assets/examples/pipette/image_prompt.txt": 20,
+        "evals/output_cases.json": 97,
+        "evals/trigger_cases.json": 272,
+        "manifest.json": 4,
+        "references/asset-design.md": 875,
+        "references/codex-image.md": 666,
+        "references/svg-contract.md": 643,
+        "references/trust.md": 652,
+        "reports/creation-handoff.md": 1004,
+        "reports/install-evidence.json": 75,
+        "reports/prior-art-research.md": 884,
+        "reports/skill-ir.json": 1151,
+        "reports/trigger-eval.json": 208,
+        "reports/trust-review.md": 391,
+        "tests/test_asset_tool.py": 5
+      }
+    },
+    "candidate_language": {
+      "cjk_files": 0,
+      "cjk_characters": 0,
+      "files": {}
+    },
+    "native_assets_byte_identical": {
+      "assets/examples/chromosome/asset.svg": true,
+      "assets/examples/chromosome/asset.png": true,
+      "assets/examples/mitochondrion/asset.svg": true,
+      "assets/examples/mitochondrion/asset.png": true,
+      "assets/examples/pipette/asset.svg": true,
+      "assets/examples/pipette/asset.png": true
+    },
+    "baseline_skill_bytes": 5288,
+    "candidate_skill_bytes": 4907
+  },
+  "evidence_scope": "Package language, identity, links, and unchanged fixtures; not a model or scientific-quality evaluation."
+}

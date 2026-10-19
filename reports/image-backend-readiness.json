@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "selected_route": "relay",
+  "configuration_ready": true,
+  "models_probe": "HTTP 200; reports/image-backend-v020-probe.json",
+  "generation_verified": true,
+  "generation_evidence": "reports/image-generation-v020-live.json",
+  "model_reference_alpha": "RGB opaque; not a transparent final asset",
+  "native_final_alpha": "Actual RGBA render; assets/examples/blue-chromosome/qa.json",
+  "official_live_generation": "not tested; current session uses a relay",
+  "legacy_oauth_check_scope": "Optional official helper only; not evidence of relay unavailability"
+}

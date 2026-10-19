@@ -1,0 +1,25 @@
+{
+  "name": "single-blue-chromosome",
+  "subject": "One generic replicated chromosome",
+  "route": "native_svg_retained_after_image_exploration",
+  "palette": "structural-blue-rose",
+  "editable_parts": [
+    "sister-chromatid-left",
+    "sister-chromatid-right",
+    "centromere"
+  ],
+  "invariants": [
+    "transparent canvas",
+    "no display-board background",
+    "no text or target coordinate claims",
+    "approved medium-blue palette"
+  ],
+  "image_generation": {
+    "executed": true,
+    "source": "active configured relay",
+    "model": "gpt-image-2",
+    "reference": "reference.png",
+    "background": "opaque RGB"
+  },
+  "vector_decision": "Keep the accepted clean silhouette and restrained shading; the model reference is more textured. No automatic tracing is claimed."
+}

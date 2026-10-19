@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1428 892" width="180mm" height="112.437mm" data-generator="daxuan-methodology-build">
+  <title>DESeq2: model inputs and coefficient testing</title>
+  <desc>Bounded high-level input/dependency overview of the original 2014 paper. Raw counts remain the response of the NB GLM; size factors enter the mean model. The dispersion-estimation node includes trend sharing and the outlier exception. Independent filtering, multiple-testing correction, full algorithm iteration, diagnostics, and current software defaults are outside this module. Agent inspected the selected full-text Results and Materials and methods sections from an open-access primary paper. This is an original schematic of those passages, not an experimental result or a complete executable protocol.</desc>
+  <g id="method-heading">
+    <text x="44" y="64" font-size="42" text-anchor="start" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">DESeq2: model inputs and coefficient testing</text>
+  </g>
+  <g id="method-relations">
+    <g id="edge-counts-size-factors" data-edge-id="counts-size-factors" data-from="counts" data-to="size-factors" data-relation="dataflow">
+      <path d="M 307 290 L 354 290 L 354 308 L 394 308" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" />
+      <path d="M 381 316 L 394 308 L 381 300" stroke-width="3.5" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" data-symbol="arrow" />
+    </g>
+    <g id="edge-counts-dispersions" data-edge-id="counts-dispersions" data-from="counts" data-to="dispersions" data-relation="dataflow">
+      <path d="M 307 326 L 354 326 L 354 560 L 394 560" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" />
+      <path d="M 381 568 L 394 560 L 381 552" stroke-width="3.5" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" data-symbol="arrow" />
+    </g>
+    <g id="edge-design-dispersions" data-edge-id="design-dispersions" data-from="design" data-to="dispersions" data-relation="dataflow">
+      <path d="M 307 578 L 354 578 L 354 596 L 394 596" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" />
+      <path d="M 381 604 L 394 596 L 381 588" stroke-width="3.5" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" data-symbol="arrow" />
+    </g>
+    <g id="edge-size-factors-dispersions" data-edge-id="size-factors-dispersions" data-from="size-factors" data-to="dispersions" data-relation="dataflow">
+      <path d="M 534 411 L 534 468" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" />
+      <path d="M 526 455 L 534 468 L 542 455" stroke-width="3.5" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" data-symbol="arrow" />
+    </g>
+    <g id="edge-counts-model" data-edge-id="counts-model" data-from="counts" data-to="model" data-relation="dataflow">
+      <path d="M 174 205 L 174 173 L 894 173 L 894 333" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" />
+      <path d="M 886 320 L 894 333 L 902 320" stroke-width="3.5" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" data-symbol="arrow" />
+    </g>
+    <g id="edge-design-model" data-edge-id="design-model" data-from="design" data-to="model" data-relation="dataflow">
+      <path d="M 174 681 L 174 713 L 894 713 L 894 553" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" />
+      <path d="M 902 566 L 894 553 L 886 566" stroke-width="3.5" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" data-symbol="arrow" />
+    </g>
+    <g id="edge-size-factors-model" data-edge-id="size-factors-model" data-from="size-factors" data-to="model" data-relation="dataflow">
+      <path d="M 667 308 L 714 308 L 714 425 L 754 425" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" />
+      <path d="M 741 433 L 754 425 L 741 417" stroke-width="3.5" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" data-symbol="arrow" />
+    </g>
+    <g id="edge-dispersions-model" data-edge-id="dispersions-model" data-from="dispersions" data-to="model" data-relation="dataflow">
+      <path d="M 667 578 L 714 578 L 714 461 L 754 461" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" />
+      <path d="M 741 469 L 754 461 L 741 453" stroke-width="3.5" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" data-symbol="arrow" />
+    </g>
+    <g id="edge-model-wald" data-edge-id="model-wald" data-from="model" data-to="wald" data-relation="dataflow">
+      <path d="M 1027 443 L 1074 443 L 1074 443 L 1114 443" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" />
+      <path d="M 1101 451 L 1114 443 L 1101 435" stroke-width="3.5" stroke-linecap="round" fill="none" stroke="#8E9DA5" data-stroke-role="guide" data-symbol="arrow" />
+    </g>
+  </g>
+  <g id="method-nodes">
+    <g id="node-counts" data-node-id="counts">
+      <rect x="44" y="208.0" width="260" height="200" rx="18" stroke-width="2" fill="#E8F0F4" data-fill-role="field" stroke="#5F91AF" data-stroke-role="outline" />
+      <rect x="62" y="226.0" width="42" height="7" rx="3" fill="#91B2C8" data-fill-role="body" />
+      <text x="174.0" y="308.0" font-size="32" text-anchor="middle" font-weight="600" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">
+        <tspan x="174.0" dy="0">Raw counts</tspan>
+      </text>
+    </g>
+    <g id="node-design" data-node-id="design">
+      <rect x="44" y="478.0" width="260" height="200" rx="18" stroke-width="2" fill="#E8F0F4" data-fill-role="field" stroke="#5F91AF" data-stroke-role="outline" />
+      <rect x="62" y="496.0" width="42" height="7" rx="3" fill="#91B2C8" data-fill-role="body" />
+      <text x="174.0" y="578.0" font-size="32" text-anchor="middle" font-weight="600" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">
+        <tspan x="174.0" dy="0">Study design</tspan>
+      </text>
+    </g>
+    <g id="node-size-factors" data-node-id="size-factors">
+      <rect x="404" y="208.0" width="260" height="200" rx="18" stroke-width="2" fill="#E8F0F4" data-fill-role="field" stroke="#5F91AF" data-stroke-role="outline" />
+      <rect x="422" y="226.0" width="42" height="7" rx="3" fill="#91B2C8" data-fill-role="body" />
+      <text x="534.0" y="308.0" font-size="32" text-anchor="middle" font-weight="600" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">
+        <tspan x="534.0" dy="0">Size factors</tspan>
+      </text>
+    </g>
+    <g id="node-dispersions" data-node-id="dispersions">
+      <rect x="404" y="478.0" width="260" height="200" rx="18" stroke-width="2" fill="#E8F0F4" data-fill-role="field" stroke="#5F91AF" data-stroke-role="outline" />
+      <rect x="422" y="496.0" width="42" height="7" rx="3" fill="#91B2C8" data-fill-role="body" />
+      <text x="534.0" y="558.0" font-size="32" text-anchor="middle" font-weight="600" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">
+        <tspan x="534.0" dy="0">Dispersion </tspan>
+        <tspan x="534.0" dy="40">estimates</tspan>
+      </text>
+    </g>
+    <g id="node-model" data-node-id="model">
+      <rect x="764" y="343.0" width="260" height="200" rx="18" stroke-width="2" fill="#E8F0F4" data-fill-role="field" stroke="#5F91AF" data-stroke-role="outline" />
+      <rect x="782" y="361.0" width="42" height="7" rx="3" fill="#91B2C8" data-fill-role="body" />
+      <text x="894.0" y="443.0" font-size="32" text-anchor="middle" font-weight="600" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">
+        <tspan x="894.0" dy="0">NB GLM</tspan>
+      </text>
+    </g>
+    <g id="node-wald" data-node-id="wald">
+      <rect x="1124" y="343.0" width="260" height="200" rx="18" stroke-width="2" fill="#E8F0F4" data-fill-role="field" stroke="#5F91AF" data-stroke-role="outline" />
+      <rect x="1142" y="361.0" width="42" height="7" rx="3" fill="#91B2C8" data-fill-role="body" />
+      <text x="1254.0" y="443.0" font-size="32" text-anchor="middle" font-weight="600" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">
+        <tspan x="1254.0" dy="0">Wald test</tspan>
+      </text>
+    </g>
+  </g>
+  <g id="method-caption">
+    <text x="44" y="762" font-size="30" text-anchor="start" font-weight="500" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">Original 2014 model overview. NB GLM: negative-binomial generalized linear model, </text>
+    <text x="44" y="802" font-size="30" text-anchor="start" font-weight="500" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">fitted to raw counts. Filtering and multiple-testing correction are outside this </text>
+    <text x="44" y="842" font-size="30" text-anchor="start" font-weight="500" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">module. Love et al. (2014), doi:10.1186/s13059-014-0550-8.</text>
+  </g>
+</svg>

@@ -1,0 +1,366 @@
+{
+  "schema_version": "1.0",
+  "status": "final",
+  "diagram_kind": "process",
+  "title": "DESeq2: model inputs and coefficient testing",
+  "scope": "Bounded high-level input/dependency overview of the original 2014 paper. Raw counts remain the response of the NB GLM; size factors enter the mean model. The dispersion-estimation node includes trend sharing and the outlier exception. Independent filtering, multiple-testing correction, full algorithm iteration, diagnostics, and current software defaults are outside this module.",
+  "provenance_summary": "Agent inspected the selected full-text Results and Materials and methods sections from an open-access primary paper. This is an original schematic of those passages, not an experimental result or a complete executable protocol.",
+  "target_width_mm": 180,
+  "content_budget": {
+    "detail": "overview",
+    "max_nodes": 6,
+    "max_label_words": 3,
+    "min_font_pt": 8,
+    "panels": 1
+  },
+  "sources": [
+    {
+      "id": "deseq2-2014",
+      "kind": "paper",
+      "access": "excerpt",
+      "citation": "Love MI, Huber W, Anders S. Genome Biology 15, 550 (2014). doi:10.1186/s13059-014-0550-8",
+      "doi": "10.1186/s13059-014-0550-8",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4302049/",
+      "snapshot": "sources/deseq2-methods.txt",
+      "snapshot_sha256": "293e651ad6e0db25c25221f2bc2538373c94bd6ede352b0a05626d04597acfdb",
+      "license": "CC BY 4.0; original text by Love et al."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "counts",
+      "svg_id": "node-counts",
+      "label": "Raw counts",
+      "kind": "input",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec3 paragraph 1]",
+            "excerpt": "The starting point of a DESeq2 analysis is a count matrix K with one row for each gene i and one column for each sample j. The matrix entries Kij indicate the number of sequencing reads that have been unambiguously mapped to a gene in a sample. Note that although we refer in this paper to counts of reads in genes, the methods presented here can be applied as well to other kinds of HTS count data. For each gene, we fit a generalized linear model (GLM) [12] as follows."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "design",
+      "svg_id": "node-design",
+      "label": "Study design",
+      "kind": "input",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec3 paragraph 3]",
+            "excerpt": "We use GLMs with a logarithmic link, log2qij=\u2211rxjr\u03b2ir, with design matrix elements xjr and coefficients \u03b2ir. In the simplest case of a comparison between two groups, such as treated and control samples, the design matrix elements indicate whether a sample j is treated or not, and the GLM fit returns coefficients indicating the overall expression strength of the gene and the log 2 fold change between treatment and control. The use of linear models, however, provides the flexibility to also analyze more complex designs, as is often useful in genomic studies [15]."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "size-factors",
+      "svg_id": "node-size-factors",
+      "label": "Size factors",
+      "kind": "process",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec3 paragraph 2]",
+            "excerpt": "We model read counts Kij as following a negative binomial distribution (sometimes also called a gamma-Poisson distribution) with mean \u03bcij and dispersion \u03b1i. The mean is taken as a quantity qij, proportional to the concentration of cDNA fragments from the gene in the sample, scaled by a normalization factor sij, i.e., \u03bcij=sijqij. For many applications, the same constant sj can be used for all genes in a sample, which then accounts for differences in sequencing depth between samples. To estimate these size factors, the DESeq2 package offers the median-of-ratios method already used in DESeq [4]. However, it can be advantageous to calculate gene-specific normalization factors sij to account for further sources of technical biases such as differing dependence on GC content, gene length or the like, using published methods [13,14], and these can be supplied instead."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "dispersions",
+      "svg_id": "node-dispersions",
+      "label": "Dispersion estimates",
+      "kind": "process",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec22 paragraph 4]",
+            "excerpt": "We get final dispersion estimates from this model in three steps, which implement a computationally fast approximation to a full empirical Bayes treatment. We first use the count data for each gene separately to get preliminary gene-wise dispersion estimates \u03b1igw by maximum-likelihood estimation. Then, we fit the dispersion trend \u03b1tr. Finally, we combine the likelihood with the trended prior to get maximum a posteriori (MAP) values as final dispersion estimates. Details for the three steps follow."
+          },
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec22 paragraph 25]",
+            "excerpt": "For such genes, the gene-wise estimate \u03b1igw is not shrunk toward the trended prior mean. Instead of the MAP value \u03b1iMAP, we use the gene-wise estimate \u03b1igw as a final dispersion value in the subsequent steps. In addition, the iterative fitting procedure for the parametric dispersion trend described above avoids that such dispersion outliers influence the prior mean."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "model",
+      "svg_id": "node-model",
+      "label": "NB GLM",
+      "kind": "process",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec19 paragraph 1]",
+            "excerpt": "The read count Kij for gene i in sample j is described with a GLM of the negative binomial family with a logarithmic link:"
+          },
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec3 paragraph 2]",
+            "excerpt": "We model read counts Kij as following a negative binomial distribution (sometimes also called a gamma-Poisson distribution) with mean \u03bcij and dispersion \u03b1i. The mean is taken as a quantity qij, proportional to the concentration of cDNA fragments from the gene in the sample, scaled by a normalization factor sij, i.e., \u03bcij=sijqij. For many applications, the same constant sj can be used for all genes in a sample, which then accounts for differences in sequencing depth between samples. To estimate these size factors, the DESeq2 package offers the median-of-ratios method already used in DESeq [4]. However, it can be advantageous to calculate gene-specific normalization factors sij to account for further sources of technical biases such as differing dependence on GC content, gene length or the like, using published methods [13,14], and these can be supplied instead."
+          },
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec3 paragraph 3]",
+            "excerpt": "We use GLMs with a logarithmic link, log2qij=\u2211rxjr\u03b2ir, with design matrix elements xjr and coefficients \u03b2ir. In the simplest case of a comparison between two groups, such as treated and control samples, the design matrix elements indicate whether a sample j is treated or not, and the GLM fit returns coefficients indicating the overall expression strength of the gene and the log 2 fold change between treatment and control. The use of linear models, however, provides the flexibility to also analyze more complex designs, as is often useful in genomic studies [15]."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "wald",
+      "svg_id": "node-wald",
+      "label": "Wald test",
+      "kind": "output",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec24 paragraph 1]",
+            "excerpt": "The Wald test compares the beta estimate \u03b2ir divided by its estimated standard error SE(\u03b2ir) to a standard normal distribution. The estimated standard errors are the square root of the diagonal elements of the estimated covariance matrix, \u03a3i, for the coefficients, i.e., SE(\u03b2ir)=\u03a3i,rr. Contrasts of coefficients are tested similarly by forming a Wald statistics using (3) and (4). We use the following formula for the coefficient covariance matrix for a GLM with normal prior on coefficients [56, 58]:"
+          },
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec6 paragraph 1]",
+            "excerpt": "After GLMs are fit for each gene, one may test whether each model coefficient differs significantly from zero. DESeq2 reports the standard error for each shrunken LFC estimate, obtained from the curvature of the coefficient\u2019s posterior (dashed lines in Figure 2D) at its maximum. For significance testing, DESeq2 uses a Wald test: the shrunken estimate of LFC is divided by its standard error, resulting in a z-statistic, which is compared to a standard normal distribution. (See Materials and methods for details.) The Wald test allows testing of individual coefficients, or contrasts of coefficients, without the need to fit a reduced model as with the likelihood ratio test, though the likelihood ratio test is also available as an option in DESeq2. The Wald test P values from the subset of genes that pass an independent filtering step, described in the next section, are adjusted for multiple testing using the procedure of Benjamini and Hochberg [21]."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "counts-size-factors",
+      "svg_id": "edge-counts-size-factors",
+      "from": "counts",
+      "to": "size-factors",
+      "relation": "dataflow",
+      "route": "direct",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec3 paragraph 2]",
+            "excerpt": "We model read counts Kij as following a negative binomial distribution (sometimes also called a gamma-Poisson distribution) with mean \u03bcij and dispersion \u03b1i. The mean is taken as a quantity qij, proportional to the concentration of cDNA fragments from the gene in the sample, scaled by a normalization factor sij, i.e., \u03bcij=sijqij. For many applications, the same constant sj can be used for all genes in a sample, which then accounts for differences in sequencing depth between samples. To estimate these size factors, the DESeq2 package offers the median-of-ratios method already used in DESeq [4]. However, it can be advantageous to calculate gene-specific normalization factors sij to account for further sources of technical biases such as differing dependence on GC content, gene length or the like, using published methods [13,14], and these can be supplied instead."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "counts-dispersions",
+      "svg_id": "edge-counts-dispersions",
+      "from": "counts",
+      "to": "dispersions",
+      "relation": "dataflow",
+      "route": "direct",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec22 paragraph 5]",
+            "excerpt": "Gene-wise dispersion estimates To get a gene-wise dispersion estimate for a gene i, we start by fitting a negative binomial GLM without an LFC prior for the design matrix X to the gene\u2019s count data. This GLM uses a rough method-of-moments estimate of dispersion, based on the within-group variances and means. The initial GLM is necessary to obtain an initial set of fitted values, \u03bc^ij0. We then maximize the Cox\u2013Reid adjusted likelihood of the dispersion, conditioned on the fitted values \u03bc^ij0 from the initial fit, to obtain the gene-wise estimate \u03b1igw, i.e.,"
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "design-dispersions",
+      "svg_id": "edge-design-dispersions",
+      "from": "design",
+      "to": "dispersions",
+      "relation": "dataflow",
+      "route": "direct",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec22 paragraph 5]",
+            "excerpt": "Gene-wise dispersion estimates To get a gene-wise dispersion estimate for a gene i, we start by fitting a negative binomial GLM without an LFC prior for the design matrix X to the gene\u2019s count data. This GLM uses a rough method-of-moments estimate of dispersion, based on the within-group variances and means. The initial GLM is necessary to obtain an initial set of fitted values, \u03bc^ij0. We then maximize the Cox\u2013Reid adjusted likelihood of the dispersion, conditioned on the fitted values \u03bc^ij0 from the initial fit, to obtain the gene-wise estimate \u03b1igw, i.e.,"
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "size-factors-dispersions",
+      "svg_id": "edge-size-factors-dispersions",
+      "from": "size-factors",
+      "to": "dispersions",
+      "relation": "dataflow",
+      "route": "direct",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec22 paragraph 2]",
+            "excerpt": "Here, \u03b1tr is a function of the gene\u2019s mean normalized count,"
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "counts-model",
+      "svg_id": "edge-counts-model",
+      "from": "counts",
+      "to": "model",
+      "relation": "dataflow",
+      "route": "above",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec19 paragraph 1]",
+            "excerpt": "The read count Kij for gene i in sample j is described with a GLM of the negative binomial family with a logarithmic link:"
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "design-model",
+      "svg_id": "edge-design-model",
+      "from": "design",
+      "to": "model",
+      "relation": "dataflow",
+      "route": "below",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec3 paragraph 3]",
+            "excerpt": "We use GLMs with a logarithmic link, log2qij=\u2211rxjr\u03b2ir, with design matrix elements xjr and coefficients \u03b2ir. In the simplest case of a comparison between two groups, such as treated and control samples, the design matrix elements indicate whether a sample j is treated or not, and the GLM fit returns coefficients indicating the overall expression strength of the gene and the log 2 fold change between treatment and control. The use of linear models, however, provides the flexibility to also analyze more complex designs, as is often useful in genomic studies [15]."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "size-factors-model",
+      "svg_id": "edge-size-factors-model",
+      "from": "size-factors",
+      "to": "model",
+      "relation": "dataflow",
+      "route": "direct",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec3 paragraph 2]",
+            "excerpt": "We model read counts Kij as following a negative binomial distribution (sometimes also called a gamma-Poisson distribution) with mean \u03bcij and dispersion \u03b1i. The mean is taken as a quantity qij, proportional to the concentration of cDNA fragments from the gene in the sample, scaled by a normalization factor sij, i.e., \u03bcij=sijqij. For many applications, the same constant sj can be used for all genes in a sample, which then accounts for differences in sequencing depth between samples. To estimate these size factors, the DESeq2 package offers the median-of-ratios method already used in DESeq [4]. However, it can be advantageous to calculate gene-specific normalization factors sij to account for further sources of technical biases such as differing dependence on GC content, gene length or the like, using published methods [13,14], and these can be supplied instead."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "dispersions-model",
+      "svg_id": "edge-dispersions-model",
+      "from": "dispersions",
+      "to": "model",
+      "relation": "dataflow",
+      "route": "direct",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec4 paragraph 1]",
+            "excerpt": "Within-group variability, i.e., the variability between replicates, is modeled by the dispersion parameter \u03b1i, which describes the variance of counts via VarKij=\u03bcij+\u03b1i\u03bcij2. Accurate estimation of the dispersion parameter \u03b1i is critical for the statistical inference of differential expression. For studies with large sample sizes this is usually not a problem. For controlled experiments, however, sample sizes tend to be smaller (experimental designs with as little as two or three replicates are common and reasonable), resulting in highly variable dispersion estimates for each gene. If used directly, these noisy estimates would compromise the accuracy of differential expression testing."
+          },
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec22 paragraph 25]",
+            "excerpt": "For such genes, the gene-wise estimate \u03b1igw is not shrunk toward the trended prior mean. Instead of the MAP value \u03b1iMAP, we use the gene-wise estimate \u03b1igw as a final dispersion value in the subsequent steps. In addition, the iterative fitting procedure for the parametric dispersion trend described above avoids that such dispersion outliers influence the prior mean."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    },
+    {
+      "id": "model-wald",
+      "svg_id": "edge-model-wald",
+      "from": "model",
+      "to": "wald",
+      "relation": "dataflow",
+      "route": "direct",
+      "support": {
+        "status": "source_supported",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "deseq2-2014",
+            "locator": "[Sec6 paragraph 1]",
+            "excerpt": "After GLMs are fit for each gene, one may test whether each model coefficient differs significantly from zero. DESeq2 reports the standard error for each shrunken LFC estimate, obtained from the curvature of the coefficient\u2019s posterior (dashed lines in Figure 2D) at its maximum. For significance testing, DESeq2 uses a Wald test: the shrunken estimate of LFC is divided by its standard error, resulting in a z-statistic, which is compared to a standard normal distribution. (See Materials and methods for details.) The Wald test allows testing of individual coefficients, or contrasts of coefficients, without the need to fit a reduced model as with the likelihood ratio test, though the likelihood ratio test is also available as an option in DESeq2. The Wald test P values from the subset of genes that pass an independent filtering step, described in the next section, are adjusted for multiple testing using the procedure of Benjamini and Hochberg [21]."
+          }
+        ],
+        "note": "Original 2014 method overview, not a current-version software tutorial or a computed result."
+      }
+    }
+  ],
+  "layout": {
+    "columns": [
+      [
+        "counts",
+        "design"
+      ],
+      [
+        "size-factors",
+        "dispersions"
+      ],
+      [
+        "model"
+      ],
+      [
+        "wald"
+      ]
+    ]
+  },
+  "caption": "Original 2014 model overview. NB GLM: negative-binomial generalized linear model, fitted to raw counts. Filtering and multiple-testing correction are outside this module. Love et al. (2014), doi:10.1186/s13059-014-0550-8.",
+  "open_questions": []
+}

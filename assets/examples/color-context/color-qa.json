@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "source_scopes": [
+    "explicit_user_rules",
+    "reference_author",
+    "target_figure"
+  ],
+  "roles_checked": 11,
+  "svg_bindings_checked": 25,
+  "contrast": [
+    {
+      "foreground": "text",
+      "background": "#FFFFFF",
+      "ratio": 9.87,
+      "minimum": 4.5
+    }
+  ],
+  "scope": "Source-snapshot integrity, declared color decisions/locks, palette paints and numerical contrast only. Does not establish source authorship, scientific color meaning, perceptual harmony, monotonic score perception, or placement quality."
+}

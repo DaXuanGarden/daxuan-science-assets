@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="270" viewBox="0 0 360 270" role="img" aria-labelledby="title desc">
+  <title id="title">Generic mitochondrion schematic</title>
+  <desc id="desc">A generic organelle illustration with outer membrane and folded inner membrane; not to scale, not a species-specific structure.</desc>
+  <defs>
+    <linearGradient id="outer-gold" x1="0%" y1="0%" x2="75%" y2="100%">
+      <stop offset="0%" stop-color="#E3C98A" data-stop-role="body_light"/>
+      <stop offset="100%" stop-color="#D4B66C" data-stop-role="body"/>
+    </linearGradient>
+  </defs>
+  <g id="mitochondrion" transform="rotate(-16 180 135)">
+    <g id="outer-membrane">
+      <path d="M 40 135 C 39 91 87 59 160 58 C 237 53 313 82 320 130 C 327 176 273 207 196 212 C 121 218 47 194 40 145 Z" fill="url(#outer-gold)" stroke="#AC8E4C" stroke-width="2.2" data-stroke-role="outline"/>
+      <path d="M 52 126 C 58 91 104 70 159 70" fill="none" stroke="#F2E0AD" stroke-width="3.3" stroke-linecap="round" data-stroke-role="highlight"/>
+    </g>
+    <g id="folded-inner-membrane-and-matrix">
+      <path d="M 57 134 C 57 106 80 88 112 81 C 105 98 107 115 119 132 C 131 148 126 164 137 169 C 145 172 151 165 147 156 C 137 138 134 119 140 102 C 143 91 147 82 152 76 C 169 75 181 76 192 78 C 180 96 179 116 190 133 C 202 151 201 169 213 173 C 221 175 228 168 222 157 C 208 136 202 120 209 102 C 211 94 216 88 222 84 C 239 89 250 94 260 101 C 248 115 245 134 254 146 C 264 159 265 171 275 168 C 285 165 280 152 274 144 C 268 132 270 119 280 113 C 295 124 305 138 299 153 C 288 179 248 194 196 198 C 130 204 64 183 58 147 C 57 142 57 138 57 134 Z" fill="#E3C98A" stroke="#BDA67B" stroke-width="2.3" stroke-linejoin="round" data-fill-role="body_light" data-stroke-role="detail"/>
+      <path d="M 73 146 C 83 167 102 179 121 183 M 153 181 C 166 188 184 190 202 189 M 236 184 C 250 180 259 176 266 172" fill="none" stroke="#F2E0AD" stroke-width="2" stroke-linecap="round" data-stroke-role="highlight"/>
+    </g>
+  </g>
+</svg>

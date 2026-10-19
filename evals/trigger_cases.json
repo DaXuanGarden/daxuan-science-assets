@@ -1,0 +1,189 @@
+{
+  "recommended_threshold": 0.4,
+  "description_required_concepts": [
+    "science",
+    "asset",
+    "vector",
+    "action"
+  ],
+  "positive_concepts": {
+    "science": [
+      "scientific",
+      "research",
+      "chromosome",
+      "DNA",
+      "cell",
+      "organelle",
+      "organ",
+      "mitochondrion",
+      "pipette",
+      "liver",
+      "laboratory",
+      "methodology",
+      "method principle",
+      "assay"
+    ],
+    "asset": [
+      "asset",
+      "assets",
+      "icon",
+      "icons",
+      "isolated",
+      "schematic",
+      "diagram"
+    ],
+    "vector": [
+      "SVG",
+      "vector",
+      "transparent",
+      "editable"
+    ],
+    "action": [
+      "draw",
+      "create",
+      "redraw",
+      "refine",
+      "recolor",
+      "reconstruct",
+      "improve",
+      "unify",
+      "design",
+      "turn",
+      "build"
+    ],
+    "brand": [
+      "Daxuan Scientific Assets",
+      "daxuan-science-assets"
+    ]
+  },
+  "negative_patterns": [
+    "explain only",
+    "translate only",
+    "statistical plot",
+    "forest plot",
+    "scatter plot",
+    "photorealistic photo",
+    "raster only",
+    "app icon",
+    "search papers",
+    "plan all manuscript figures"
+  ],
+  "should_trigger": [
+    {
+      "text": "Create a warm-gold chromosome asset as transparent SVG.",
+      "family": "genetics"
+    },
+    {
+      "text": "Draw an isolated liver asset for a scientific flowchart.",
+      "family": "organ"
+    },
+    {
+      "text": "Recolor this DNA SVG while preserving geometry.",
+      "family": "recolor"
+    },
+    {
+      "text": "Reconstruct this cell reference as an editable SVG asset.",
+      "family": "reconstruct"
+    },
+    {
+      "text": "Create a mitochondrion research asset using Codex image references, then rebuild transparent SVG.",
+      "family": "image-to-vector"
+    },
+    {
+      "text": "Unify the colors of these laboratory instrument assets; preserve the shapes.",
+      "family": "set"
+    },
+    {
+      "text": "Create an isolated scientific pipette asset with a transparent background as SVG.",
+      "family": "lab"
+    },
+    {
+      "text": "Recolor this scientific SVG icon while preserving geometry.",
+      "family": "palette"
+    },
+    {
+      "text": "Redraw this mitochondrion reference as an editable SVG asset.",
+      "family": "reference"
+    },
+    {
+      "text": "Use Daxuan Scientific Assets to draw a research organelle.",
+      "family": "brand"
+    },
+    {
+      "text": "Design a complete flowchart covering the research stages.",
+      "family": "whole-flowchart"
+    },
+    {
+      "text": "Draw a complete flowchart for the research pipeline.",
+      "family": "pipeline"
+    },
+    {
+      "text": "Create a method principle schematic from these papers as transparent SVG.",
+      "family": "method-principle"
+    },
+    {
+      "text": "Turn my preliminary idea into a proposed methodology diagram with references.",
+      "family": "method-idea"
+    },
+    {
+      "text": "Build an editable methodology SVG from the supplied methods and my adaptation.",
+      "family": "method-adaptation"
+    },
+    {
+      "text": "Draw a complete flowchart for the research method with parallel control branches.",
+      "family": "method-branches"
+    },
+    {
+      "text": "Refine this scientific methodology schematic without changing its supported arrows.",
+      "family": "method-edit"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "Explain only what DNA is.",
+      "family": "explain"
+    },
+    {
+      "text": "Translate only this research article.",
+      "family": "translate"
+    },
+    {
+      "text": "Create a statistical plot as an SVG forest plot using my data.",
+      "family": "data-plot"
+    },
+    {
+      "text": "Generate a photorealistic photo of a liver, raster only.",
+      "family": "raster"
+    },
+    {
+      "text": "Create a statistical plot with transparent axes.",
+      "family": "statistics"
+    },
+    {
+      "text": "Suggest a more powerful assay for my study.",
+      "family": "method-design-only"
+    },
+    {
+      "text": "Explain only this methodology paper.",
+      "family": "method-explain-only"
+    },
+    {
+      "text": "Plan all manuscript figures and draft the article.",
+      "family": "manuscript-wide"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "Explain only how SVG transparency works.",
+      "family": "format-explanation"
+    },
+    {
+      "text": "Create an editable SVG app icon for my music app.",
+      "family": "non-scientific"
+    },
+    {
+      "text": "Search papers about chromosome research.",
+      "family": "literature"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "version": "0.5.0",
+  "checked_on": "2026-10-19",
+  "ok": true,
+  "public_release": false,
+  "home_overridden": false,
+  "global_install": {
+    "status": "installed",
+    "version": "0.5.0",
+    "destination": "$USER_HOME/.agents/skills/daxuan-science-assets",
+    "validated_from_unrelated_cwd": true,
+    "package_validation": true,
+    "both_working_svgs_checked_from_install": true,
+    "both_color_contexts_checked_from_install": true,
+    "new_inspector_executed_from_install": true,
+    "compared_package_files": 101,
+    "differences": [],
+    "new_generation_requests": 0
+  },
+  "previous_scripts_and_examples_preserved": true,
+  "isolated_install": "No new isolated-install claim; previous evidence remains in the frozen 0.4.0 archive."
+}

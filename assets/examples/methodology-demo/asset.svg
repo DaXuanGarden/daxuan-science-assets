@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="600" viewBox="0 0 1320 600">
+  <title>Paired assay workflow: proposed teaching example</title>
+  <desc>Sample and control feed a paired assay, followed by signal comparison and an assay readout. This is an authored idea, not a literature-verified protocol. No results are shown. The canvas is transparent.</desc>
+  <g id="heading" font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="60" fill="#39454B" data-fill-role="text" font-size="36" font-weight="700">Paired assay workflow</text>
+    <text x="40" y="98" fill="#39454B" data-fill-role="text" font-size="23">A proposed method for comparing sample and control signals</text>
+    <g id="proposal-label">
+      <rect x="1106" y="27" width="183" height="44" rx="22" fill="#E8F0F4" data-fill-role="field"/>
+      <text x="1198" y="56" text-anchor="middle" fill="#39454B" data-fill-role="text" font-size="20" font-weight="700" letter-spacing="1">PROPOSED</text>
+    </g>
+  </g>
+  <g id="connections" fill="none" stroke="#8E9DA5" data-stroke-role="guide" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <g id="edge-sample-assay" data-edge-id="sample-assay" data-from="sample" data-to="assay" data-relation="dataflow">
+      <path d="M240 220 H279 Q297 220 297 238 V278 Q297 295 315 295 H338"/>
+      <path d="M329 286 L340 295 L329 304"/>
+    </g>
+    <g id="edge-control-assay" data-edge-id="control-assay" data-from="control" data-to="assay" data-relation="dataflow">
+      <path d="M240 420 H279 Q297 420 297 402 V362 Q297 345 315 345 H338"/>
+      <path d="M329 336 L340 345 L329 354"/>
+    </g>
+    <g id="edge-assay-compare" data-edge-id="assay-compare" data-from="assay" data-to="compare" data-relation="dataflow">
+      <path d="M590 320 H689"/>
+      <path d="M680 311 L691 320 L680 329"/>
+    </g>
+    <g id="edge-compare-readout" data-edge-id="compare-readout" data-from="compare" data-to="readout" data-relation="dataflow">
+      <path d="M940 320 H1039"/>
+      <path d="M1030 311 L1041 320 L1030 329"/>
+    </g>
+  </g>
+  <g id="node-sample" data-node-id="sample" font-family="Arial, Helvetica, sans-serif">
+    <rect x="40" y="140" width="200" height="160" rx="20" fill="#E8F0F4" data-fill-role="field"/>
+    <g id="sample-tube" stroke="#5F91AF" data-stroke-role="outline" stroke-width="3" stroke-linejoin="round">
+      <path d="M120 168 H160 V226 Q160 245 140 245 Q120 245 120 226 Z" fill="#DCE8EF" data-fill-role="highlight"/>
+      <path d="M124 204 H156 V226 Q156 241 140 241 Q124 241 124 226 Z" fill="#91B2C8" data-fill-role="body" stroke="none"/>
+      <rect x="115" y="160" width="50" height="15" rx="4" fill="#91B2C8" data-fill-role="body"/>
+      <path d="M129 183 V199" stroke="#DCE8EF" data-stroke-role="highlight" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <text x="140" y="279" text-anchor="middle" fill="#39454B" data-fill-role="text" font-size="28" font-weight="600">Sample</text>
+  </g>
+  <g id="node-control" data-node-id="control" font-family="Arial, Helvetica, sans-serif">
+    <rect x="40" y="340" width="200" height="160" rx="20" fill="#E8F0F4" data-fill-role="field"/>
+    <g id="control-tube" stroke="#5F91AF" data-stroke-role="outline" stroke-width="3" stroke-linejoin="round">
+      <path d="M120 368 H160 V426 Q160 445 140 445 Q120 445 120 426 Z" fill="#DCE8EF" data-fill-role="highlight"/>
+      <path d="M124 404 H156 V426 Q156 441 140 441 Q124 441 124 426 Z" fill="#91B2C8" data-fill-role="body" stroke="none"/>
+      <rect x="115" y="360" width="50" height="15" rx="4" fill="#91B2C8" data-fill-role="body"/>
+      <path d="M129 383 V399" stroke="#DCE8EF" data-stroke-role="highlight" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <text x="140" y="479" text-anchor="middle" fill="#39454B" data-fill-role="text" font-size="28" font-weight="600">Control</text>
+  </g>
+  <g id="node-assay" data-node-id="assay" font-family="Arial, Helvetica, sans-serif">
+    <rect x="350" y="205" width="240" height="230" rx="23" fill="#E8F0F4" data-fill-role="field"/>
+    <g id="generic-assay-plate" stroke="#5F91AF" data-stroke-role="outline" stroke-width="3">
+      <rect x="399" y="251" width="142" height="100" rx="12" fill="#91B2C8" data-fill-role="body"/>
+      <path d="M410 260 H529" stroke="#DCE8EF" data-stroke-role="highlight" stroke-width="3" stroke-linecap="round"/>
+      <g id="assay-wells" fill="#DCE8EF" data-fill-role="highlight" stroke-width="2.5">
+        <circle cx="425" cy="282" r="11"/><circle cx="470" cy="282" r="11"/><circle cx="515" cy="282" r="11"/>
+        <circle cx="425" cy="322" r="11"/><circle cx="470" cy="322" r="11"/><circle cx="515" cy="322" r="11"/>
+      </g>
+    </g>
+    <text x="470" y="400" text-anchor="middle" fill="#39454B" data-fill-role="text" font-size="28" font-weight="600">Paired assay</text>
+  </g>
+  <g id="node-compare" data-node-id="compare" font-family="Arial, Helvetica, sans-serif">
+    <rect x="700" y="205" width="240" height="230" rx="23" fill="#E8F0F4" data-fill-role="field"/>
+    <g id="signal-comparison-symbol" stroke="#5F91AF" data-stroke-role="outline" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="750" y="254" width="58" height="75" rx="9" fill="#91B2C8" data-fill-role="body"/>
+      <rect x="832" y="274" width="58" height="75" rx="9" fill="#91B2C8" data-fill-role="body"/>
+      <path d="M763 271 H795 M763 285 H788 M845 291 H877 M845 305 H870" fill="none" stroke="#DCE8EF" data-stroke-role="highlight"/>
+      <path d="M782 342 H817 M810 335 L817 342 L810 349 M859 261 H824 M831 254 L824 261 L831 268" fill="none"/>
+    </g>
+    <text x="820" y="400" text-anchor="middle" fill="#39454B" data-fill-role="text" font-size="28" font-weight="600">Compare signals</text>
+  </g>
+  <g id="node-readout" data-node-id="readout" font-family="Arial, Helvetica, sans-serif">
+    <rect x="1050" y="205" width="240" height="230" rx="23" fill="#E8F0F4" data-fill-role="field"/>
+    <g id="readout-document" stroke="#5F91AF" data-stroke-role="outline" stroke-width="3" stroke-linejoin="round">
+      <path d="M1124 247 H1188 L1215 274 V354 H1124 Z" fill="#91B2C8" data-fill-role="body"/>
+      <path d="M1188 247 V274 H1215" fill="#DCE8EF" data-fill-role="highlight"/>
+      <path d="M1141 295 H1196 M1141 312 H1196 M1141 329 H1180" fill="none" stroke="#DCE8EF" data-stroke-role="highlight" stroke-linecap="round"/>
+    </g>
+    <text x="1170" y="400" text-anchor="middle" fill="#39454B" data-fill-role="text" font-size="28" font-weight="600">Assay readout</text>
+  </g>
+  <g id="caption" font-family="Arial, Helvetica, sans-serif" fill="#39454B" data-fill-role="text">
+    <text x="40" y="559" font-size="23">Arrows show dataflow. The assay type and measured values are not specified.</text>
+  </g>
+</svg>

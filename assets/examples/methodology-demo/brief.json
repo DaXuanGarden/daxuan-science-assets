@@ -1,0 +1,51 @@
+{
+  "name": "methodology-demo",
+  "mode": "methodology",
+  "subject": "Paired assay workflow",
+  "use": "A single transparent methodology module for a white or near-white research figure",
+  "scientific_scope": "A proposed overview of two inputs entering one assay, followed by comparison and a readout. No measured values, assay type, parameters, or performance claims.",
+  "sources": [
+    {
+      "id": "idea-1",
+      "kind": "user_brief",
+      "access": "user_statement",
+      "citation": "Authored fixture brief for demonstrating methodology mode; not an actual user research protocol.",
+      "text": "Illustrative idea for a paired assay: send a sample and a control into the same assay workflow, then compare signals and produce an assay readout. Show no measured results. This is a proposed teaching example, not a validated protocol."
+    }
+  ],
+  "invariants": [
+    "Two inputs enter the same assay",
+    "Comparison follows the assay",
+    "All content is labeled proposed",
+    "No measured results or paper citations"
+  ],
+  "allowed_simplifications": [
+    "Generic containers and a generic plate, not a specific instrument or assay"
+  ],
+  "editable_parts": [
+    "node-sample",
+    "node-control",
+    "node-assay",
+    "node-compare",
+    "node-readout",
+    "edge-sample-assay",
+    "edge-control-assay",
+    "edge-assay-compare",
+    "edge-compare-readout"
+  ],
+  "labels": [
+    "Sample",
+    "Control",
+    "Paired assay",
+    "Compare signals",
+    "Assay readout"
+  ],
+  "palette": "structural-blue-rose",
+  "route": "native-svg",
+  "image_generation": {
+    "executed": false
+  },
+  "status": "rendered_example",
+  "label_language": "English",
+  "target_width_mm": 180
+}

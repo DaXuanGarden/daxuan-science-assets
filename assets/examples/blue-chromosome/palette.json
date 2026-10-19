@@ -1,0 +1,27 @@
+{
+  "name": "structural-blue-rose",
+  "colors": {
+    "body": "#91B2C8",
+    "body_light": "#9DBBCF",
+    "body_shadow": "#84A9C0",
+    "outline": "#5F91AF",
+    "detail": "#B8C8D0",
+    "highlight": "#DCE8EF",
+    "accent": "#BB748B",
+    "muted": "#B8C8D0",
+    "field": "#E8F0F4",
+    "guide": "#8E9DA5",
+    "text": "#39454B"
+  },
+  "canvas": "transparent",
+  "designed_for": "white or near-white",
+  "semantics": {
+    "blue": "generic structure only; no disease or effect encoding",
+    "rose": "schematic target rectangles and rings only"
+  },
+  "derived_tones": [
+    "body_light",
+    "body_shadow"
+  ],
+  "recommended_body_share": "70\u201385% of colored structural content; excludes pale collection field"
+}

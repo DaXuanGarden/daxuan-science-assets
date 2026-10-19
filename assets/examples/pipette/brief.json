@@ -1,0 +1,32 @@
+{
+  "name": "pipette",
+  "subject": "Generic unbranded single-channel pipette and one illustrative droplet; no quantitative volume markings",
+  "use": "isolated asset for a scientific flowchart",
+  "scientific_scope": "generic schematic unless the user supplied a more specific supported scope",
+  "sources": [
+    {
+      "type": "example_brief",
+      "description": "Generic unbranded single-channel pipette and one illustrative droplet; no quantitative volume markings"
+    }
+  ],
+  "invariants": [
+    "Unbranded generic instrument",
+    "No quantitative volume or accuracy implied"
+  ],
+  "allowed_simplifications": [],
+  "editable_parts": [
+    "plunger",
+    "body-and-grip",
+    "shaft",
+    "removable-tip",
+    "droplet"
+  ],
+  "labels": [],
+  "palette": "warm-gold",
+  "route": "native-svg",
+  "image_generation": {
+    "executed": false,
+    "reason": "Native SVG example; no image provider called"
+  },
+  "status": "recorded_example"
+}

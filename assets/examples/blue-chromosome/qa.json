@@ -1,0 +1,45 @@
+{
+  "ok": true,
+  "renderer": "rsvg-convert",
+  "svg": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "named_groups": 5,
+    "ids": 10,
+    "palette_bindings": 13,
+    "native_vector_structure": true,
+    "transparency": "requires actual PNG render check",
+    "scientific_review": "not performed by this script"
+  },
+  "png": {
+    "ok": true,
+    "mode": "RGBA",
+    "size": [
+      420,
+      1080
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "edge_alpha_max": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "nonempty_foreground": true,
+    "content_bounds": [
+      42,
+      42,
+      378,
+      1037
+    ],
+    "errors": []
+  },
+  "image_generation": "not performed by the local renderer",
+  "scientific_review": "agent/human inspection required"
+}

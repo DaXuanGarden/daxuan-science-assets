@@ -1,0 +1,5 @@
+# Python dependencies; system librsvg or Cairo is also required (see README).
+# No image-service SDK or API key required.
+Pillow==11.3.0
+CairoSVG==2.8.2
+tomli==2.2.1; python_version < "3.11"

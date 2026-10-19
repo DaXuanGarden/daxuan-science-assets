@@ -1,0 +1,121 @@
+{
+  "version": "0.4.0",
+  "ok": true,
+  "total": 28,
+  "passed": 28,
+  "cases": [
+    {
+      "family": "genetics",
+      "passed": true
+    },
+    {
+      "family": "organ",
+      "passed": true
+    },
+    {
+      "family": "recolor",
+      "passed": true
+    },
+    {
+      "family": "reconstruct",
+      "passed": true
+    },
+    {
+      "family": "image-to-vector",
+      "passed": true
+    },
+    {
+      "family": "set",
+      "passed": true
+    },
+    {
+      "family": "lab",
+      "passed": true
+    },
+    {
+      "family": "palette",
+      "passed": true
+    },
+    {
+      "family": "reference",
+      "passed": true
+    },
+    {
+      "family": "brand",
+      "passed": true
+    },
+    {
+      "family": "whole-flowchart",
+      "passed": true
+    },
+    {
+      "family": "pipeline",
+      "passed": true
+    },
+    {
+      "family": "method-principle",
+      "passed": true
+    },
+    {
+      "family": "method-idea",
+      "passed": true
+    },
+    {
+      "family": "method-adaptation",
+      "passed": true
+    },
+    {
+      "family": "method-branches",
+      "passed": true
+    },
+    {
+      "family": "method-edit",
+      "passed": true
+    },
+    {
+      "family": "explain",
+      "passed": true
+    },
+    {
+      "family": "translate",
+      "passed": true
+    },
+    {
+      "family": "data-plot",
+      "passed": true
+    },
+    {
+      "family": "raster",
+      "passed": true
+    },
+    {
+      "family": "statistics",
+      "passed": true
+    },
+    {
+      "family": "method-design-only",
+      "passed": true
+    },
+    {
+      "family": "method-explain-only",
+      "passed": true
+    },
+    {
+      "family": "manuscript-wide",
+      "passed": true
+    },
+    {
+      "family": "format-explanation",
+      "passed": true
+    },
+    {
+      "family": "non-scientific",
+      "passed": true
+    },
+    {
+      "family": "literature",
+      "passed": true
+    }
+  ],
+  "scope": "Lexical configuration smoke test, not measured model-routing accuracy"
+}

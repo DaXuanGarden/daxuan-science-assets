@@ -1,0 +1,157 @@
+{
+  "version": "0.4.0",
+  "ok": true,
+  "example": "assets/examples/deseq2-method/asset.svg",
+  "source": "Love MI, Huber W, Anders S. Genome Biology 15, 550 (2014). doi:10.1186/s13059-014-0550-8",
+  "retrieval": {
+    "kind": "Europe PMC full-text XML",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4302049/fullTextXML",
+    "checked_on": "2026-10-19",
+    "retrieved_xml_bytes": 233850,
+    "retrieved_xml_sha256": "f58d746de6bb7a446de7c5a49a0bf48861258ffe7ea8f25f7f8d31efaaf90dcf",
+    "inspected_scope": "Selected Results and Materials and methods sections; extracted relevant paragraphs, not a claim that every section was reviewed.",
+    "license": "CC BY 4.0"
+  },
+  "source_check": {
+    "ok": true,
+    "errors": [],
+    "checked_claims": [
+      {
+        "item": "counts",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "design",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "size-factors",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "dispersions",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "dispersions",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "model",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "model",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "model",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "wald",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "wald",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "counts-size-factors",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "counts-dispersions",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "design-dispersions",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "size-factors-dispersions",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "counts-model",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "design-model",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "size-factors-model",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "dispersions-model",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "dispersions-model",
+        "source_id": "deseq2-2014"
+      },
+      {
+        "item": "model-wald",
+        "source_id": "deseq2-2014"
+      }
+    ],
+    "scope": "Recorded extract hash and locator/excerpt containment only; not source authenticity, entailment, completeness, or scientific validity."
+  },
+  "native_structure": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "named_groups": 19,
+    "ids": 19,
+    "palette_bindings": 46,
+    "native_vector_structure": true,
+    "transparency": "requires actual PNG render check",
+    "scientific_review": "not performed by this script"
+  },
+  "rendered_alpha": {
+    "ok": true,
+    "mode": "RGBA",
+    "size": [
+      1600,
+      1000
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "edge_alpha_max": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "nonempty_foreground": true,
+    "content_bounds": [
+      48,
+      37,
+      1552,
+      951
+    ],
+    "errors": []
+  },
+  "layout": {
+    "viewbox": [
+      1428,
+      892
+    ],
+    "minimum_label_pt": 10.72,
+    "layout": "explicit columns; inspect connector overlaps visually"
+  },
+  "agent_visual_review": "Inspected actual PNG; six native cards, nine planned dependencies, separated ports, legible labels and attribution. Canvas borders are transparent.",
+  "science_review": "Raw counts enter the NB GLM directly; size factors, study design and dispersion estimates remain separate inputs. Bounded overview of the original 2014 paper; full algorithm details, filtering, multiple-testing correction, current software defaults and computed results excluded.",
+  "new_generation_requests": 0,
+  "limits": [
+    "Single selected primary-paper example; not broad scientific performance evidence",
+    "Local quote containment is not source authenticity or scientific entailment",
+    "No independent human review or editor import test"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "status": "final",
+  "counts": {
+    "sources": 1,
+    "nodes": 5,
+    "edges": 4
+  },
+  "svg_bindings_checked": true,
+  "evidence_scope": "Recorded links, detail/access consistency, topology, and declared SVG bindings only. Does not verify source truth, completeness, drawn arrow geometry, or scientific validity.",
+  "version": "0.3.0",
+  "rendered_alpha": {
+    "mode": "RGBA",
+    "size": [
+      1320,
+      600
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "fully_transparent_pixels": 538005,
+    "total_pixels": 792000,
+    "transparent_fraction": 0.6793,
+    "canvas": "transparent",
+    "designed_for": "white or near-white"
+  },
+  "agent_visual_inspection": "Inspected actual transparent PNG: legible labels, two input branches and the intended downstream dataflow. Pale component shapes are intentional.",
+  "scientific_scope": "Proposed teaching idea only; no actual paper extraction or validated assay claimed.",
+  "new_generation_requests": 0
+}

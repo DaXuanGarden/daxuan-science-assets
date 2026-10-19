@@ -1,0 +1,365 @@
+{
+  "version": "0.5.1",
+  "checked_on": "2026-10-19",
+  "status": "local_checks_passed",
+  "ok": true,
+  "unit_tests": {
+    "passed": 94,
+    "failures": 0,
+    "errors": 0,
+    "environment": "Fresh Python 3.9 virtual environment with requirements.txt direct pins"
+  },
+  "documented_native_commands": [
+    {
+      "command": "python3 scripts/asset_tool.py render assets/examples/chromosome/asset.svg --out output/publication/first-asset.png --qa output/publication/first-asset-qa.json",
+      "ok": true,
+      "result": {
+        "ok": true,
+        "renderer": "rsvg-convert",
+        "svg": {
+          "ok": true,
+          "errors": [],
+          "warnings": [],
+          "named_groups": 5,
+          "ids": 12,
+          "palette_bindings": 25,
+          "native_vector_structure": true,
+          "transparency": "requires actual PNG render check",
+          "scientific_review": "not performed by this script"
+        },
+        "png": {
+          "ok": true,
+          "mode": "RGBA",
+          "size": [
+            720,
+            1852
+          ],
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "edge_alpha_max": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nonempty_foreground": true,
+          "content_bounds": [
+            73,
+            73,
+            647,
+            1777
+          ],
+          "errors": []
+        },
+        "image_generation": "not performed by the local renderer",
+        "scientific_review": "agent/human inspection required"
+      }
+    },
+    {
+      "command": "python3 scripts/methodology_tool.py build assets/examples/deseq2-method/diagram.json --palette assets/examples/deseq2-method/palette.json --sources-dir assets/examples/deseq2-method --outdir output/publication/deseq2-method --width 1600",
+      "ok": true,
+      "result": {
+        "ok": true,
+        "directory": "output/publication/deseq2-method",
+        "files": [
+          "asset.png",
+          "asset.svg",
+          "brief.json",
+          "diagram.json",
+          "palette.json",
+          "qa.json",
+          "sources/deseq2-methods.txt"
+        ],
+        "image_generation_executed": false,
+        "qa": {
+          "ok": true,
+          "renderer": "rsvg-convert",
+          "svg": {
+            "ok": true,
+            "errors": [],
+            "warnings": [],
+            "named_groups": 19,
+            "ids": 19,
+            "palette_bindings": 46,
+            "native_vector_structure": true,
+            "transparency": "requires actual PNG render check",
+            "scientific_review": "not performed by this script"
+          },
+          "png": {
+            "ok": true,
+            "mode": "RGBA",
+            "size": [
+              1600,
+              1000
+            ],
+            "corner_alpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "edge_alpha_max": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "nonempty_foreground": true,
+            "content_bounds": [
+              48,
+              37,
+              1552,
+              951
+            ],
+            "errors": []
+          },
+          "image_generation": "not performed by the local renderer",
+          "scientific_review": "agent/human inspection required",
+          "methodology": {
+            "ok": true,
+            "errors": [],
+            "warnings": [],
+            "status": "final",
+            "counts": {
+              "sources": 1,
+              "nodes": 6,
+              "edges": 9
+            },
+            "svg_bindings_checked": true,
+            "source_snapshots": {
+              "ok": true,
+              "errors": [],
+              "checked_claims": [
+                {
+                  "item": "counts",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "design",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "size-factors",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "dispersions",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "dispersions",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "model",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "model",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "model",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "wald",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "wald",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "counts-size-factors",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "counts-dispersions",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "design-dispersions",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "size-factors-dispersions",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "counts-model",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "design-model",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "size-factors-model",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "dispersions-model",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "dispersions-model",
+                  "source_id": "deseq2-2014"
+                },
+                {
+                  "item": "model-wald",
+                  "source_id": "deseq2-2014"
+                }
+              ],
+              "scope": "Recorded extract hash and locator/excerpt containment only; not source authenticity, entailment, completeness, or scientific validity."
+            },
+            "evidence_scope": "Recorded links, detail/access consistency, topology, and declared SVG bindings only. Does not verify source truth, completeness, drawn arrow geometry, or scientific validity."
+          },
+          "layout": {
+            "viewbox": [
+              1428,
+              892
+            ],
+            "minimum_label_pt": 10.72,
+            "layout": "explicit columns; inspect connector overlaps visually"
+          }
+        }
+      }
+    },
+    {
+      "command": "python3 scripts/build_color_example.py --outdir output/publication/color-context",
+      "ok": true,
+      "result": {
+        "ok": true,
+        "example": "Authored reference/destination demonstration; not a published biological result",
+        "geometry_preserved": true,
+        "alpha_verified": true,
+        "color_context_ok": true,
+        "model_generation": false
+      }
+    },
+    {
+      "command": "python3 scripts/palette_context.py check output/publication/color-context/color-context.json --root output/publication/color-context --palette output/publication/color-context/palette.json --svg output/publication/color-context/asset.svg --out output/publication/color-context/recheck.json",
+      "ok": true,
+      "result": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "source_scopes": [
+          "explicit_user_rules",
+          "reference_author",
+          "target_figure"
+        ],
+        "roles_checked": 11,
+        "svg_bindings_checked": 25,
+        "contrast": [
+          {
+            "foreground": "text",
+            "background": "#FFFFFF",
+            "ratio": 9.87,
+            "minimum": 4.5
+          }
+        ],
+        "scope": "Source-snapshot integrity, declared color decisions/locks, palette paints and numerical contrast only. Does not establish source authorship, scientific color meaning, perceptual harmony, monotonic score perception, or placement quality."
+      }
+    },
+    {
+      "command": "python3 scripts/asset_tool.py recolor assets/examples/pipette/asset.svg --palette assets/examples/pipette/palette.json --out output/publication/pipette-v2.svg",
+      "ok": true,
+      "result": {
+        "ok": true,
+        "updated_bindings": 21,
+        "geometry_preserved": true,
+        "geometry_sha256": "ed0f082168bf4da27dd5bf736c5f3ea6c6efba5b184f92cbcd102c7b6452431b"
+      }
+    },
+    {
+      "command": "python3 scripts/asset_tool.py render output/publication/pipette-v2.svg --out output/publication/pipette-v2.png --qa output/publication/pipette-qa.json",
+      "ok": true,
+      "result": {
+        "ok": true,
+        "renderer": "rsvg-convert",
+        "svg": {
+          "ok": true,
+          "errors": [],
+          "warnings": [],
+          "named_groups": 6,
+          "ids": 9,
+          "palette_bindings": 21,
+          "native_vector_structure": true,
+          "transparency": "requires actual PNG render check",
+          "scientific_review": "not performed by this script"
+        },
+        "png": {
+          "ok": true,
+          "mode": "RGBA",
+          "size": [
+            720,
+            1040
+          ],
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "edge_alpha_max": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "nonempty_foreground": true,
+          "content_bounds": [
+            155,
+            108,
+            574,
+            939
+          ],
+          "errors": []
+        },
+        "image_generation": "not performed by the local renderer",
+        "scientific_review": "agent/human inspection required"
+      }
+    }
+  ],
+  "fixtures": {
+    "passed": 5,
+    "total": 5,
+    "evidence": "publication-fixtures.json"
+  },
+  "overwrite_refusal_verified": true,
+  "local_project_install": {
+    "tool": "npx skills",
+    "mode": "project copy for Codex",
+    "success": true,
+    "home_overridden": false
+  },
+  "plugin_metadata": {
+    "plugin_manifest": "claude plugin validate passed",
+    "marketplace_manifest": "claude plugin validate passed",
+    "claude_agent_workflow_tested": false
+  },
+  "baseline_preservation": {
+    "version": "0.5.0",
+    "existing_runtime_test_and_individual_example_files_compared": 52,
+    "changed": []
+  },
+  "privacy_scan": {
+    "pattern_matches": 0,
+    "scope": "Private home paths, common long credential literals and local relay hostname in distributable text; not a full security audit"
+  },
+  "renderer_finding": "macOS pip-only CairoSVG lacked native Cairo. Documentation now requires a system renderer; actual librsvg renders pass. CI installs librsvg explicitly.",
+  "image_generation_requests": 0,
+  "remote_checks": "GitHub push, CI artifacts, source install and release checks run after publication and are attached to the release as a separate remote record.",
+  "claim_limits": [
+    "Recorded fixtures and tools only; no matched new-art quality comparison",
+    "No scientific peer review",
+    "No editor-specific import/edit/reopen",
+    "Official live generation and relay image edits remain untested"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "source": "Authored demonstration brief; not a user study or a third-party paper",
+  "brief": "Recolor the bundled chromosome to match the bundled blue methodology example; preserve all paths, part names and opacity.",
+  "locked_colors": {
+    "body": "#91B2C8"
+  },
+  "scientific_meaning": "Generic structure only. No gene, disease, effect direction, coordinate or cell identity."
+}

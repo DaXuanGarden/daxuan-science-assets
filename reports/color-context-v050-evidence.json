@@ -1,0 +1,48 @@
+{
+  "version": "0.5.0",
+  "ok": true,
+  "source_scopes": [
+    "explicit_user_rules",
+    "target_figure",
+    "manuscript",
+    "reference_author"
+  ],
+  "runtime_changes": [
+    "scripts/palette_context.py",
+    "tests/test_palette_context.py"
+  ],
+  "previous_scripts_tests_examples_preserved": {
+    "frozen_version": "0.4.2",
+    "compared_files": 51,
+    "all_byte_identical": true
+  },
+  "unit_tests": {
+    "passed": 94,
+    "new_color_context_tests": 12
+  },
+  "practical_revision": {
+    "materials": 2,
+    "both_complete_assemblies_preserved": true,
+    "both_alpha_pngs_verified": true,
+    "all_approved_structure_colors_retained": true,
+    "color_source_snapshots_verified": true,
+    "both_role_color_and_text_contrast_checks_passed": true,
+    "both_geometry_digests_unchanged": true,
+    "method_graph_sources_and_synthetic_positions_preserved": true,
+    "views_inspected": [
+      "Isolated assets",
+      "Actual screenshot slots",
+      "Full Figure 1 placement"
+    ],
+    "scope": "Agent visual/source review. Working files and user references remain outside the package."
+  },
+  "limitations": [
+    "No independent scientific or perceptual review",
+    "No editor-specific import/edit/reopen",
+    "Approximate raster samples are not exact author paints",
+    "Paint counts are not area or semantic importance",
+    "Recorded score order does not prove perceptual monotonicity",
+    "Print width is a working assumption"
+  ],
+  "new_image_generation_requests": 0
+}

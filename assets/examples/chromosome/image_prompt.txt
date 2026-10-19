@@ -1,0 +1,7 @@
+Scientific illustration reference for ONE isolated research-flowchart asset.
+Subject: Generic replicated chromosome with two sister chromatids and a centromeric region; no gene loci
+Style: clean original vector-like scientific illustration; restrained highlights; clear silhouette.
+Colors: body #D4B66C, body_light #E3C98A, body_shadow #B39857, outline #AC8E4C, detail #BDA67B, highlight #F2E0AD, accent #D6655B, muted #C4B99F, field #EEE9DE, guide #9C9D94
+No text, watermark, logo, arrows, surrounding scene, or invented mechanisms unless specifically requested.
+Background: request native transparency only if the active image model supports it; otherwise use a plain white reference background. Final delivery will be rebuilt as transparent native SVG.
+This file is a prompt, not generated artwork. Preserve the supported structures in brief.json.

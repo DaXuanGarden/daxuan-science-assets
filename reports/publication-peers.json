@@ -1,0 +1,236 @@
+{
+  "checked_on": "2026-10-19",
+  "github": {
+    "observed_on": "2026-10-19",
+    "scope": "Read-only GitHub peer research for public publication of daxuan-science-assets. Observations are from current README/SKILL/source-tree responses; no peer was installed, executed, or visually rendered.",
+    "methods": [
+      "Authenticated gh api repository search",
+      "gh api contents API decoding current README and SKILL.md",
+      "gh api trees and commits/HEAD"
+    ],
+    "queries": [
+      "scientific schematics skill SKILL.md",
+      "scientific-skills",
+      "svg diagram agent skill"
+    ],
+    "candidates": [
+      {
+        "name": "scientific-schematics",
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "category": "direct",
+        "url": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/scientific-schematics",
+        "readme_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/docs/skill-guides/scientific-schematics.md",
+        "skill_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-schematics/SKILL.md",
+        "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+        "observed_facts": [
+          "Natural-language scientific diagrams use Nano Banana 2 generation and Gemini review through OpenRouter.",
+          "The SKILL explicitly states PNG-only raster output, no vector path and no DPI control.",
+          "Source-backed labels and relationships, final-size manual inspection, retained versions and review logs are required in the documented workflow.",
+          "The guide shows a workflow PNG and labels its example as illustrative rather than a validated scientific figure.",
+          "Repository README documents npx skills add and gh skill install. SKILL declares Python 3.10+, requests, network, and an API key."
+        ],
+        "installation_observed": "npx skills add K-Dense-AI/scientific-agent-skills; select the named skill using supported installer UI/options.",
+        "showcase_observed": "Task-focused guide includes a workflow image and output/interpretation tables.",
+        "provenance_observed": "Requires supported components and relationships; records prompt, review, image versions and stop reason. API IDs are documented as catalog-checked and offline-contract-tested rather than paid end-to-end-tested.",
+        "practical_lesson": "Lead with the delivered format and its limits; retain source/brief and evidence alongside any image-model draft.",
+        "do_not_copy": "Do not inherit the PNG pipeline or external reviewer as proof of editable SVG or scientific validity."
+      },
+      {
+        "name": "scientific-visualization",
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "category": "adjacent",
+        "url": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/scientific-visualization",
+        "readme_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+        "skill_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-visualization/SKILL.md",
+        "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+        "observed_facts": [
+          "Focuses on truthful data figures, journal export planning and palette/contrast review.",
+          "SKILL requires a destination, final width, variable semantics, transformations and provenance before implementation.",
+          "Explicitly separates universal figure principles from live publisher specifications.",
+          "Bundled local CLIs are described as network-free; scientific dependencies load only where needed.",
+          "Repository contains a palette audit CLI, publisher profiles, source references, test scripts and a dedicated guide image."
+        ],
+        "installation_observed": "The repository-level npx skills add / gh skill install entry points also cover this skill.",
+        "showcase_observed": "Repository contains docs/images/scientific-visualization.png; its visual appearance was not reviewed here.",
+        "provenance_observed": "Raw data, transformations, missing values, exclusions and seeds are protected; publisher compliance is not inferred from a palette or automated report.",
+        "practical_lesson": "Make final destination size, semantic color meanings and assumptions explicit before palette harmonization.",
+        "do_not_copy": "Statistical chart workflows are adjacent, not a replacement for source-backed method-diagram and reusable-asset authoring."
+      },
+      {
+        "name": "scipilot-figure-skill",
+        "repository": "Haojae/scipilot-figure-skill",
+        "category": "adjacent",
+        "url": "https://github.com/Haojae/scipilot-figure-skill",
+        "readme_url": "https://github.com/Haojae/scipilot-figure-skill/blob/main/README.md",
+        "skill_url": "https://github.com/Haojae/scipilot-figure-skill/blob/main/SKILL.md",
+        "commit": "43098ddb9e6a6d142218540c114f9ed38922fc42",
+        "observed_facts": [
+          "README introduces a visualization advisor that profiles data before recommending and drawing charts.",
+          "SKILL explicitly excludes schematics, flowcharts and architecture diagrams.",
+          "Documents a render-preview, program-audit and AI-read-image loop; ships visual_qa.py and layout_tools.py.",
+          "Lists final-size typography, vector export and redundant color encoding rules.",
+          "README gives English and Chinese usage, clone installation and Python dependencies."
+        ],
+        "installation_observed": "git clone into an agent skills directory, then pip install -r requirements.txt.",
+        "showcase_observed": "README contains four request-and-behavior examples and workflow text; no final scientific image was visibly embedded in the fetched README.",
+        "provenance_observed": "Data profiling, sample size, uncertainty and significance-test explanations precede chart rendering.",
+        "practical_lesson": "Keep deterministic checks and actual rendered inspection separate; offer concrete input-to-output examples.",
+        "do_not_copy": "Do not borrow its broad chart scope or treat its journal preset recommendations as venue acceptance."
+      },
+      {
+        "name": "svg-diagram",
+        "repository": "bybit-exchange/svg-diagram",
+        "category": "craft",
+        "url": "https://github.com/bybit-exchange/svg-diagram",
+        "readme_url": "https://github.com/bybit-exchange/svg-diagram/blob/main/README.md",
+        "skill_url": "https://github.com/bybit-exchange/svg-diagram/blob/main/SKILL.md",
+        "commit": "c30c9e3bc9a70f2b77b60c7ea27157de3a88d81a",
+        "observed_facts": [
+          "Agent draws hand-placed native SVG under explicit geometry, typography and color rules.",
+          "Root SKILL and dependency-free Node linter are installed together.",
+          "README embeds ten SVG gallery examples, with each caption explaining a specific rule.",
+          "Linter reads final SVG and reports check IDs, observed values and concrete repair guidance.",
+          "Its style intentionally requires a white canvas rectangle for dark-mode readability."
+        ],
+        "installation_observed": "npx skills add bybit-exchange/svg-diagram -g.",
+        "showcase_observed": "Embedded native SVG house-style image plus ten rule-oriented gallery diagrams; no render test was run in this research.",
+        "provenance_observed": "Literal coordinates, semantic palette rules and final-artifact linting are documented; no scientific evidence extraction is claimed.",
+        "practical_lesson": "Show actual editable outputs near the installation command; make failing checks actionable and lint the file that users receive.",
+        "do_not_copy": "Its mandatory white canvas conflicts with transparent reusable materials. Use separate display previews without changing the transparent delivery."
+      },
+      {
+        "name": "pretty-mermaid",
+        "repository": "imxv/Pretty-mermaid-skills",
+        "category": "craft",
+        "url": "https://github.com/imxv/Pretty-mermaid-skills",
+        "readme_url": "https://github.com/imxv/Pretty-mermaid-skills/blob/main/README.md",
+        "skill_url": "https://github.com/imxv/Pretty-mermaid-skills/blob/main/SKILL.md",
+        "commit": "e234ab73c2992f03c36db04fd55ebb90abca9c45",
+        "observed_facts": [
+          "Local browser-free renderer produces SVG, PNG and terminal text from retained Mermaid source.",
+          "README opens with install command and visual preview, then theme gallery and exact CLI examples.",
+          "SKILL documents --transparent for SVG and PNG, explicit colors, font, padding and diagram spacing.",
+          "Workflow requires saving .mmd source, preserving domain labels, rendering and inspecting output.",
+          "README describes six supported diagram families and Node.js 16+ requirement."
+        ],
+        "installation_observed": "npx skills add imxv/pretty-mermaid-skills@pretty-mermaid -g -y.",
+        "showcase_observed": "Social preview PNG, linked fifteen-theme gallery, embedded SVG theme pair and bundled .mmd templates.",
+        "provenance_observed": "Original diagram source is kept beside outputs; renderer limitations must be reported rather than silently omitted.",
+        "practical_lesson": "Publish a minimal working example with exact commands and clearly state the supported diagram forms and transparency controls.",
+        "do_not_copy": "A Mermaid renderer does not supply scientific biological illustrations, infer method correctness or extract evidence from papers."
+      }
+    ],
+    "publication_recommendations": [
+      "Position daxuan-science-assets around transparent, editable, source-backed scientific materials and slot-aware methodology diagrams; avoid a general charting claim.",
+      "Put two genuine reproducible SVG examples and a separate display preview in the README before detailed architecture.",
+      "Document a no-credentials native-SVG quick start plus optional image-backend route, and identify which parts have actual execution evidence.",
+      "Keep an explicit boundary between structural/alpha/palette checks, visual inspection, scientific evidence verification and third-party editor import.",
+      "Publish portable synthetic examples with provenance, exact regeneration commands and no private paper screenshots or local paths."
+    ],
+    "limitations": [
+      "No peer install, test suite, paid model call or editor import was performed. Repository claims about test counts and runtime support were not independently validated.",
+      "No third-party code, text passages or artwork were copied into the Skill.",
+      "GitHub default-branch contents may change after the recorded commit."
+    ]
+  },
+  "catalogs": {
+    "task": "Read-only catalog peer research for daxuan-science-assets publication",
+    "checked_on": "2026-10-19",
+    "method": "curl -L with 20-25 second timeout, ClawHub public search API, GitHub read-only gh api; page text and repository file tree inspection. No peer installed, generation invoked, or content copied.",
+    "queries": [
+      "scientific",
+      "scientific-schematics",
+      "scientific illustration",
+      "canvas-design",
+      "scientific SVG"
+    ],
+    "channels": [
+      {
+        "name": "skills.sh",
+        "status": "verified",
+        "note": "Scientific schematics and canvas-design listings expose explicit installation commands, source repositories, and source Skill text. Old K-Dense repository slug canonicalizes to scientific-agent-skills."
+      },
+      {
+        "name": "ClawHub",
+        "status": "verified",
+        "search_url": "https://clawhub.ai/api/v1/search?q=scientific&limit=5",
+        "note": "Public API returned real scientific candidates; SciDraw listing was opened and its complete Skill text inspected. The initial /skills?search=scientific URL showed an unfiltered list, so search API used instead."
+      },
+      {
+        "name": "Tessl",
+        "status": "partial",
+        "url": "https://tessl.io/registry/discover?contentType=skills",
+        "note": "Legacy /registry/skills?query=scientific redirects to unfiltered discovery (source has zero scientific terms); urllib received 403 once, curl route worked. No directly matching scientific SVG Skill established here. Opened a linked craft exemplar rather than treating unfiltered search as a match."
+      }
+    ],
+    "candidates": [
+      {
+        "name": "scientific-schematics",
+        "type": "direct",
+        "catalog_url": "https://skills.sh/k-dense-ai/scientific-agent-skills/scientific-schematics",
+        "source_url": "https://github.com/k-dense-ai/scientific-agent-skills/tree/main/skills/scientific-schematics",
+        "position": "Scientific diagram drafts with external image generation and automated visual review.",
+        "install_command": "npx skills add https://github.com/k-dense-ai/scientific-agent-skills --skill scientific-schematics",
+        "discoverability": "Clear scientific name and page overview; listing includes installation command and source repository.",
+        "showcase": "Dedicated workflow guide and PNG at docs/images/scientific-schematics.png; guide states exactly what user supplies and receives.",
+        "showcase_url": "https://github.com/k-dense-ai/scientific-agent-skills/blob/main/docs/skill-guides/scientific-schematics.md",
+        "learn": "Pair a visible result with a short input/output story, versioned artifacts, and honest limitations.",
+        "caveat": "Guide explicitly calls outputs raster drafts, without editable vector paths; requires OpenRouter and review/generation external calls. Automated visual review does not verify scientific correctness.",
+        "evidence": {
+          "sha256": "25dc6de1912bb9dfb23b7f4519f0854281499640558632f2bc8969dbc332d089"
+        }
+      },
+      {
+        "name": "canvas-design",
+        "type": "craft",
+        "catalog_url": "https://skills.sh/anthropics/skills/canvas-design",
+        "source_url": "https://github.com/anthropics/skills/tree/main/skills/canvas-design",
+        "position": "Aesthetic design philosophy followed by a polished visual canvas.",
+        "install_command": "npx skills add https://github.com/anthropics/skills --skill canvas-design",
+        "discoverability": "Short recognizable name, concise summary, Design & UI category, source Skill text and source repository.",
+        "showcase": "Catalog first screen describes exact MD/PDF/PNG deliverables and a two-step workflow; inspected repository folder contains Skill, license, and fonts, with no dedicated screenshot/GIF in that folder.",
+        "learn": "Make typography, whitespace, and color discipline visible in the first screen; clearly name final formats.",
+        "caveat": "PDF/PNG art focus; no transparent editable SVG contract or paper-evidence graph. Its creative philosophy should not replace scientific source fidelity.",
+        "evidence": {
+          "sha256": "10f8acef10cb6f44f5c744a1b8a854c00dee4d0f872cfc7520f7015ad7800858"
+        }
+      },
+      {
+        "name": "SciDraw AI Scientific Illustration",
+        "type": "direct",
+        "catalog_url": "https://clawhub.ai/toplocalai/skills/scidraw-ai-scientific-illustration",
+        "source_url": "https://github.com/TopLocalAI/scidraw-ai-scientific-illustration-skill",
+        "position": "Plan and generate paper figures through SciDraw AI web app/API.",
+        "install_command": "openclaw skills install @toplocalai/scidraw-ai-scientific-illustration",
+        "discoverability": "Explicit scientific illustration title, topic tags, audience/use cases, install prompt, backend/configuration instructions.",
+        "showcase": "Live Skill listing links official drawing UI, API docs, key creation page, and a Python invocation; inspected listing did not display a generated SVG example.",
+        "learn": "Name the backend, specify configuration, state output acceptance criteria, and return clear API errors without leaking keys.",
+        "caveat": "Service-specific API key and account credits; raster PNG workflow and paid-generation confirmation. Its publication-ready description is not evidence of verified scientific accuracy or editable SVG.",
+        "evidence": {
+          "sha256": "e2ba709bcbe83201348c7275dc870b5b9942a1bee6eb718fa7b40291eaac4f21"
+        }
+      },
+      {
+        "name": "charmedimsure / charmed-vhs",
+        "type": "craft",
+        "catalog_url": "https://tessl.io/registry/tpscloud/charmedimsure",
+        "source_url": "https://github.com/tpscloud/charmedimsure",
+        "position": "Source-verified agent Skills for the Charm terminal stack, including reproducible demo recordings.",
+        "install_command": "npx skills add tpscloud/charmedimsure --skill charmed-vhs",
+        "discoverability": "Versioned public registry entry; short summary, skill list, explicit cross-agent installation instructions, linked examples.",
+        "showcase": "README surfaced on Tessl explains that cited Go examples are pinned and CI-built; charmed-vhs offers textual .tape sources for reproducible demos. Registry shows quality/eval/security panels. No independent rerun of its examples was performed.",
+        "learn": "Publish demo source alongside generated showcase, keep standalone installed skills licensed, and distinguish evaluated snippets from marketing claims.",
+        "caveat": "Terminal/Golang ecosystem, no scientific SVG functionality. Registry quality scores apply to that listing and must not be borrowed as validation of our Skill.",
+        "evidence": {
+          "sha256": "15b529853c50abd9d912696e89aea9445a3f6666bf5924014fcf491197bf1e4b"
+        }
+      }
+    ],
+    "publication_implication": "Position daxuan-science-assets around source-backed, palette-aware, genuinely transparent native SVG components with repeatable render/alpha/recolor checks. Show an install command plus reproducible synthetic input-to-output example, not private Figure screenshots.",
+    "limitations": [
+      "No peer was installed or run; this is interface/source inspection only.",
+      "Public raw.githubusercontent.com fetches for three extra README/Skill pages timed out and returned empty data; verified skills.sh/ClawHub/Tessl text and GitHub API routes supply the findings above.",
+      "No claim that catalog presence or security badges certify scientific correctness."
+    ]
+  }
+}

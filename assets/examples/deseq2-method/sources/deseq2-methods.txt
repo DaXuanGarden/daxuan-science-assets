@@ -1,0 +1,38 @@
+Source: Love MI, Huber W, Anders S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology 15, 550 (2014).
+DOI: 10.1186/s13059-014-0550-8; PMCID: PMC4302049.
+Retrieved 2026-10-19 from https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4302049/fullTextXML
+License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+Selected text paragraphs only; equations embedded as XML may have flattened notation. The diagram uses no numeric result or reproduced figure.
+
+[Sec3 paragraph 1] Model and normalization
+The starting point of a DESeq2 analysis is a count matrix K with one row for each gene i and one column for each sample j. The matrix entries Kij indicate the number of sequencing reads that have been unambiguously mapped to a gene in a sample. Note that although we refer in this paper to counts of reads in genes, the methods presented here can be applied as well to other kinds of HTS count data. For each gene, we fit a generalized linear model (GLM) [12] as follows.
+
+[Sec3 paragraph 2] Model and normalization
+We model read counts Kij as following a negative binomial distribution (sometimes also called a gamma-Poisson distribution) with mean μij and dispersion αi. The mean is taken as a quantity qij, proportional to the concentration of cDNA fragments from the gene in the sample, scaled by a normalization factor sij, i.e., μij=sijqij. For many applications, the same constant sj can be used for all genes in a sample, which then accounts for differences in sequencing depth between samples. To estimate these size factors, the DESeq2 package offers the median-of-ratios method already used in DESeq [4]. However, it can be advantageous to calculate gene-specific normalization factors sij to account for further sources of technical biases such as differing dependence on GC content, gene length or the like, using published methods [13,14], and these can be supplied instead.
+
+[Sec3 paragraph 3] Model and normalization
+We use GLMs with a logarithmic link, log2qij=∑rxjrβir, with design matrix elements xjr and coefficients βir. In the simplest case of a comparison between two groups, such as treated and control samples, the design matrix elements indicate whether a sample j is treated or not, and the GLM fit returns coefficients indicating the overall expression strength of the gene and the log 2 fold change between treatment and control. The use of linear models, however, provides the flexibility to also analyze more complex designs, as is often useful in genomic studies [15].
+
+[Sec4 paragraph 1] Empirical Bayes shrinkage for dispersion estimation
+Within-group variability, i.e., the variability between replicates, is modeled by the dispersion parameter αi, which describes the variance of counts via VarKij=μij+αiμij2. Accurate estimation of the dispersion parameter αi is critical for the statistical inference of differential expression. For studies with large sample sizes this is usually not a problem. For controlled experiments, however, sample sizes tend to be smaller (experimental designs with as little as two or three replicates are common and reasonable), resulting in highly variable dispersion estimates for each gene. If used directly, these noisy estimates would compromise the accuracy of differential expression testing.
+
+[Sec6 paragraph 1] Hypothesis tests for differential expression
+After GLMs are fit for each gene, one may test whether each model coefficient differs significantly from zero. DESeq2 reports the standard error for each shrunken LFC estimate, obtained from the curvature of the coefficient’s posterior (dashed lines in Figure 2D) at its maximum. For significance testing, DESeq2 uses a Wald test: the shrunken estimate of LFC is divided by its standard error, resulting in a z-statistic, which is compared to a standard normal distribution. (See Materials and methods for details.) The Wald test allows testing of individual coefficients, or contrasts of coefficients, without the need to fit a reduced model as with the likelihood ratio test, though the likelihood ratio test is also available as an option in DESeq2. The Wald test P values from the subset of genes that pass an independent filtering step, described in the next section, are adjusted for multiple testing using the procedure of Benjamini and Hochberg [21].
+
+[Sec19 paragraph 1] Model and normalization
+The read count Kij for gene i in sample j is described with a GLM of the negative binomial family with a logarithmic link:
+
+[Sec22 paragraph 2] Estimation of dispersions
+Here, αtr is a function of the gene’s mean normalized count,
+
+[Sec22 paragraph 4] Estimation of dispersions
+We get final dispersion estimates from this model in three steps, which implement a computationally fast approximation to a full empirical Bayes treatment. We first use the count data for each gene separately to get preliminary gene-wise dispersion estimates αigw by maximum-likelihood estimation. Then, we fit the dispersion trend αtr. Finally, we combine the likelihood with the trended prior to get maximum a posteriori (MAP) values as final dispersion estimates. Details for the three steps follow.
+
+[Sec22 paragraph 5] Estimation of dispersions
+Gene-wise dispersion estimates To get a gene-wise dispersion estimate for a gene i, we start by fitting a negative binomial GLM without an LFC prior for the design matrix X to the gene’s count data. This GLM uses a rough method-of-moments estimate of dispersion, based on the within-group variances and means. The initial GLM is necessary to obtain an initial set of fitted values, μ^ij0. We then maximize the Cox–Reid adjusted likelihood of the dispersion, conditioned on the fitted values μ^ij0 from the initial fit, to obtain the gene-wise estimate αigw, i.e.,
+
+[Sec22 paragraph 25] Estimation of dispersions
+For such genes, the gene-wise estimate αigw is not shrunk toward the trended prior mean. Instead of the MAP value αiMAP, we use the gene-wise estimate αigw as a final dispersion value in the subsequent steps. In addition, the iterative fitting procedure for the parametric dispersion trend described above avoids that such dispersion outliers influence the prior mean.
+
+[Sec24 paragraph 1] Wald test
+The Wald test compares the beta estimate βir divided by its estimated standard error SE(βir) to a standard normal distribution. The estimated standard errors are the square root of the diagonal elements of the estimated covariance matrix, Σi, for the coefficients, i.e., SE(βir)=Σi,rr. Contrasts of coefficients are tested similarly by forming a Wald statistics using (3) and (4). We use the following formula for the coefficient covariance matrix for a GLM with normal prior on coefficients [56, 58]:

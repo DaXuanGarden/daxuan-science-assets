@@ -1,0 +1,27 @@
+{
+  "version": "0.4.2",
+  "ok": true,
+  "change_scope": "Instructions, template, version and evidence metadata only",
+  "practical_revision": {
+    "delivered_materials": 2,
+    "complete_assembly_and_three_callouts_verified": true,
+    "method_graph_and_source_evidence_preserved": true,
+    "requested_main_type_reduction_percent": 20.7,
+    "manuscript_vector_colors_inspected": true,
+    "both_alpha_pngs_verified": true,
+    "both_custom_palettes_recolor_geometry_preserved": true,
+    "placement_review": "Agent inspected both at intended screenshot insertion size",
+    "image_generation_requests": 0
+  },
+  "frozen_v041_preservation": {
+    "runtime_test_and_example_files_byte_identical": true,
+    "compared_files": 51
+  },
+  "unit_tests": "Not rerun for this documentation-only refinement; code and tests are byte-identical to the frozen passing 0.4.1 package.",
+  "limitations": [
+    "User-owned artwork and sources are outside the distributed skill",
+    "No independent scientific review",
+    "No editor-specific import/edit/reopen validation",
+    "Print size remains a working assumption and follows explicit smaller-text feedback"
+  ]
+}

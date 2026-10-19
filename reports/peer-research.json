@@ -1,0 +1,383 @@
+{
+  "checked_on": "2026-10-19",
+  "github": {
+    "observed_on": "2026-10-19",
+    "scope": "Read-only live GitHub peer research for an English-first refinement of daxuan-science-assets. No peer code executed; no prose or assets copied.",
+    "current_package_observations": {
+      "display_name": "The current README and SKILL title are Chinese; the invocation slug daxuan-science-assets is already English.",
+      "first_run": "README clearly separates native SVG authoring, brief initialization and optional raster-reference generation. Installation is local-source based.",
+      "assets": "Three native-vector fixtures are documented as fixtures rather than image-model outputs.",
+      "refinement_target": "Translate the public-facing package and examples to English while preserving the scientific-asset scope and stable invocation slug."
+    },
+    "method": {
+      "channels": [
+        "GitHub raw source",
+        "GitHub REST API via gh api"
+      ],
+      "failure_handling": "Three initial raw.githubusercontent.com requests timed out at 20 seconds; switched to GitHub API successfully. Did not execute peer tools or installation commands.",
+      "unperformed": [
+        "Installation of peer packages",
+        "Provider-backed image generation",
+        "Visual or scientific quality benchmarking",
+        "Download-count or marketplace-install measurement"
+      ]
+    },
+    "peers": [
+      {
+        "name": "ScanSci SVG",
+        "repository": "https://github.com/Rimagination/scansci-svg",
+        "source": "https://github.com/Rimagination/scansci-svg/blob/main/skill/SKILL.md",
+        "readme": "https://github.com/Rimagination/scansci-svg/blob/main/README.md",
+        "type": "direct",
+        "positioning": "Scientific SVG creation, semantic editing, reuse, conversion and composition from text, images and existing figures.",
+        "observations": [
+          "The English brand plus format suffix makes the name recognisable even though most prose is Chinese.",
+          "The README places a real natural-language invocation before manual installation details.",
+          "Named object parts and subsequent edits are explained in terms of what the user wants to change.",
+          "Before/after cases link directly to downloadable SVG and record sources, licences and visible simplification limits.",
+          "Existing vector source is preferred before bitmap reconstruction; scientific, visual and editing checks are separated."
+        ],
+        "adopt": [
+          "Retain a stable English slug and add a clear English display name.",
+          "Put one immediately usable invocation and one downloadable example on the first screen.",
+          "Explain semantic groups as practical editing actions."
+        ],
+        "do_not_copy": [
+          "Much broader figure, PPTX, animation and publishing scope.",
+          "Unlicensed prose/assets; no repository-wide licence is declared."
+        ],
+        "signals": {
+          "repository_stars": 31,
+          "repository_updated_at": "2026-10-16T07:51:41Z",
+          "repository_license": null,
+          "installs": "not measured"
+        },
+        "limits": "Source review only; no output benchmarking or editor-import test performed."
+      },
+      {
+        "name": "schematic-figure",
+        "repository": "https://github.com/lgwrightlab/schematic-figure",
+        "source": "https://github.com/lgwrightlab/schematic-figure/blob/main/.claude/skills/schematic-figure/SKILL.md",
+        "readme": "https://github.com/lgwrightlab/schematic-figure/blob/main/README.md",
+        "type": "indirect",
+        "positioning": "Code-native scientific schematic figures as SVG, PDF and PNG, with planning, rendering and checks.",
+        "observations": [
+          "The hyphenated functional English name maps directly to the job.",
+          "README opens with the editable deliverable, then a comparison slideshow with attribution and a scope limitation.",
+          "Usage examples state scientific description, style, size and effort level.",
+          "The SKILL distinguishes design, replicate, describe and revise modes, with a brief and source-backed facts before drawing.",
+          "It reports which components of its own benchmark did and did not change the judge score."
+        ],
+        "adopt": [
+          "Lead with editable output rather than a generic quality claim.",
+          "Keep a concise route table and a small complete example.",
+          "Pair claimed benefits with their actual evidence limits."
+        ],
+        "do_not_copy": [
+          "Full-figure multi-draft workflow for every independent asset.",
+          "Browser/Node/Blender engine dependencies when the small SVG route is sufficient.",
+          "Peer benchmark claims as our own performance evidence."
+        ],
+        "signals": {
+          "repository_stars": 44,
+          "repository_updated_at": "2026-10-19T08:27:59Z",
+          "repository_license": "MIT",
+          "installs": "not measured"
+        },
+        "limits": "Benchmark figures and scores are peer-reported; not independently reproduced."
+      },
+      {
+        "name": "scientific-schematics",
+        "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+        "source": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-schematics/SKILL.md",
+        "readme": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+        "type": "indirect",
+        "positioning": "Hosted image generation of scientific diagram PNG drafts with a bounded review/refinement loop.",
+        "observations": [
+          "Current source explicitly says the output is raster PNG with no vector path or DPI control.",
+          "Quick Start distinguishes illustrative paid generation commands from offline request-contract tests.",
+          "When review cannot run, the image is retained with null score and an explicit unchecked status.",
+          "README provides cross-runtime discovery and a catalog rather than requiring all scientific dependencies."
+        ],
+        "adopt": [
+          "Keep reference-image generation optional and distinguish it from final vector authorship.",
+          "Label unavailable model checks and preserve generated work without invented review scores.",
+          "Document dependencies by route."
+        ],
+        "do_not_copy": [
+          "Raster PNG as the final product for an editable SVG request.",
+          "Numeric model-review thresholds as scientific validity or publisher acceptance.",
+          "Library-wide scale or adoption signals as evidence about this single skill."
+        ],
+        "signals": {
+          "repository_stars": 52745,
+          "repository_updated_at": "2026-10-19T08:29:55Z",
+          "repository_license": "MIT",
+          "skill_version": "1.10",
+          "skill_last_reviewed": "2026-09-30",
+          "installs": "not measured"
+        },
+        "limits": "Repository stars belong to the entire multi-skill library. Paid provider calls not reproduced."
+      },
+      {
+        "name": "transparent-icons",
+        "repository": "https://github.com/neuromechanist/research-skills",
+        "source": "https://github.com/neuromechanist/research-skills/blob/main/plugins/figures/skills/transparent-icons/SKILL.md",
+        "readme": "https://github.com/neuromechanist/research-skills/blob/main/README.md",
+        "type": "indirect",
+        "positioning": "Scientific PNG icons with native alpha using a shared image backend and project theme.",
+        "observations": [
+          "Its name immediately names the product and the desired background behaviour.",
+          "Theme, model and backend settings live outside the natural-language prompt.",
+          "Native alpha is preserved; removal fallback is described explicitly rather than always thresholding away light detail.",
+          "Includes a template list, a one-icon smoke route, a small icon-set example and explicit backend selection."
+        ],
+        "adopt": [
+          "Separate colour roles from geometry and reference prompts.",
+          "Show a one-asset run before batch examples.",
+          "State actual alpha verification distinctly from a request for transparency."
+        ],
+        "do_not_copy": [
+          "PNG-only output as editable SVG.",
+          "A mandatory sister-skill theme dependency for this self-contained local package.",
+          "New external backends in a naming/localisation refinement."
+        ],
+        "signals": {
+          "repository_stars": 48,
+          "repository_updated_at": "2026-10-15T22:03:46Z",
+          "repository_license": "BSD-3-Clause",
+          "skill_version": "0.2.0",
+          "installs": "not measured"
+        },
+        "limits": "Backend and alpha behaviour are read from current source, not provider-tested in this review."
+      },
+      {
+        "name": "svg-figure",
+        "repository": "https://github.com/neuromechanist/research-skills",
+        "source": "https://github.com/neuromechanist/research-skills/blob/main/plugins/figures/skills/svg-figure/SKILL.md",
+        "readme": "https://github.com/neuromechanist/research-skills/blob/main/README.md",
+        "type": "presentation/packaging craft",
+        "positioning": "Hand-authored SVG conventions and explicit editor handoff, with new Python-generated figures routed to svg-primitives.",
+        "observations": [
+          "The source starts by explaining when this skill is appropriate and when to use another route.",
+          "A canonical executable example is linked alongside the maintained expected SVG.",
+          "Editor handoff requirements are separate from the design master and validator guarantees.",
+          "Runtime-specific syntax is moved to host adapters in the wider figures plugin."
+        ],
+        "adopt": [
+          "Make native-vector scope clear before listing capabilities.",
+          "Keep examples reproducible and paired with expected outputs.",
+          "Do not claim Illustrator/Affinity import success from structural validation alone."
+        ],
+        "do_not_copy": [
+          "Embedding raster icon images in the SVG final asset.",
+          "Broader arrows/labels/layout engine for a single isolated object.",
+          "Cross-runtime support claims without actual installation checks."
+        ],
+        "signals": {
+          "repository_stars": 48,
+          "repository_license": "BSD-3-Clause",
+          "skill_version": "0.3.0",
+          "installs": "not measured"
+        },
+        "limits": "Editor behaviour claims are peer-authored; no editor import was performed."
+      }
+    ],
+    "recommended_naming": {
+      "display_name": "Daxuan Science Assets",
+      "slug": "daxuan-science-assets",
+      "tagline": "Editable scientific SVG assets for research flowcharts.",
+      "rationale": "The display name is fully English, retains the owner brand, and matches the already-installed invocation slug. The tagline carries the transparent/native-vector constraints without making the name unwieldy.",
+      "avoid": [
+        "A new slug only for cosmetic reasons, which would create migration friction.",
+        "Publication-quality or scientifically accurate as unqualified promises.",
+        "A name implying a complete figure-layout or mechanism-discovery suite."
+      ]
+    },
+    "bounded_refinement_recommendations": [
+      "Translate SKILL.md, README, reference documents, interface metadata and active example labels to natural English as one language/identity refinement.",
+      "Keep code interfaces, SVG IDs, palette role names, invocation slug and asset geometry stable.",
+      "Put a short text-to-native-SVG invocation first, with brief-init and optional reference-model caveats visible below.",
+      "Make gallery labels English and retain the honest distinction between white presentation background and transparent single assets.",
+      "Keep one reproducible documented example and live command validation; do not add a suite, provider or publishing action in this pass."
+    ],
+    "evidence_caveat": "These are source and packaging observations, not a controlled performance comparison. Repository stars are dated snapshots; installs were not measured and must not be inferred from stars."
+  },
+  "catalogs": {
+    "checked_on": "2026-10-19",
+    "scope": "Read-only ecosystem comparison for English naming, first-run clarity, and reproducible evidence. No peer code executed or skill installed.",
+    "channels": [
+      {
+        "channel": "skills.sh",
+        "status": "success",
+        "method": "npx --yes skills find transparent-icons; npx --yes skills find svg-figure",
+        "urls": [
+          "https://skills.sh/neuromechanist/research-skills/transparent-icons",
+          "https://skills.sh/neuromechanist/research-skills/svg-figure"
+        ],
+        "note": "Public HTML search is client-rendered; the CLI produced concrete catalog matches."
+      },
+      {
+        "channel": "ClawHub",
+        "status": "success",
+        "method": "Read-only public API search and detail",
+        "urls": [
+          "https://clawhub.ai/api/v1/search?q=scientific%20svg&limit=10",
+          "https://clawhub.ai/api/v1/skills/scientific-graphical-abstract-skill",
+          "https://clawhub.ai/api/v1/search?q=transparent%20icons&limit=5"
+        ],
+        "note": "Scientific SVG query returned one catalog result. Transparent icons query returned adjacent ppt-icon-generator. No catalog performance assertions were accepted as measured results."
+      },
+      {
+        "channel": "GitHub",
+        "status": "success",
+        "method": "GitHub contents and tree APIs; raw markdown where responsive",
+        "note": "Two raw.githubusercontent.com requests timed out at 25 seconds; switched immediately to api.github.com base64 content, which succeeded. No unbounded retries."
+      }
+    ],
+    "peers": [
+      {
+        "name": "Transparent Icons",
+        "slug": "transparent-icons",
+        "version": "0.2.0",
+        "type": "direct task peer; different final format",
+        "positioning": "Flat scientific PNG icons with transparent backgrounds and a project palette.",
+        "urls": [
+          "https://github.com/neuromechanist/research-skills/blob/main/plugins/figures/skills/transparent-icons/SKILL.md",
+          "https://skills.sh/neuromechanist/research-skills/transparent-icons",
+          "https://github.com/neuromechanist/research-skills/blob/main/plugins/figures/skills/transparent-icons/examples/icon_set.py"
+        ],
+        "metrics": {
+          "skills_sh_installs_displayed": 26,
+          "meaning": "Catalog installs displayed by skills CLI on check date, not a quality score."
+        },
+        "why_clear": "The English name states both the deliverable and transparency. The first paragraph names scientific objects and figure use. A single-subject command and a three-icon example expose the actual artifact paths.",
+        "keep_or_adapt": [
+          "Use a compact English title followed by a literal promise: transparent, editable SVG assets for research workflows.",
+          "Keep palette/theme independent of individual prompts.",
+          "Keep a real reproducible example script and distinguish a smoke run from a paid generation run.",
+          "Actually check alpha rather than infer transparency from a prompt."
+        ],
+        "reject": [
+          "PNG as final deliverable because the user needs native editable SVG.",
+          "Automatic near-white threshold removal as proof of editable geometry.",
+          "Its sibling-plugin and shared-library dependencies for this deliberately standalone asset skill."
+        ],
+        "limits": "Source inspected; backend generation not run. Claims about model quality, alpha generation, or timing remain upstream claims."
+      },
+      {
+        "name": "SVG Figure",
+        "slug": "svg-figure",
+        "version": "0.3.0",
+        "type": "indirect peer",
+        "positioning": "Hand-authoring SVG conventions and editor handoff for complete schematics.",
+        "urls": [
+          "https://github.com/neuromechanist/research-skills/blob/main/plugins/figures/skills/svg-figure/SKILL.md",
+          "https://skills.sh/neuromechanist/research-skills/svg-figure",
+          "https://github.com/neuromechanist/research-skills/blob/main/plugins/figures/skills/svg-figure/references/editor-handoff.md"
+        ],
+        "metrics": {
+          "skills_sh_installs_displayed": 45,
+          "meaning": "Catalog installs displayed by skills CLI on check date, not a quality score."
+        },
+        "why_clear": "English title plus explicit use/route-away lists quickly separate hand authored SVG, code-driven SVG, plots, and pictorial icons. File-level examples and the editor-prep command expose a visible handoff artifact.",
+        "keep_or_adapt": [
+          "Named top-level groups per semantic part.",
+          "Concrete exported colors and editor-safe geometry.",
+          "Separate editable master from derived preview.",
+          "State editor-import checks only if actually run."
+        ],
+        "reject": [
+          "Its suggestion to place raster icons through <image> as the final asset route.",
+          "Full figure composition, labels, arrows, journal font checks and orchestration dependencies for a single-object asset tool."
+        ],
+        "limits": "Source inspected; no Illustrator/Affinity import was performed in this research task."
+      },
+      {
+        "name": "Scientific Graphical Abstract Skill",
+        "slug": "scientific-graphical-abstract-skill",
+        "version": "0.1.2",
+        "type": "indirect peer",
+        "positioning": "AI-assisted editable SVG graphical abstracts, charts, and diagrams.",
+        "urls": [
+          "https://clawhub.ai/jackkuo666/skills/scientific-graphical-abstract-skill",
+          "https://clawhub.ai/api/v1/skills/scientific-graphical-abstract-skill"
+        ],
+        "metrics": {
+          "clawhub_downloads": 1427,
+          "clawhub_installs": 37,
+          "clawhub_stars": 1,
+          "meaning": "Different public catalog counters returned by detail endpoint; do not combine or treat as test scores."
+        },
+        "why_clear": "Plain English task name, scenario-oriented usage, and an explicit SVG output contract. A reader can see what kind of output is intended without understanding the implementation.",
+        "keep_or_adapt": [
+          "A short user prompt immediately after installation.",
+          "Input-to-file examples that explicitly name the editable SVG artifact."
+        ],
+        "reject": [
+          "Broad all-chart/all-model/publication-ready claims without locally demonstrated evidence.",
+          "Full graphical abstracts and data charts, which would widen this user-requested asset-only scope."
+        ],
+        "limits": "Catalog description and metadata inspected, not the installed implementation. No measured output, provider trial, or reproducibility claim."
+      },
+      {
+        "name": "Algorithmic Art",
+        "slug": "algorithmic-art",
+        "type": "craft peer",
+        "positioning": "Seeded generative art with interactive parameter exploration.",
+        "urls": [
+          "https://github.com/anthropics/skills/blob/main/skills/algorithmic-art/SKILL.md",
+          "https://github.com/anthropics/skills/blob/main/README.md"
+        ],
+        "metrics": null,
+        "why_clear": "A literal English task name and an explicit output list (.md, .html, .js). The artifact workflow makes the result reproducible with seeds and adjustable parameters.",
+        "keep_or_adapt": [
+          "List actual output files rather than vague capability bullets.",
+          "Keep tunable parameters separate from geometry and preserve reproducibility."
+        ],
+        "reject": [
+          "Long artistic philosophy requirements and seeded randomness for scientific anatomical accuracy.",
+          "Runtime-specific branding for the core portable instructions."
+        ],
+        "limits": "Source inspected; no art generated. This is a presentation/workflow pattern reference, not a scientific illustration quality baseline."
+      },
+      {
+        "name": "agent-browser",
+        "slug": "agent-browser",
+        "type": "craft peer",
+        "positioning": "Browser automation CLI for AI agents.",
+        "urls": [
+          "https://github.com/vercel-labs/agent-browser/blob/main/README.md",
+          "https://github.com/vercel-labs/agent-browser/blob/main/skills/agent-browser/SKILL.md"
+        ],
+        "metrics": null,
+        "why_clear": "The README opens with a literal one-line purpose, visible license/version/skill-directory badges, installation, and a quick start that ends in a real screenshot artifact. It distinguishes requirements by install route. Its discovery stub routes to documentation matching the installed CLI version.",
+        "keep_or_adapt": [
+          "One literal English sentence explaining the user outcome.",
+          "One recommended install route and a small first-run command sequence producing an inspectable preview.",
+          "Separate runtime requirements from optional capabilities.",
+          "Keep validation instructions versioned with the package."
+        ],
+        "reject": [
+          "Its tool-preference instruction and broad browser actions; unrelated to scientific asset authoring.",
+          "Unnecessary CLI size or browser runtime dependency."
+        ],
+        "limits": "README and skill source inspected; no browser tool installed or executed. No claim of a measured conversion/install advantage."
+      }
+    ],
+    "recommendation": {
+      "name": "Daxuan Science Assets",
+      "slug": "daxuan-science-assets",
+      "reason": "Fully English while preserving the existing slug, installation path, and user ownership; a rename need not break invocation.",
+      "one_line": "Transparent, editable SVG assets for scientific workflow diagrams.",
+      "first_prompt": "Use $daxuan-science-assets to create a warm-gold liver asset with a transparent background, editable parts, and no labels or arrows.",
+      "single_facet": "English product surface: title, metadata, workflow instructions, references, README, example labels, generated artifact text, and installation handoff. Preserve geometry, palette, CLI commands, final SVG contract and scope.",
+      "proof_to_add": [
+        "Render the same three real fixtures and compare geometry/alpha with baseline.",
+        "Replay one new-asset prompt and one existing-SVG recolor prompt, explicitly labeling dry-run or provider execution.",
+        "Regenerate English showcase from a checked-in script and retain actual image files.",
+        "Do not claim provider-backed imagery, blind preference or editor import validation until performed."
+      ]
+    }
+  }
+}

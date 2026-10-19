@@ -1,0 +1,44 @@
+interface:
+  display_name: "Daxuan Scientific Assets"
+  short_description: "Editable scientific assets and methodology SVG schematics"
+  default_prompt: "Use $daxuan-science-assets to create a transparent editable SVG and PNG, either an individual scientific object or a methodology schematic grounded in my papers and idea, with traceable sources and native labels and relations."
+  examples:
+    - "Build a transparent methodology schematic from these papers and my adaptation; retain source locators."
+    - "Show my preliminary idea as a proposed method, with editable labels and typed arrows."
+    - "Create a warm-gold chromosome asset as transparent SVG."
+    - "Redraw this liver reference; preserve the approved outline and palette."
+    - "Explore a mitochondrion with Codex images, then rebuild editable SVG."
+    - "Improve only the gold colors; preserve the shapes."
+    - "Coordinate this paper-inspired asset with my Figure 1 colors; preserve explicit color meanings and record both sources."
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets: ["openai", "claude", "generic", "agent-skills-compatible"]
+  activation:
+    mode: "intent-or-manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "python3"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    generated_public_claims: "evidence-bound"
+  permissions:
+    network: "Read user-supplied paper sources as needed. Authorized image requests through the active official or configured relay source. No automatic provider/model fallback or generation retries."
+    file_write: "User-selected asset output directories; no overwrite by default."
+    subprocess: "Local SVG tooling, renderer, and selected image backend. Credentials stay in memory; no shell interpolation."
+    interactive: "Only if the user chooses to configure a missing image backend; local SVG work continues independently."
+  degradation:
+    openai: "Official host image tool or optional OAuth helper for official sessions; active-provider Images API for relay sessions. Native SVG remains available."
+    claude: "SVG authoring and local tooling; Codex adapter requires the optional local dependency. Not runtime tested."
+    generic: "Plain instructions and Python tools; image and visual-inspection capabilities depend on host. Not runtime tested."
+    agent-skills-compatible: "Root SKILL.md plus relative resources; host capabilities determine image generation."
+gates:
+  production:
+    - "Single discoverable root SKILL.md"
+    - "Trigger boundary smoke cases"
+    - "Native vector and transparent-render checks"
+    - "Recolor preserves geometry"
+    - "Isolated local install evidence"
+    - "Provider and human evidence remain distinct from fixtures"
+    - "Reference-author and destination-figure color context, when supplied"

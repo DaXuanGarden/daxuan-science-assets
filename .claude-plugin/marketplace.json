@@ -1,0 +1,16 @@
+{
+  "name": "daxuan-scientific-assets",
+  "owner": {
+    "name": "Daxuan"
+  },
+  "plugins": [
+    {
+      "name": "daxuan-science-assets",
+      "source": "./",
+      "description": "Transparent editable scientific SVG assets and source-backed methodology schematics."
+    }
+  ],
+  "metadata": {
+    "description": "Original scientific SVG assets and source-backed methodology schematics with transparent previews and local checks."
+  }
+}

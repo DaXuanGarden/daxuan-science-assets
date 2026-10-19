@@ -1,0 +1,253 @@
+{
+  "ok": true,
+  "evidence_kind": "recorded_fixture",
+  "execution": "local_runtime",
+  "image_generation_executed": false,
+  "summary": {
+    "passed": 5,
+    "total": 5
+  },
+  "cases": [
+    {
+      "case": "chromosome",
+      "input": "assets/examples/chromosome/asset.svg",
+      "source_sha256": "5e2315f7c55dc5120bff10296c910cbbb6edf8611ef83544425069616981bc4d",
+      "ok": true,
+      "assertions": {
+        "native_structure": true,
+        "supplied_preview_alpha": true,
+        "preview_render_alpha": true,
+        "recolor_geometry_unchanged": true,
+        "all_palette_bindings_updated": true,
+        "recolored_render_alpha": true,
+        "source_unchanged": true
+      },
+      "named_groups": 5,
+      "palette_bindings": 25,
+      "preview_render": {
+        "ok": true,
+        "mode": "RGBA",
+        "size": [
+          200,
+          515
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edge_alpha_max": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonempty_foreground": true,
+        "content_bounds": [
+          20,
+          20,
+          180,
+          494
+        ],
+        "errors": []
+      },
+      "recolor_geometry_sha256": "bf9018bd29a1ce6e58f8c00b4a8e593c8896cdc912cfa60b19af023ac910276d"
+    },
+    {
+      "case": "mitochondrion",
+      "input": "assets/examples/mitochondrion/asset.svg",
+      "source_sha256": "191168db3312f0968c736cf66506f4e1047ba44840fbc576cffb29755785f5a7",
+      "ok": true,
+      "assertions": {
+        "native_structure": true,
+        "supplied_preview_alpha": true,
+        "preview_render_alpha": true,
+        "recolor_geometry_unchanged": true,
+        "all_palette_bindings_updated": true,
+        "recolored_render_alpha": true,
+        "source_unchanged": true
+      },
+      "named_groups": 3,
+      "palette_bindings": 7,
+      "preview_render": {
+        "ok": true,
+        "mode": "RGBA",
+        "size": [
+          200,
+          150
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edge_alpha_max": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonempty_foreground": true,
+        "content_bounds": [
+          23,
+          27,
+          178,
+          124
+        ],
+        "errors": []
+      },
+      "recolor_geometry_sha256": "77b4886703177cdf54209fa38d3752104a637cc540a8e2ef747e7f256fcc63b3"
+    },
+    {
+      "case": "pipette",
+      "input": "assets/examples/pipette/asset.svg",
+      "source_sha256": "0cf5ac0ba133fd1a35e0d2ef3d37d7230428ee98a924f65c7e6a9b490711d157",
+      "ok": true,
+      "assertions": {
+        "native_structure": true,
+        "supplied_preview_alpha": true,
+        "preview_render_alpha": true,
+        "recolor_geometry_unchanged": true,
+        "all_palette_bindings_updated": true,
+        "recolored_render_alpha": true,
+        "source_unchanged": true
+      },
+      "named_groups": 6,
+      "palette_bindings": 21,
+      "preview_render": {
+        "ok": true,
+        "mode": "RGBA",
+        "size": [
+          200,
+          289
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edge_alpha_max": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonempty_foreground": true,
+        "content_bounds": [
+          43,
+          30,
+          160,
+          261
+        ],
+        "errors": []
+      },
+      "recolor_geometry_sha256": "ed0f082168bf4da27dd5bf736c5f3ea6c6efba5b184f92cbcd102c7b6452431b"
+    },
+    {
+      "case": "methodology-demo",
+      "input": "assets/examples/methodology-demo/asset.svg",
+      "source_sha256": "9a7aacfa5c58ea5a1314b92efb7bfb53d8ab61457de2d9824d18d80158fd6de7",
+      "ok": true,
+      "assertions": {
+        "native_structure": true,
+        "supplied_preview_alpha": true,
+        "preview_render_alpha": true,
+        "recolor_geometry_unchanged": true,
+        "all_palette_bindings_updated": true,
+        "recolored_render_alpha": true,
+        "source_unchanged": true,
+        "methodology_plan_and_svg_match": true,
+        "recolored_methodology_still_matches": true
+      },
+      "named_groups": 19,
+      "palette_bindings": 38,
+      "preview_render": {
+        "ok": true,
+        "mode": "RGBA",
+        "size": [
+          1320,
+          600
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edge_alpha_max": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonempty_foreground": true,
+        "content_bounds": [
+          40,
+          27,
+          1290,
+          564
+        ],
+        "errors": []
+      },
+      "recolor_geometry_sha256": "0ad9b1b7c50cfb519891e458ccce330da4696a3b94f8b67f6a76cd89e7faf387"
+    },
+    {
+      "case": "deseq2-method",
+      "input": "assets/examples/deseq2-method/asset.svg",
+      "source_sha256": "fd89db97bf3f9daea4acf755935dd2f90e25906bf7ab28f7fd4a3573681c84b3",
+      "ok": true,
+      "assertions": {
+        "native_structure": true,
+        "supplied_preview_alpha": true,
+        "preview_render_alpha": true,
+        "recolor_geometry_unchanged": true,
+        "all_palette_bindings_updated": true,
+        "recolored_render_alpha": true,
+        "source_unchanged": true,
+        "methodology_plan_and_svg_match": true,
+        "recolored_methodology_still_matches": true,
+        "paper_source_excerpts_verified": true,
+        "native_svg_reproduces_from_semantic_plan": true
+      },
+      "named_groups": 19,
+      "palette_bindings": 46,
+      "preview_render": {
+        "ok": true,
+        "mode": "RGBA",
+        "size": [
+          1600,
+          1000
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edge_alpha_max": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonempty_foreground": true,
+        "content_bounds": [
+          48,
+          37,
+          1552,
+          951
+        ],
+        "errors": []
+      },
+      "recolor_geometry_sha256": "4fb46fd2c7f6c153bce9b62cf0e3ed0cd1cb7fe2a2a139e3a66364198e67ec74"
+    }
+  ],
+  "baseline_output": "missing evidence: no matched model-generation comparison; fixture preservation is checked separately by validate_package.py",
+  "human_blind_review": "missing evidence",
+  "editor_application_import": "missing evidence",
+  "scientific_validity": "generic schematic scope; automated tests do not certify scientific accuracy",
+  "claim_scope": "Recorded examples and deterministic tools only; no provider quality or superiority claim."
+}

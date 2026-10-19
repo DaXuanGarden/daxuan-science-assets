@@ -1,0 +1,14 @@
+{
+  "version": "0.5.1",
+  "ok": true,
+  "scope": "Reviewed local publication candidate; remote evidence attached after actual execution",
+  "reports": [
+    "publication-checks.json",
+    "publication-review.json",
+    "publication-fixtures.json",
+    "publication-trust.md",
+    "publication-report.md"
+  ],
+  "image_generation_requests": 0,
+  "public_release_track": "https://github.com/DaXuanGarden/daxuan-science-assets/releases/tag/v0.5.1"
+}

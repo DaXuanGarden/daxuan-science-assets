@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 140 360" width="140" height="360" role="img" aria-labelledby="title description">
+  <title id="title">Generic replicated chromosome</title>
+  <desc id="description">One generic replicated chromosome with two joined sister chromatids, native editable paths, transparent canvas, medium blue body and dark contours. No gene coordinates, sequence, disease specificity or effect direction is encoded. Not to scale.</desc>
+  <defs>
+    <linearGradient id="chromatid-tone-left" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#84A9C0" data-stop-role="body_shadow" />
+      <stop offset="18%" stop-color="#91B2C8" data-stop-role="body" />
+      <stop offset="100%" stop-color="#91B2C8" data-stop-role="body" />
+    </linearGradient>
+    <linearGradient id="chromatid-tone-right" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#91B2C8" data-stop-role="body" />
+      <stop offset="82%" stop-color="#91B2C8" data-stop-role="body" />
+      <stop offset="100%" stop-color="#9DBBCF" data-stop-role="body_light" />
+    </linearGradient>
+  </defs>
+  <metadata id="asset-provenance">{"skill": "daxuan-science-assets", "version": "0.2.0", "vector_route": "accepted native silhouette retained after live image-reference comparison", "image_reference": "reference.png", "image_source": "configured relay", "model": "gpt-image-2", "image_generation_verified": true, "raster_embedding": false}</metadata>
+  <g id="artwork" transform="translate(-130 -395)">
+    <g id="enlarged-chromosome">
+      <g id="sister-chromatid-left">
+        <path d="M 191 547 C 173 524 156 482 152 448 C 149 427 152 410 164 410 C 177 410 184 423 181 446 C 178 481 183 520 200 547 C 186 580 182 620 180 658 C 179 688 182 721 171 733 C 160 746 145 739 145 722 C 145 675 153 612 174 568 C 179 557 185 550 191 547 Z" fill="url(#chromatid-tone-left)" stroke="#5F91AF" stroke-width="1.6" stroke-linejoin="round" data-stroke-role="outline" />
+        <path d="M 161 426 C 160 433 160 439 161 445" fill="none" stroke-width="1.6" stroke-linecap="round" stroke="#DCE8EF" data-stroke-role="highlight" />
+      </g>
+      <g id="sister-chromatid-right">
+        <path d="M 191 547 C 173 524 156 482 152 448 C 149 427 152 410 164 410 C 177 410 184 423 181 446 C 178 481 183 520 200 547 C 186 580 182 620 180 658 C 179 688 182 721 171 733 C 160 746 145 739 145 722 C 145 675 153 612 174 568 C 179 557 185 550 191 547 Z" transform="translate(400 0) scale(-1 1)" fill="url(#chromatid-tone-right)" stroke="#5F91AF" stroke-width="1.6" stroke-linejoin="round" data-stroke-role="outline" />
+        <path d="M 236 426 C 238 433 238 439 237 445" fill="none" stroke-width="1.6" stroke-linecap="round" stroke="#DCE8EF" data-stroke-role="highlight" />
+      </g>
+      <g id="centromere">
+        <ellipse cx="200" cy="549" rx="12.4" ry="9.1" fill="#84A9C0" transform="rotate(-13 200 549)" data-fill-role="body_shadow" stroke="#5F91AF" data-stroke-role="outline" stroke-width=".8" />
+        <path d="M 191 545 Q 201 537 208 546" fill="none" stroke="#DCE8EF" stroke-width="1.2" stroke-linecap="round" data-stroke-role="highlight" />
+      </g>
+    </g>
+  </g>
+</svg>

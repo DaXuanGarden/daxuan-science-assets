@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0",
+  "status": "final",
+  "diagram_kind": "process",
+  "title": "Paired assay workflow",
+  "scope": "A proposed overview of two inputs entering one assay, followed by comparison and a readout. No measured values, assay type, parameters, or performance claims.",
+  "provenance_summary": "Authored teaching example of a preliminary idea. No paper was supplied or consulted; all method content is proposed.",
+  "target_width_mm": 180,
+  "content_budget": {
+    "detail": "overview",
+    "max_nodes": 5,
+    "max_label_words": 3,
+    "panels": 1
+  },
+  "sources": [
+    {
+      "id": "idea-1",
+      "kind": "user_brief",
+      "access": "user_statement",
+      "citation": "Authored fixture brief for demonstrating methodology mode; not an actual user research protocol.",
+      "text": "Illustrative idea for a paired assay: send a sample and a control into the same assay workflow, then compare signals and produce an assay readout. Show no measured results. This is a proposed teaching example, not a validated protocol."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "sample",
+      "svg_id": "node-sample",
+      "label": "Sample",
+      "kind": "input",
+      "support": {
+        "status": "proposed",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "idea-1",
+            "locator": "Fixture brief, paragraph 1"
+          }
+        ],
+        "note": "Authored teaching idea only; no published method or measured result is claimed."
+      }
+    },
+    {
+      "id": "control",
+      "svg_id": "node-control",
+      "label": "Control",
+      "kind": "input",
+      "support": {
+        "status": "proposed",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "idea-1",
+            "locator": "Fixture brief, paragraph 1"
+          }
+        ],
+        "note": "Authored teaching idea only; no published method or measured result is claimed."
+      }
+    },
+    {
+      "id": "assay",
+      "svg_id": "node-assay",
+      "label": "Paired assay",
+      "kind": "process",
+      "support": {
+        "status": "proposed",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "idea-1",
+            "locator": "Fixture brief, paragraph 1"
+          }
+        ],
+        "note": "Authored teaching idea only; no published method or measured result is claimed."
+      }
+    },
+    {
+      "id": "compare",
+      "svg_id": "node-compare",
+      "label": "Compare signals",
+      "kind": "process",
+      "support": {
+        "status": "proposed",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "idea-1",
+            "locator": "Fixture brief, paragraph 1"
+          }
+        ],
+        "note": "Authored teaching idea only; no published method or measured result is claimed."
+      }
+    },
+    {
+      "id": "readout",
+      "svg_id": "node-readout",
+      "label": "Assay readout",
+      "kind": "output",
+      "support": {
+        "status": "proposed",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "idea-1",
+            "locator": "Fixture brief, paragraph 1"
+          }
+        ],
+        "note": "Authored teaching idea only; no published method or measured result is claimed."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "sample-assay",
+      "svg_id": "edge-sample-assay",
+      "from": "sample",
+      "to": "assay",
+      "relation": "dataflow",
+      "support": {
+        "status": "proposed",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "idea-1",
+            "locator": "Fixture brief, paragraph 1"
+          }
+        ],
+        "note": "Authored teaching idea only; no published method or measured result is claimed."
+      }
+    },
+    {
+      "id": "control-assay",
+      "svg_id": "edge-control-assay",
+      "from": "control",
+      "to": "assay",
+      "relation": "dataflow",
+      "support": {
+        "status": "proposed",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "idea-1",
+            "locator": "Fixture brief, paragraph 1"
+          }
+        ],
+        "note": "Authored teaching idea only; no published method or measured result is claimed."
+      }
+    },
+    {
+      "id": "assay-compare",
+      "svg_id": "edge-assay-compare",
+      "from": "assay",
+      "to": "compare",
+      "relation": "dataflow",
+      "support": {
+        "status": "proposed",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "idea-1",
+            "locator": "Fixture brief, paragraph 1"
+          }
+        ],
+        "note": "Authored teaching idea only; no published method or measured result is claimed."
+      }
+    },
+    {
+      "id": "compare-readout",
+      "svg_id": "edge-compare-readout",
+      "from": "compare",
+      "to": "readout",
+      "relation": "dataflow",
+      "support": {
+        "status": "proposed",
+        "claim_level": "overview",
+        "evidence": [
+          {
+            "source_id": "idea-1",
+            "locator": "Fixture brief, paragraph 1"
+          }
+        ],
+        "note": "Authored teaching idea only; no published method or measured result is claimed."
+      }
+    }
+  ],
+  "open_questions": []
+}

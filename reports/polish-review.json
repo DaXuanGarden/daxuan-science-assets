@@ -1,0 +1,222 @@
+{
+  "review_kind": "Independent agent editorial acceptance review",
+  "scope": "English identity and comprehension only. Preserve native SVG geometry, palettes, and existing tool interfaces.",
+  "baseline": "$FROZEN_BASELINE",
+  "candidate": "$PACKAGE",
+  "baseline_total": 73,
+  "candidate_total": 85,
+  "score_interpretation": "Editorial judgments of English-package readiness under the nine Luban weights. These are not human blind-review results, model benchmarks, measured English-user comprehension, or evidence of better scientific artwork.",
+  "dimensions": [
+    {
+      "name": "Frontmatter and triggers",
+      "weight": 7,
+      "baseline": 5,
+      "candidate": 6,
+      "evidence": [
+        "Baseline SKILL.md:3 combines English task/exclusion text with Chinese subject coverage; SKILL.md:9 and agents display names use a Chinese identity.",
+        "Candidate SKILL.md:2-11 retains the install identifier, gives an English display name, and describes subjects, input types, and exclusions in English. agents/openai.yaml and agents/interface.yaml agree on Daxuan Scientific Assets.",
+        "Candidate validate_package.py rerun passed 20/20 lexical smoke cases."
+      ],
+      "limitation": "Lexical cases are configuration checks; no model-routing accuracy was measured."
+    },
+    {
+      "name": "Workflow clarity",
+      "weight": 12,
+      "baseline": 7,
+      "candidate": 10,
+      "evidence": [
+        "Both versions contain scope, brief, routing, drawing, inspection, and delivery steps. Baseline SKILL.md:22-30 expresses their operative instructions in Chinese.",
+        "Candidate SKILL.md:22-27 provides English instructions; step 2 explicitly resolves installed script paths and says initialization creates no artwork.",
+        "Candidate README.md:39-53 supplies an English chromosome prompt and distinguishes rendering a fixture from drawing a new asset."
+      ],
+      "limitation": "Two reviewer walkthroughs are dry_run instruction analyses; neither is a new agent drawing run or a timed human comprehension test."
+    },
+    {
+      "name": "Failure encoding",
+      "weight": 12,
+      "baseline": 8,
+      "candidate": 10,
+      "evidence": [
+        "Baseline already preserves originals, rejects unsupported scope, and documents missing renderers, palettes, and image backends; those explanations are predominantly Chinese.",
+        "Candidate SKILL.md:24 and references/codex-image.md specify native-vector fallback, model-only request behavior, no placeholder substitution, and no hidden retry.",
+        "Candidate README.md:104-110 gives English problem/action pairs. tests/test_asset_tool.py passed unknown-role-before-write, inline-style conflict, overwrite, external-input-before-render, and dry-run-no-request cases in both versions."
+      ],
+      "limitation": "Failure recovery is verified on deterministic test inputs; rendering is explicitly an asset contract, not a complete hostile-file sandbox."
+    },
+    {
+      "name": "Checkpoints",
+      "weight": 6,
+      "baseline": 5,
+      "candidate": 5,
+      "evidence": [
+        "Both SKILL.md versions require structure checking, actual PNG rendering, visual inspection, and separate science review.",
+        "Candidate SKILL.md:26 and references/asset-design.md:32 state intended-size or approximately 200 px inspection; references/asset-design.md:36 specifies changing approach after three failed rounds.",
+        "Both fixture evaluators produced actual 200 px renders with nonempty foreground and zero corner/edge alpha."
+      ],
+      "limitation": "The same substantive checkpoints existed in baseline references. No increase is awarded merely for translation; scientific and target-editor checks remain manual."
+    },
+    {
+      "name": "Executable specificity",
+      "weight": 17,
+      "baseline": 12,
+      "candidate": 15,
+      "evidence": [
+        "Both packages have working init, check, render, and recolor interfaces. Baseline README and reference command explanations require Chinese comprehension.",
+        "Candidate SKILL.md:23 and references/svg-contract.md give English, package-relative commands and explicitly identify the agent drawing step.",
+        "Candidate README.md:70-77 uses the real bundled pipette path for recoloring and gives the following render command; six-digit hex editing, named roles, new filenames, and geometry checks are explained."
+      ],
+      "limitation": "This is an authoring workflow rather than a one-command SVG generator; the reviewer did not execute fresh artwork creation."
+    },
+    {
+      "name": "Resource integration",
+      "weight": 4,
+      "baseline": 3,
+      "candidate": 3,
+      "evidence": [
+        "Both packages link the same four design, SVG, image-reference, and trust resources from their entrypoint.",
+        "Candidate package validation found no broken local Markdown targets, and the English references explain named groups, roles, scope, and image-adapter limitations."
+      ],
+      "limitation": "The resource architecture was already present. Peer-source research and external runtime integration were not independently repeated in this scoped review."
+    },
+    {
+      "name": "Architecture",
+      "weight": 12,
+      "baseline": 9,
+      "candidate": 11,
+      "evidence": [
+        "Baseline has one root SKILL.md, separate references/scripts/assets/evals/tests/reports, but mixes a Chinese display identity with an English installation identifier.",
+        "Candidate validation confirms one root entrypoint, matching directory/frontmatter/manifest names and versions, English display identity across SKILL/README/agent adapters, zero CJK characters in scanned package text, and relative resource links.",
+        "Candidate SKILL.md is 4907 bytes versus baseline 5288 bytes, while the README exposes working examples and package roles."
+      ],
+      "limitation": "The CJK scan is a narrow language guard, not a full natural-language classifier. Installation and final report/card completion are outside this score."
+    },
+    {
+      "name": "Runtime behavior",
+      "weight": 23,
+      "baseline": 18,
+      "candidate": 18,
+      "evidence": [
+        "Independent reruns: both packages passed 22/22 unit tests with no skips and 3/3 fixture evaluations. All seven assertions per fixture passed, including source unchanged, all bound colors updated, geometry unchanged, and transparent recolored render.",
+        "The two core scripts scripts/asset_tool.py and scripts/codex_reference.py are byte-identical across baseline/candidate; the three palette.json files and all six existing SVG/PNG files are also byte-identical.",
+        "Pipette evaluation reports 6 named groups, 21 bindings, and geometry digest ed0f082168bf4da27dd5bf736c5f3ea6c6efba5b184f92cbcd102c7b6452431b in both versions."
+      ],
+      "limitation": "Equal runtime score deliberately reflects preservation, not improvement. No live image request, fresh drawing run, human science review, or editor import/edit/reopen was performed; those optional or broader claims receive no credit."
+    },
+    {
+      "name": "Negatives and boundaries",
+      "weight": 7,
+      "baseline": 6,
+      "candidate": 7,
+      "evidence": [
+        "Baseline already prohibits unsupported anatomy/mechanisms, complete flowcharts, embedded PNG delivery, and unauthorized attachment instructions.",
+        "Candidate SKILL.md:15-18,37-41 and references/trust.md make the same boundaries readable in English; the trust reference explicitly distinguishes independent agent feedback from human blind review.",
+        "Candidate references/codex-image.md also states the adapter accepts prompt files and does not upload a reference image, avoiding an unsupported image-conditioned-generation interpretation."
+      ],
+      "limitation": "Boundaries are instruction and fixture evidence; this is not an adversarial security audit."
+    }
+  ],
+  "walkthroughs": [
+    {
+      "id": "english-chromosome-from-brief",
+      "mode": "dry_run",
+      "prompt": "Create a generic replicated chromosome in warm gold as a transparent, native editable SVG. Separate sister chromatids and the centromeric region; do not add text, arrows, gene loci, or quantitative scales.",
+      "baseline_comprehension": {
+        "outcome": "The workflow supports the task, but an English-only reader must translate the operative scope, drawing, palette, inspection, and delivery instructions. The baseline defaults conversation to Chinese. The command itself and generated brief schema are already English-compatible.",
+        "evidence": [
+          "Baseline SKILL.md:11,22-30,34-35",
+          "Baseline references/asset-design.md chromosome row and generic-scope rule",
+          "Baseline scripts/asset_tool.py:229-241 already emits English brief/prompt fields."
+        ]
+      },
+      "candidate_comprehension": {
+        "outcome": "The reader can identify the English name, select direct native construction, distinguish initialization from artwork, and find the final inspection/delivery steps without translation.",
+        "evidence": [
+          "Candidate README.md:41-44 closely matches this prompt.",
+          "Candidate SKILL.md:22-27 explicitly scopes, initializes, routes, draws, inspects, and delivers.",
+          "Candidate references/asset-design.md:19,24 prohibit inferred loci and unsupported specific structures."
+        ]
+      },
+      "planned_steps": [
+        "Resolve the installed skill directory and run: python3 scripts/asset_tool.py init chromosome --subject \"Generic replicated chromosome with two sister chromatids and a centromeric region; no labels or gene loci\" --outdir figures/assets/chromosome --palette warm-gold",
+        "Complete brief.json invariants, simplifications, sources, and editable parts. Select direct native SVG authoring; no image request is needed.",
+        "Draw native paths under stable named chromatid/centromeric groups; bind explicit warm-gold colors through the documented data-*-role attributes.",
+        "Run check and render; view the real transparent PNG at intended size or approximately 200 px, then deliver SVG, PNG, brief, palette, and QA."
+      ],
+      "dry_run_verdict": "Candidate improves English instruction comprehension. Expected artwork capability is unchanged; no new artwork was produced by this walkthrough.",
+      "supporting_runtime_evidence": "Both existing chromosome fixtures passed local structure/alpha/recolor checks: 5 named groups, 25 bindings, identical SHA-256 5e2315f7c55dc5120bff10296c910cbbb6edf8611ef83544425069616981bc4d. This is fixture evidence, not a new prompt output."
+    },
+    {
+      "id": "english-pipette-recolor",
+      "mode": "dry_run",
+      "prompt": "Recolor the existing pipette SVG to teal while preserving all geometry, positions, opacity, named parts, and the original file.",
+      "baseline_comprehension": {
+        "outcome": "A capable multilingual agent can follow the baseline; the recolor command and tool behavior are already sound. An English-only reader must translate the role, palette-edit, preservation, and failure instructions and adapt generic output paths to a real SVG.",
+        "evidence": [
+          "Baseline SKILL.md:34-36",
+          "Baseline README Outputs/adjustments commands use output/asset.svg, with surrounding instructions in Chinese.",
+          "Baseline references/svg-contract.md explains the geometry digest and failure behavior in Chinese."
+        ]
+      },
+      "candidate_comprehension": {
+        "outcome": "The English instructions directly identify the bundled pipette example, six-digit palette colors, role tags, non-paint geometry comparison, fresh output version, and subsequent render.",
+        "evidence": [
+          "Candidate README.md:70-77",
+          "Candidate SKILL.md:31-33",
+          "Candidate references/svg-contract.md Commands and Palette roles sections"
+        ]
+      },
+      "planned_steps": [
+        "Keep the existing SVG and palette untouched. Copy its palette to the selected output directory and change the required role values to the documented teal preset.",
+        "Run: python3 scripts/asset_tool.py recolor assets/examples/pipette/asset.svg --palette output/palette-teal.json --out output/pipette-teal.svg",
+        "Inspect the reported geometry_preserved result; compare non-paint structure/source hash, then render the new file and view the preview.",
+        "If roles are missing or an inline style conflicts, resolve that binding explicitly before recoloring; select a fresh path if an output already exists."
+      ],
+      "dry_run_verdict": "Candidate improves English instruction comprehension and concrete example discovery. The preservation behavior is unchanged.",
+      "supporting_runtime_evidence": "Both actual fixture evaluators recolored the pipette to teal in temporary directories and verified all 21 bindings, equal geometry digest, transparent render, and unchanged source. This local deterministic probe is separate from the instruction dry_run."
+    }
+  ],
+  "runtime_evidence": {
+    "package_validation": "reports/independent/package-validation.json",
+    "baseline_fixture_results": "reports/independent/baseline-fixtures.json",
+    "candidate_fixture_results": "reports/independent/candidate-fixtures.json",
+    "candidate_language": {
+      "cjk_files": 0,
+      "cjk_characters": 0
+    },
+    "baseline_language": {
+      "cjk_files": 25,
+      "cjk_characters": 9635
+    },
+    "candidate_trigger_smoke": {
+      "passed": 20,
+      "total": 20,
+      "kind": "lexical configuration only"
+    },
+    "baseline_tests": {
+      "passed": 22,
+      "skipped": 0
+    },
+    "candidate_tests": {
+      "passed": 22,
+      "skipped": 0
+    },
+    "fixture_results_each": {
+      "passed": 3,
+      "total": 3
+    },
+    "existing_native_svg_and_png_byte_identical": 6,
+    "existing_palettes_byte_identical": 3,
+    "core_tool_scripts_byte_identical": 2,
+    "visual_observation": "The reviewer opened the actual existing chromosome and pipette PNGs. Their generic silhouettes, gold shading, isolated canvas, and absence of labels/arrows are consistent with the stated fixture scope. Alpha comes from actual PNG inspection, not the viewer background."
+  },
+  "blockers": [],
+  "caveats": [
+    "No blocking regression found within English identity/comprehension and preservation scope.",
+    "Installation and final report/card were excluded from the independent score. After the checks, the parent reported successful candidate isolation installation and five command walkthroughs; that report was not independently rerun or counted here.",
+    "README first-screen comprehension was an editorial reading check, not a measured 10-second human test.",
+    "The walkthroughs are explicitly dry_run. Actual runtime probes covered deterministic tools and recorded fixtures only; no network, image model, credential read, installed helper execution, or editor workflow was used.",
+    "Scores do not establish superior images, scientific correctness, public-release readiness, or model-routing quality. The runtime dimension remains equal.",
+    "Validation occurred while the parent was finalizing ancillary documents/showcase artifacts. Revalidate the final frozen delivery after those edits; this review covers the inspected entrypoint/references/core tools and preserved fixtures."
+  ],
+  "recommendation": "Retain the English candidate for the authorized English identity/comprehension change. The two dry_run instruction walkthroughs are clearer in English, and independently rerun deterministic checks show preservation. Revalidate the final assembled handoff after ancillary report/card edits; installation evidence is tracked separately by the parent."
+}

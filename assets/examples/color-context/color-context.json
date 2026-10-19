@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "status": "final",
+  "precedence": [
+    "explicit_user_rules",
+    "target_figure",
+    "manuscript",
+    "reference_author"
+  ],
+  "sources": [
+    {
+      "id": "reference",
+      "scope": "reference_author",
+      "access": "source_snapshot",
+      "citation": "Daxuan bundled gold chromosome as a stand-in reference; no third-party author palette supplied",
+      "snapshot": "reference-colors.json",
+      "snapshot_sha256": "0616d519d70a56b51f4792c8b15830934da3a083c630e58d9f32784ebc4a88f1"
+    },
+    {
+      "id": "target",
+      "scope": "target_figure",
+      "access": "source_snapshot",
+      "citation": "Daxuan bundled proposed methodology example, used as the destination color context",
+      "snapshot": "target-colors.json",
+      "snapshot_sha256": "2084b55f43ae61ea4d5e22d97cb3ef4994e1b361e801e63f2b6fd0c15ac4dfc9"
+    },
+    {
+      "id": "brief",
+      "scope": "explicit_user_rules",
+      "access": "source_snapshot",
+      "citation": "Authored demonstration rule retaining a blue body",
+      "snapshot": "rules.json",
+      "snapshot_sha256": "776d48ec589349dfe743f6fbc7f25f8e9c2df6b70305fbd895c748fe74f5598e"
+    }
+  ],
+  "assignments": {
+    "body": {
+      "hex": "#91B2C8",
+      "basis": "explicit",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "brief"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "body_light": {
+      "hex": "#9DBBCF",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "body_shadow": {
+      "hex": "#84A9C0",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "outline": {
+      "hex": "#5F91AF",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "detail": {
+      "hex": "#B8C8D0",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "highlight": {
+      "hex": "#DCE8EF",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "accent": {
+      "hex": "#BB748B",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "muted": {
+      "hex": "#B8C8D0",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "field": {
+      "hex": "#E8F0F4",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "guide": {
+      "hex": "#8E9DA5",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    },
+    "text": {
+      "hex": "#39454B",
+      "basis": "exact_paint",
+      "meaning": "Generic structural or annotation role; no disease or result meaning",
+      "source_ids": [
+        "target"
+      ],
+      "note": "Selected from the destination palette; the gold reference colors do not override the brief. Some roles are reserved."
+    }
+  },
+  "locked_colors": {
+    "body": "#91B2C8"
+  },
+  "contrast_pairs": [
+    {
+      "foreground": "text",
+      "background": "#FFFFFF",
+      "min_ratio": 4.5
+    }
+  ]
+}

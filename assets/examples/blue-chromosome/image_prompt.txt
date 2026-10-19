@@ -1,0 +1,5 @@
+Create ONE isolated generic replicated chromosome as a visual reference for a scientific flowchart asset.
+Two joined sister chromatids form four smooth, gently curved arms, with a single understated centromeric region. Longer lower arms; clean recognizable silhouette. Show one chromosome only, not a nucleus, cell, collection, DNA strand, panel or flowchart.
+Use medium-value solid structural blue #91B2C8, a thin darker contour #5F91AF, subtle near-blue two-tone modeling, and only a few tiny highlights #DCE8EF. Matte scientific illustration, no metal, gloss, drop shadow, glow, bright rim or global transparency. Blue is a generic structural color, not a disease or effect-direction code.
+Center the whole subject with generous margins. No text, letters, labels, numbers, logo, watermark, target boxes, target rings, arrows, checkerboard, color swatches, card, border or surrounding scene.
+Use a perfectly plain white reference background. This is a visual reference; final delivery will be rebuilt as native editable SVG and rendered to a truly transparent PNG. Do not invent gene coordinates or locus markers.

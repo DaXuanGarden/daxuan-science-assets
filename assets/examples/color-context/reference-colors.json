@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "source_name": "asset.svg",
+  "source_sha256": "5e2315f7c55dc5120bff10296c910cbbb6edf8611ef83544425069616981bc4d",
+  "mode": "literal_svg_paints",
+  "crop_xywh": null,
+  "chromatic_colors": [
+    {
+      "hex": "#B39857",
+      "count": 6,
+      "share_of_counted": 0.24
+    },
+    {
+      "hex": "#F2E0AD",
+      "count": 5,
+      "share_of_counted": 0.2
+    },
+    {
+      "hex": "#D4B66C",
+      "count": 4,
+      "share_of_counted": 0.16
+    },
+    {
+      "hex": "#E3C98A",
+      "count": 3,
+      "share_of_counted": 0.12
+    },
+    {
+      "hex": "#C4B99F",
+      "count": 2,
+      "share_of_counted": 0.08
+    },
+    {
+      "hex": "#EEE9DE",
+      "count": 2,
+      "share_of_counted": 0.08
+    },
+    {
+      "hex": "#AC8E4C",
+      "count": 2,
+      "share_of_counted": 0.08
+    },
+    {
+      "hex": "#BDA67B",
+      "count": 1,
+      "share_of_counted": 0.04
+    }
+  ],
+  "neutral_colors": [],
+  "scope": "Counts of explicit fill/stroke/stop-color paints, including inline styles; not rendered area, computed styles, or color meaning."
+}

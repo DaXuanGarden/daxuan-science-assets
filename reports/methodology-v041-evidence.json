@@ -1,0 +1,38 @@
+{
+  "version": "0.4.1",
+  "ok": true,
+  "change_scope": "Documentation, input template, and version/evidence metadata only. No script changes.",
+  "practical_validation": {
+    "case": "External user-owned compact single-cell/GWAS methodology illustration; working inputs and artwork are not bundled",
+    "target_width_mm": 84,
+    "viewbox_width": 840,
+    "smallest_label_pt": 8.22,
+    "source_mapping_checks": "5 nodes and 4 dataflow edges verified against hashed local excerpts",
+    "actual_alpha_png": [
+      2520,
+      750
+    ],
+    "separate_slot_proof": [
+      810,
+      241
+    ],
+    "palette_recolor_geometry_preserved": true,
+    "native_vector": true,
+    "image_generation_requests": 0
+  },
+  "unit_tests": {
+    "run_this_revision": true,
+    "passed": 82,
+    "failed": 0
+  },
+  "frozen_v040_preservation": {
+    "all_code_tests_and_example_files_byte_identical": true,
+    "compared_files": 51
+  },
+  "limitations": [
+    "Source semantics and fit reviewed by the authoring agent, not independently",
+    "No editor import/edit/reopen validation",
+    "No new live image-generation validation",
+    "Custom SVG font sizes reviewed explicitly; not enforced by the semantic checker"
+  ]
+}

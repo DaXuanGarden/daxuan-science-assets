@@ -1,0 +1,744 @@
+{
+  "ok": true,
+  "complete": true,
+  "researched_at": "2026-10-19",
+  "queries": [
+    "scientific svg assets",
+    "transparent scientific icons",
+    "semantic svg editing"
+  ],
+  "metric_semantics": {
+    "skills_sh_installs": "ecosystem install telemetry; not ratings or correctness",
+    "skillsmp_repo_stars": "GitHub repository stars; not installs, ratings, or skill-specific quality",
+    "cross_catalog_score": "not calculated; metrics remain separate"
+  },
+  "query_runs": [
+    {
+      "query": "scientific svg assets",
+      "skills_sh": "ok",
+      "skillsmp": "ok",
+      "skills_sh_candidates": 2,
+      "skillsmp_candidates": 5
+    },
+    {
+      "query": "transparent scientific icons",
+      "skills_sh": "ok",
+      "skillsmp": "ok",
+      "skills_sh_candidates": 1,
+      "skillsmp_candidates": 9
+    },
+    {
+      "query": "semantic svg editing",
+      "skills_sh": "ok",
+      "skillsmp": "ok",
+      "skills_sh_candidates": 1,
+      "skillsmp_candidates": 9
+    }
+  ],
+  "candidate_family_count": 26,
+  "candidates": [
+    {
+      "family_key": "neuromechanist/research-skills:transparent-icons",
+      "queries": [
+        "transparent scientific icons"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "transparent scientific icons",
+        "owner_repo": "neuromechanist/research-skills",
+        "skill_name": "transparent-icons",
+        "family_key": "neuromechanist/research-skills:transparent-icons",
+        "skills_sh_installs": 26,
+        "skills_sh_installs_display": "26",
+        "skills_sh_url": "https://skills.sh/neuromechanist/research-skills/transparent-icons"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "yuhang-xiao/scientific-figure:scientific-figure-workflow",
+      "queries": [
+        "scientific svg assets"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "scientific svg assets",
+        "owner_repo": "yuhang-xiao/scientific-figure",
+        "skill_name": "scientific-figure-workflow",
+        "family_key": "yuhang-xiao/scientific-figure:scientific-figure-workflow",
+        "skills_sh_installs": 10,
+        "skills_sh_installs_display": "10",
+        "skills_sh_url": "https://skills.sh/yuhang-xiao/scientific-figure/scientific-figure-workflow"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "rimagination/scansci-svg:scansci-svg",
+      "queries": [
+        "scientific svg assets"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "scientific svg assets",
+        "owner_repo": "rimagination/scansci-svg",
+        "skill_name": "scansci-svg",
+        "family_key": "rimagination/scansci-svg:scansci-svg",
+        "skills_sh_installs": 3,
+        "skills_sh_installs_display": "3",
+        "skills_sh_url": "https://skills.sh/rimagination/scansci-svg/scansci-svg"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "avroracl/image-to-css-art:image-to-css-art",
+      "queries": [
+        "semantic svg editing"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "semantic svg editing",
+        "owner_repo": "avroracl/image-to-css-art",
+        "skill_name": "image-to-css-art",
+        "family_key": "avroracl/image-to-css-art:image-to-css-art",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/avroracl/image-to-css-art/image-to-css-art"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:accessibility",
+      "queries": [
+        "semantic svg editing"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "accessibility",
+        "author": "affaan-m",
+        "description": "Design, implement, and audit accessible UI to WCAG 2.2 Level AA across Web, iOS, and Android — semantic ARIA roles and labels, accessibility traits and hints, focus management, contrast, target size, and screen-reader support. Use when building or auditing UI for accessibility compliance, keyboard navigation, or screen-reader support.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/pi/core/skills/accessibility",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/pi-core-skills-accessibility",
+        "repo_stars": 279616,
+        "catalog_updated_at": "2026-09-30T01:24:05+00:00",
+        "source_key": "affaan-m/ecc:pi/core/skills/accessibility",
+        "family_key": "affaan-m/ecc:accessibility",
+        "aliases": [],
+        "query": "semantic svg editing"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:context-and-decisions",
+      "queries": [
+        "semantic svg editing"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "context-and-decisions",
+        "author": "affaan-m",
+        "description": "Govern stable domain context with a narrowly scoped CONTEXT.md when needed, and route hard-to-reverse decisions to ECC's existing architecture-decision-records skill. Use when domain terms require repeated explanation, one term has multiple meanings, unclear language causes module-boundary mistakes, or domain semantics must remain separate from architecture decisions.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/.agents/skills/context-and-decisions",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/agents-skills-context-and-decisions",
+        "repo_stars": 279616,
+        "catalog_updated_at": "2026-10-02T08:31:26+00:00",
+        "source_key": "affaan-m/ecc:.agents/skills/context-and-decisions",
+        "family_key": "affaan-m/ecc:context-and-decisions",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/pi/core/skills/context-and-decisions"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/pi/core/skills/context-and-decisions"
+          }
+        ],
+        "query": "semantic svg editing"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:frontend-a11y",
+      "queries": [
+        "semantic svg editing"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "frontend-a11y",
+        "author": "affaan-m",
+        "description": "Accessibility patterns for React and Next.js — semantic HTML, ARIA attributes, form labeling, keyboard navigation, focus management, and screen reader support. Use when building or reviewing forms, modals, dropdowns, tooltips, or tabs, fixing a11y lint or code-review findings, or wiring up keyboard navigation and focus management.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/pi/core/skills/frontend-a11y",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/pi-core-skills-frontend-a11y",
+        "repo_stars": 279616,
+        "catalog_updated_at": "2026-09-30T01:24:05+00:00",
+        "source_key": "affaan-m/ecc:pi/core/skills/frontend-a11y",
+        "family_key": "affaan-m/ecc:frontend-a11y",
+        "aliases": [],
+        "query": "semantic svg editing"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-db-pubmed-database",
+      "queries": [
+        "scientific svg assets"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-db-pubmed-database",
+        "author": "affaan-m",
+        "description": "Direct PubMed and NCBI E-utilities search workflows for biomedical literature, MeSH queries, PMID lookup, citation retrieval, and API-backed literature monitoring. Use when a task needs biomedical literature from PubMed rather than general web search.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-db-pubmed-database",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-db-pubmed-database",
+        "repo_stars": 279616,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-db-pubmed-database",
+        "family_key": "affaan-m/ecc:scientific-db-pubmed-database",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-db-pubmed-database"
+          }
+        ],
+        "query": "scientific svg assets"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-db-uspto-database",
+      "queries": [
+        "scientific svg assets"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-db-uspto-database",
+        "author": "affaan-m",
+        "description": "USPTO patent and trademark data workflow for official record lookup, PatentSearch queries, TSDR checks, assignment data, and reproducible IP research logs. Use when a task needs official United States patent or trademark records from USPTO systems.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-db-uspto-database",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-db-uspto-database",
+        "repo_stars": 279616,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-db-uspto-database",
+        "family_key": "affaan-m/ecc:scientific-db-uspto-database",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-db-uspto-database"
+          }
+        ],
+        "query": "scientific svg assets"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-pkg-gget",
+      "queries": [
+        "scientific svg assets"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-pkg-gget",
+        "author": "affaan-m",
+        "description": "gget CLI and Python workflow for quick genomic database queries, sequence lookup, BLAST-style searches, enrichment checks, and reproducible bioinformatics evidence logs. Use when a task needs quick bioinformatics lookup across genomic reference databases with the gget CLI or Python package.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-pkg-gget",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-pkg-gget",
+        "repo_stars": 279616,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-pkg-gget",
+        "family_key": "affaan-m/ecc:scientific-pkg-gget",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-pkg-gget"
+          }
+        ],
+        "query": "scientific svg assets"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-thinking-literature-review",
+      "queries": [
+        "scientific svg assets"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-thinking-literature-review",
+        "author": "affaan-m",
+        "description": "Systematic literature-review workflow for academic, biomedical, technical, and scientific topics, including search planning, source screening, synthesis, citation checks, and evidence logging. Use when the task is to find, screen, synthesize, and cite a body of academic or technical literature.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-thinking-literature-review",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-thinking-literature-review",
+        "repo_stars": 279616,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-thinking-literature-review",
+        "family_key": "affaan-m/ecc:scientific-thinking-literature-review",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-thinking-literature-review"
+          }
+        ],
+        "query": "scientific svg assets"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-thinking-scholar-evaluation",
+      "queries": [
+        "scientific svg assets"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-thinking-scholar-evaluation",
+        "author": "affaan-m",
+        "description": "Structured scholarly-work evaluation for papers, proposals, literature reviews, methods sections, evidence quality, citation support, and research-writing feedback. Use when evaluating academic or scientific work — papers, proposals, methods sections, or evidence quality — against a repeatable rubric.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-thinking-scholar-evaluation",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-thinking-scholar-evaluation",
+        "repo_stars": 279616,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-thinking-scholar-evaluation",
+        "family_key": "affaan-m/ecc:scientific-thinking-scholar-evaluation",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-thinking-scholar-evaluation"
+          }
+        ],
+        "query": "scientific svg assets"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "morluto/rea:rea-tool-design",
+      "queries": [
+        "semantic svg editing"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "rea-tool-design",
+        "author": "morluto",
+        "description": "Design or change REA investigation tools, CLI/MCP contracts, provider capabilities, and Evidence semantics.",
+        "content_language": "en",
+        "github_url": "https://github.com/morluto/rea/tree/main/.agents/skills/rea-tool-design",
+        "skillsmp_url": "https://skillsmp.com/creators/morluto/rea/agents-skills-rea-tool-design",
+        "repo_stars": 273922,
+        "catalog_updated_at": "2026-10-09T21:30:02+00:00",
+        "source_key": "morluto/rea:.agents/skills/rea-tool-design",
+        "family_key": "morluto/rea:rea-tool-design",
+        "aliases": [],
+        "query": "semantic svg editing"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nousresearch/hermes-agent:chroma",
+      "queries": [
+        "semantic svg editing"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "chroma",
+        "author": "NousResearch",
+        "description": "Embedding database for RAG and semantic search.",
+        "content_language": "en",
+        "github_url": "https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/mlops/chroma",
+        "skillsmp_url": "https://skillsmp.com/creators/nousresearch/hermes-agent/optional-skills-mlops-chroma",
+        "repo_stars": 254141,
+        "catalog_updated_at": "2026-07-24T04:07:16+00:00",
+        "source_key": "nousresearch/hermes-agent:optional-skills/mlops/chroma",
+        "family_key": "nousresearch/hermes-agent:chroma",
+        "aliases": [],
+        "query": "semantic svg editing"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "deepseek-ai/deepseek-harness:dsh-official-plugin-artwork",
+      "queries": [
+        "semantic svg editing",
+        "transparent scientific icons"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "dsh-official-plugin-artwork",
+        "author": "deepseek-ai",
+        "description": "Draw and review official DeepSeek Harness plugin icons and optional feature previews, including experimental plugins. Use for package artwork and PluginArtwork glyphs; covers semantic references, proportions, lettering, transparency, localization, package metadata, and designer review. Not for toolbar or action icons.",
+        "content_language": "en",
+        "github_url": "https://github.com/deepseek-ai/deepseek-harness/tree/master/.agents/skills/dsh-official-plugin-artwork",
+        "skillsmp_url": "https://skillsmp.com/creators/deepseek-ai/deepseek-harness/agents-skills-dsh-official-plugin-artwork",
+        "repo_stars": 250596,
+        "catalog_updated_at": "2026-10-14T09:19:42+00:00",
+        "source_key": "deepseek-ai/deepseek-harness:.agents/skills/dsh-official-plugin-artwork",
+        "family_key": "deepseek-ai/deepseek-harness:dsh-official-plugin-artwork",
+        "aliases": [],
+        "query": "transparent scientific icons"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "twbs/bootstrap:bootstrap-color-system",
+      "queries": [
+        "semantic svg editing"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "bootstrap-color-system",
+        "author": "twbs",
+        "description": "Work with Bootstrap 6's color system in Sass and CSS. Use when customizing colors, adding or overriding theme colors, working with color modes, or using the color scales, semantic tokens, and theme classes.",
+        "content_language": "en",
+        "github_url": "https://github.com/twbs/bootstrap/tree/main/skills/bootstrap-color-system",
+        "skillsmp_url": "https://skillsmp.com/creators/twbs/bootstrap/skills-bootstrap-color-system",
+        "repo_stars": 174859,
+        "catalog_updated_at": "2026-08-31T04:15:55+00:00",
+        "source_key": "twbs/bootstrap:skills/bootstrap-color-system",
+        "family_key": "twbs/bootstrap:bootstrap-color-system",
+        "aliases": [],
+        "query": "semantic svg editing"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "openai/codex:imagegen",
+      "queries": [
+        "transparent scientific icons"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "imagegen",
+        "author": "openai",
+        "description": "Generate or edit raster images when the task benefits from AI-created bitmap visuals such as photos, illustrations, textures, sprites, mockups, or transparent-background cutouts. Use when Codex should create a brand-new image, transform an existing image, or derive visual variants from references, and the output should be a bitmap asset rather than repo-native code or vector. Do not use when the task is better handled by editing existing SVG/vector/code-native assets, extending an established icon or logo system, or building the visual directly in HTML/CSS/canvas.",
+        "content_language": "en",
+        "github_url": "https://github.com/openai/codex/tree/main/codex-rs/skills/src/assets/samples/imagegen",
+        "skillsmp_url": "https://skillsmp.com/creators/openai/codex/codex-rs-skills-src-assets-samples-imagegen",
+        "repo_stars": 128653,
+        "catalog_updated_at": "2026-09-01T17:47:29+00:00",
+        "source_key": "openai/codex:codex-rs/skills/src/assets/samples/imagegen",
+        "family_key": "openai/codex:imagegen",
+        "aliases": [],
+        "query": "transparent scientific icons"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "addyosmani/agent-skills:git-workflow-and-versioning",
+      "queries": [
+        "semantic svg editing"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "git-workflow-and-versioning",
+        "author": "addyosmani",
+        "description": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, splitting uncommitted work in a messy working tree into clean atomic commits, opening or reviewing a pull request (PR), pushing to a remote, or when you need to organize work across multiple parallel streams. Use when cutting a release, choosing a semantic version bump, tagging, or writing a changelog.",
+        "content_language": "en",
+        "github_url": "https://github.com/addyosmani/agent-skills/tree/main/skills/git-workflow-and-versioning",
+        "skillsmp_url": "https://skillsmp.com/creators/addyosmani/agent-skills/skills-git-workflow-and-versioning",
+        "repo_stars": 107075,
+        "catalog_updated_at": "2026-09-07T20:46:11+00:00",
+        "source_key": "addyosmani/agent-skills:skills/git-workflow-and-versioning",
+        "family_key": "addyosmani/agent-skills:git-workflow-and-versioning",
+        "aliases": [],
+        "query": "semantic svg editing"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:chat-motion-overlay",
+      "queries": [
+        "transparent scientific icons"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "chat-motion-overlay",
+        "author": "nexu-io",
+        "description": "Generate configurable chat motion overlays from a transcript or screenshot, including plain bubble scenes, app-style chat containers, optional device frames, preset or uploaded avatars, nickname display rules, and transparent-video-ready Remotion bundles. Use when Codex needs to create reusable short-form chat clips for Douyin, demo videos, story reenactments, social-message proof scenes, or embeddable alpha overlays for Hyperframe and Remotion workflows.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/skills/chat-motion-overlay",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/skills-chat-motion-overlay",
+        "repo_stars": 101372,
+        "catalog_updated_at": "2026-07-10T07:55:09+00:00",
+        "source_key": "nexu-io/open-design:skills/chat-motion-overlay",
+        "family_key": "nexu-io/open-design:chat-motion-overlay",
+        "aliases": [],
+        "query": "transparent scientific icons"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:hatch-pet",
+      "queries": [
+        "transparent scientific icons"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "hatch-pet",
+        "author": "nexu-io",
+        "description": "Create, repair, validate, preview, and package Codex-compatible animated pet spritesheets from character art, screenshots, generated images, or visual references. Use when a user wants to hatch a Codex pet, create a custom animated pet, or build a built-in pet asset with an 8x9 atlas, transparent unused cells, row-by-row animation prompts, QA contact sheets, preview videos, and pet.json packaging. This skill composes the installed $imagegen system skill for visual generation and uses bundled scripts for deterministic spritesheet assembly.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/skills/hatch-pet",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/skills-hatch-pet",
+        "repo_stars": 101372,
+        "catalog_updated_at": "2026-08-18T07:09:45+00:00",
+        "source_key": "nexu-io/open-design:skills/hatch-pet",
+        "family_key": "nexu-io/open-design:hatch-pet",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/hatch-pet"
+          }
+        ],
+        "query": "transparent scientific icons"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:stitch-design-taste",
+      "queries": [
+        "semantic svg editing"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "stitch-design-taste",
+        "author": "nexu-io",
+        "description": "Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards — strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/skills/stitch-skill",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/skills-stitch-skill",
+        "repo_stars": 101372,
+        "catalog_updated_at": "2026-06-02T07:34:30+00:00",
+        "source_key": "nexu-io/open-design:skills/stitch-skill",
+        "family_key": "nexu-io/open-design:stitch-design-taste",
+        "aliases": [],
+        "query": "semantic svg editing"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "calesthio/openmontage:avatar-video",
+      "queries": [
+        "transparent scientific icons"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "avatar-video",
+        "author": "calesthio",
+        "description": "Create AI avatar videos with precise control over avatars, voices, scripts, scenes, and backgrounds using HeyGen's v2 API. Use when: (1) Choosing a specific avatar and voice for a video, (2) Writing exact scripts for an avatar to speak, (3) Building multi-scene videos with different backgrounds per scene, (4) Creating transparent WebM videos for compositing, (5) Using talking photos as video presenters, (6) Integrating HeyGen avatars with Remotion, (7) Batch video generation with exact specs, (8) Brand-consistent production videos with precise control.",
+        "content_language": "en",
+        "github_url": "https://github.com/calesthio/OpenMontage/tree/main/.agents/skills/avatar-video",
+        "skillsmp_url": "https://skillsmp.com/creators/calesthio/openmontage/agents-skills-avatar-video",
+        "repo_stars": 68686,
+        "catalog_updated_at": "2026-03-29T15:25:17+00:00",
+        "source_key": "calesthio/openmontage:.agents/skills/avatar-video",
+        "family_key": "calesthio/openmontage:avatar-video",
+        "aliases": [],
+        "query": "transparent scientific icons"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "calesthio/openmontage:motion-graphics",
+      "queries": [
+        "transparent scientific icons"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "motion-graphics",
+        "author": "calesthio",
+        "description": "Use when the user wants a short, design-led motion graphic where motion is the message: kinetic typography, stat or number count-up, chart/data-viz hit, logo sting, brand lockup, lower-third, callout, social overlay, animated headline/tweet/news item, motion poster, or quick captured-page highlight. Usually under 10s and up to ~30s, with no narration arc, voice-over, or live-action subject. Can render to MP4 or transparent overlay. Not for longer, multi-scene, narrated, or brand-reel pieces (use general-video), narrated website videos (website-to-video), topic explainers (faceless-explainer), product promos (product-launch-video), PR videos (pr-to-video), or captions on existing footage (embedded-captions). When unsure whether it's a quick motion-first piece or a longer / narrated treatment, see /hyperframes.",
+        "content_language": "en",
+        "github_url": "https://github.com/calesthio/OpenMontage/tree/main/.agents/skills/motion-graphics",
+        "skillsmp_url": "https://skillsmp.com/creators/calesthio/openmontage/agents-skills-motion-graphics",
+        "repo_stars": 68686,
+        "catalog_updated_at": "2026-06-27T21:00:00+00:00",
+        "source_key": "calesthio/openmontage:.agents/skills/motion-graphics",
+        "family_key": "calesthio/openmontage:motion-graphics",
+        "aliases": [],
+        "query": "transparent scientific icons"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "heygen-com/hyperframes:motion-graphics",
+      "queries": [
+        "transparent scientific icons"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "motion-graphics",
+        "author": "heygen-com",
+        "description": "A short, design-led motion graphic where motion is the message — kinetic typography, stat count-up, chart/data-viz hit, logo sting / brand lockup, lower-third / callout / social overlay, animated map (highlight regions, connect places, zoom to a location), animated tweet / news-article / headline, webpage / UI animation (scroll, cursor, callouts), or fusing a real image's geometry into a chart. Usually under 10s (up to ~30s), no narration or live-action subject; renders to MP4 or transparent overlay. Longer / narrated / multi-scene → /general-video. Unclear → /hyperframes.",
+        "content_language": "en",
+        "github_url": "https://github.com/heygen-com/hyperframes/tree/main/skills/motion-graphics",
+        "skillsmp_url": "https://skillsmp.com/creators/heygen-com/hyperframes/skills-motion-graphics",
+        "repo_stars": 64780,
+        "catalog_updated_at": "2026-10-13T06:20:31+00:00",
+        "source_key": "heygen-com/hyperframes:skills/motion-graphics",
+        "family_key": "heygen-com/hyperframes:motion-graphics",
+        "aliases": [],
+        "query": "transparent scientific icons"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "remotion-dev/remotion:homepage-video-assets",
+      "queries": [
+        "transparent scientific icons"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "homepage-video-assets",
+        "author": "remotion-dev",
+        "description": "Use when rendering or replacing Remotion homepage creator strip videos, especially transparent Chrome WebM and Safari MP4 assets copied into both promo-pages and docs.",
+        "content_language": "en",
+        "github_url": "https://github.com/remotion-dev/remotion/tree/main/.agents/skills/homepage-video-assets",
+        "skillsmp_url": "https://skillsmp.com/creators/remotion-dev/remotion/agents-skills-homepage-video-assets",
+        "repo_stars": 64425,
+        "catalog_updated_at": "2026-07-07T18:44:24+00:00",
+        "source_key": "remotion-dev/remotion:.agents/skills/homepage-video-assets",
+        "family_key": "remotion-dev/remotion:homepage-video-assets",
+        "aliases": [],
+        "query": "transparent scientific icons"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "k-dense-ai/scientific-agent-skills:scientific-brainstorming",
+      "queries": [
+        "transparent scientific icons"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-brainstorming",
+        "author": "K-Dense-AI",
+        "description": "Facilitates evidence-aware scientific ideation with independent generation, structured discussion, explicit assumptions, transparent evaluation, adversarial review, and decision logs. Use for early-stage research brainstorming or prioritizing candidate directions; hand off empirical validation, study design, ethics or regulatory review, and clinical questions to appropriate experts or skills.",
+        "content_language": "en",
+        "github_url": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/scientific-brainstorming",
+        "skillsmp_url": "https://skillsmp.com/creators/k-dense-ai/scientific-agent-skills/skills-scientific-brainstorming",
+        "repo_stars": 50778,
+        "catalog_updated_at": "2026-10-01T17:15:40+00:00",
+        "source_key": "k-dense-ai/scientific-agent-skills:skills/scientific-brainstorming",
+        "family_key": "k-dense-ai/scientific-agent-skills:scientific-brainstorming",
+        "aliases": [],
+        "query": "transparent scientific icons"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    }
+  ],
+  "missing_evidence": [],
+  "next_steps": [
+    "shortlist by job relevance and role coverage, not combined popularity",
+    "open canonical GitHub source and inspect SKILL.md before adoption",
+    "verify license, maintenance, permissions, security, duplication, and rating evidence",
+    "write keep/adapt/reject/invent synthesis before authoring"
+  ]
+}

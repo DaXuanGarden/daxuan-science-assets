@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-10-19",
+  "package": {
+    "name": "daxuan-science-assets",
+    "display_name": "Daxuan Scientific Assets",
+    "version": "0.5.1",
+    "owner": "Daxuan",
+    "lifecycle_stage": "public-preview"
+  },
+  "intent": {
+    "job_to_be_done": "Create transparent native SVG scientific objects and source-traceable methodology schematics with editable parts, labels, relationships, and palette roles.",
+    "target_users": [
+      "Daxuan",
+      "Researchers assembling scientific flowcharts"
+    ],
+    "inputs": [
+      "Subject and scientific scope",
+      "Optional reference image or existing SVG",
+      "Palette and edit requirements",
+      "Supplied papers, inspected methods, figures or supplements",
+      "Preliminary idea, proposed adaptation, and figure scope/size/detail budget",
+      "Reference-author colors and the destination figure, with explicit color meanings or author palette reports"
+    ],
+    "outputs": [
+      "Editable transparent SVG",
+      "Transparent PNG preview",
+      "Palette",
+      "Brief",
+      "Structural/render QA",
+      "Methodology semantic plan and source/evidence map when applicable",
+      "Verified local source extracts and reproducible base diagram when applicable",
+      "Color context, source snapshots and palette/contrast checks when reference or target colors matter"
+    ],
+    "exclusions": [
+      "Statistical result plots",
+      "Invented methods, mechanisms, citations or results",
+      "Manuscript-wide figure planning",
+      "Raster-only photorealism"
+    ]
+  },
+  "workflow_source": "SKILL.md",
+  "resources": {
+    "references": [
+      "references/asset-design.md",
+      "references/codex-image.md",
+      "references/svg-contract.md",
+      "references/trust.md",
+      "references/methodology-design.md",
+      "references/color-context.md"
+    ],
+    "scripts": [
+      "scripts/asset_tool.py",
+      "scripts/build_showcase.py",
+      "scripts/codex_reference.py",
+      "scripts/evaluate_examples.py",
+      "scripts/image_backend.py",
+      "scripts/validate_package.py",
+      "scripts/methodology_tool.py",
+      "scripts/methodology_render.py",
+      "scripts/palette_context.py",
+      "scripts/build_color_example.py"
+    ],
+    "evals": [
+      "evals/output_cases.json",
+      "evals/trigger_cases.json"
+    ]
+  },
+  "evidence_boundary": {
+    "native_svg_tooling": "Existing native vector tools and three bundled fixtures remain unchanged; source-selection and alpha checks are covered by current tests.",
+    "image_provider": "One live active-relay gpt-image-2 generation returned HTTP 200 and a saved RGB reference PNG. Official live generation and relay edits remain untested.",
+    "human_blind_review": "missing evidence",
+    "editor_application_import": "missing evidence",
+    "publication": "GitHub distribution v0.5.1; see publication-checks.json and the release-attached remote verification record.",
+    "trigger_routing": "28/28 English lexical smoke cases; not measured model-routing accuracy",
+    "local_install": "Historical 0.5.0 installation remains in install-evidence.json; current publication installation is recorded in publication-checks.json.",
+    "methodology": "One primary-paper excerpt-to-SVG example (Love et al., 2014), with verified local extract hashes and quotation containment, plus one authored idea fixture. Native output reproduces from the explicit plan; agent source/visual review only, not an independent scientific benchmark.",
+    "color_context": "Local paint/raster inspection and color-decision checks pass 12 focused tests. A two-material local revision passes alpha, source, role-lock and geometry checks, with agent slot/full-figure inspection; no independent perception benchmark."
+  },
+  "language": {
+    "package": "English",
+    "conversation": "Match the user",
+    "figure_labels": "Follow the user brief"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "ok": true,
+  "renderer": "rsvg-convert",
+  "svg": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "named_groups": 19,
+    "ids": 19,
+    "palette_bindings": 46,
+    "native_vector_structure": true,
+    "transparency": "requires actual PNG render check",
+    "scientific_review": "not performed by this script"
+  },
+  "png": {
+    "ok": true,
+    "mode": "RGBA",
+    "size": [
+      1600,
+      1000
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "edge_alpha_max": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "nonempty_foreground": true,
+    "content_bounds": [
+      48,
+      37,
+      1552,
+      951
+    ],
+    "errors": []
+  },
+  "image_generation": "not performed by the local renderer",
+  "scientific_review": "agent/human inspection required",
+  "methodology": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "status": "final",
+    "counts": {
+      "sources": 1,
+      "nodes": 6,
+      "edges": 9
+    },
+    "svg_bindings_checked": true,
+    "source_snapshots": {
+      "ok": true,
+      "errors": [],
+      "checked_claims": [
+        {
+          "item": "counts",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "design",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "size-factors",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "dispersions",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "dispersions",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "model",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "model",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "model",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "wald",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "wald",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "counts-size-factors",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "counts-dispersions",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "design-dispersions",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "size-factors-dispersions",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "counts-model",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "design-model",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "size-factors-model",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "dispersions-model",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "dispersions-model",
+          "source_id": "deseq2-2014"
+        },
+        {
+          "item": "model-wald",
+          "source_id": "deseq2-2014"
+        }
+      ],
+      "scope": "Recorded extract hash and locator/excerpt containment only; not source authenticity, entailment, completeness, or scientific validity."
+    },
+    "evidence_scope": "Recorded links, detail/access consistency, topology, and declared SVG bindings only. Does not verify source truth, completeness, drawn arrow geometry, or scientific validity."
+  },
+  "layout": {
+    "viewbox": [
+      1428,
+      892
+    ],
+    "minimum_label_pt": 10.72,
+    "layout": "explicit columns; inspect connector overlaps visually"
+  }
+}

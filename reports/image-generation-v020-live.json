@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "generation_request_sent": true,
+  "image_saved": true,
+  "selected_route": "relay",
+  "provider": "custom",
+  "profile": null,
+  "base_url": "https://relay.example/v1",
+  "credential_source": "active-provider-bearer",
+  "credential_present": true,
+  "transport": "openai-compatible-images",
+  "generation_verified": true,
+  "mode": "execute",
+  "model": "gpt-image-2",
+  "background": "opaque",
+  "references": 0,
+  "output": "codex_image.png",
+  "http_status": 200,
+  "png": {
+    "mode": "RGB",
+    "size": [
+      1295,
+      1214
+    ],
+    "has_alpha": false,
+    "transparent_pixels": 0,
+    "transparent_canvas": false,
+    "alpha_extrema": null
+  },
+  "requested_size": "1024x1024",
+  "requested_quality": "high",
+  "notes": "Provider returned 1295x1214 RGB despite requested 1024x1024. This is an opaque reference, not the final transparent asset.",
+  "image_sha256": "c402b1f660ffb6c40693308c3f1e7ae90585b056c9272556c106c37dbbf8ff55",
+  "public_redaction_note": "Locally configured relay hostname replaced with a reserved example domain; operation status and recorded image outcome retained. This URL is not an active service."
+}

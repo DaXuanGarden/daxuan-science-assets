@@ -1,0 +1,11 @@
+{
+  "version": "0.5.0",
+  "ok": true,
+  "tests_run": 94,
+  "failures": 0,
+  "errors": 0,
+  "command": "python3 -m unittest discover -s tests -p 'test_*.py'",
+  "new_color_context_tests": 12,
+  "previous_tests": 82,
+  "scope": "Deterministic SVG, source routing, methodology and color-context inspection/consistency/failure checks. Not a scientific or perceptual benchmark. No live image call or editor import."
+}
