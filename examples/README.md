@@ -18,6 +18,6 @@ python3 scripts/palette_context.py check output/color-context/color-context.json
 
 The blue recolor fixture uses only original bundled vectors. It demonstrates the conflict-resolution and checking mechanism; it is not evidence that a reference-paper author selected these colors. The DESeq2 excerpts retain their source attribution and CC BY 4.0 license. Private manuscript figures, screenshots and PDFs are not included.
 
-Rebuild the gallery, mobile gallery and GIF with `python3 scripts/build_showcase.py`. The animation displays actually rendered fixtures and their QA counts; it is not a recording of image generation or a new model drawing session. Gallery/checkerboard backgrounds belong to the display, while individual assets remain transparent.
+Rebuild the gallery, mobile gallery, GIF and white-background method preview with `python3 scripts/build_showcase.py`. The animation displays actually rendered fixtures and their QA counts; it is not a recording of image generation or a new model drawing session. Gallery/checkerboard/README backgrounds belong to the display, while individual assets remain transparent.
 
 Rebuild the publication card from evidence: `python3 scripts/build_publication_card.py --review reports/publication-review.json --out output/publication-card.png`. Scores on this card are editorial estimates, not scientific or model benchmarks.

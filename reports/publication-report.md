@@ -89,6 +89,8 @@ README leads with formats, no-key native work, actual outputs and the source ins
 
 `build_showcase.py` reproduces desktop/mobile galleries and GIF. `build_color_example.py` reproduces the new native SVG/PNG with source/context/QA files. `build_publication_card.py` renders the result card from the recorded review. Existing individual asset PNGs and SVGs are preserved.
 
+The first live GitHub dark-theme check exposed low-contrast text when the transparent method PNG was embedded directly. A separate reproducible white-background README preview fixes the presentation; the linked individual SVG and PNG retain transparency. Remote checks are recorded separately with the release.
+
 ## 9. Execution plan
 
 - Completed locally: freeze baseline, peer research, candidate edits, original example replay, isolated installation, privacy scan, independent acceptance and metadata checks.

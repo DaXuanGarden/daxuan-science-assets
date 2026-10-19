@@ -107,14 +107,24 @@ def build_certificate(review_path):
     canvas.save(ROOT/"assets/showcase/luban-review-card.png")
 
 
+def build_method_preview():
+    """Keep README text visible in dark themes; leave the actual asset transparent."""
+    source = ROOT/"assets/examples/deseq2-method/asset.png"
+    with Image.open(source) as original:
+        preview = Image.new("RGBA", original.size, "white")
+        preview.alpha_composite(original.convert("RGBA"))
+    preview.convert("RGB").save(ROOT/"assets/showcase/method-preview.png")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--review", type=Path, help="Optional independent editorial audit JSON for a result card")
     args = parser.parse_args()
     build_gallery()
+    build_method_preview()
     if args.review:
         build_certificate(args.review)
-    print(json.dumps({"ok": True, "gallery": "assets/examples/gallery.png", "animation": "assets/showcase/demo.gif", "model_generation": False, "certificate": bool(args.review)}))
+    print(json.dumps({"ok": True, "gallery": "assets/examples/gallery.png", "animation": "assets/showcase/demo.gif", "method_preview": "assets/showcase/method-preview.png", "model_generation": False, "certificate": bool(args.review)}))
 
 
 if __name__ == "__main__":

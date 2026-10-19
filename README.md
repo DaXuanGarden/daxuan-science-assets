@@ -27,7 +27,9 @@ This skill keeps shapes, labels, and relationships as native vectors. It separat
 | Paper method | [DESeq2 dependency overview](assets/examples/deseq2-method/asset.svg) | Source-backed nodes and relations with attributed excerpts |
 | Reference + target colors | [Blue chromosome](assets/examples/color-context/asset.svg) | Same geometry, destination colors and separate provenance records |
 
-![Source-backed original DESeq2 model overview](assets/examples/deseq2-method/asset.png)
+![Source-backed original DESeq2 model overview](assets/showcase/method-preview.png)
+
+The README uses a white display background so labels remain visible in dark themes. Download the [transparent SVG](assets/examples/deseq2-method/asset.svg) or [alpha PNG](assets/examples/deseq2-method/asset.png) for your figure.
 
 The DESeq2 example is based on inspected passages from [Love et al. (2014)](https://doi.org/10.1186/s13059-014-0550-8), with [source locators and attribution](assets/examples/deseq2-method/diagram.json). It is an original-model dependency overview, not a current-software tutorial or empirical result. The proposed assay and color demonstration use authored examples. No private manuscript or patient data is included.
 

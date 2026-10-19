@@ -5,6 +5,7 @@
 - Prepare the first public GitHub distribution with a source install command, pinned direct Python dependencies and a clone-to-first-render walkthrough.
 - Add a reproducible reference/destination color example using only original bundled vectors, plus a native-output CI workflow.
 - Include optional Claude Code marketplace metadata and retain explicit cross-runtime evidence limits.
+- Keep the README method preview readable in dark themes with a separate reproducible white display background; individual SVG/PNG files retain transparency.
 - Remove the locally used relay hostname from public historical reports; retain operation outcomes and note the redaction.
 - Preserve existing native vectors, image routing, method tools and scientific examples.
 
