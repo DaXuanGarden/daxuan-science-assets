@@ -21,3 +21,7 @@ The blue recolor fixture uses only original bundled vectors. It demonstrates the
 Rebuild the gallery, mobile gallery, GIF and white-background method preview with `python3 scripts/build_showcase.py`. The animation displays actually rendered fixtures and their QA counts; it is not a recording of image generation or a new model drawing session. Gallery/checkerboard/README backgrounds belong to the display, while individual assets remain transparent.
 
 Rebuild the publication card from evidence: `python3 scripts/build_publication_card.py --review reports/publication-review.json --out output/publication-card.png`. Scores on this card are editorial estimates, not scientific or model benchmarks.
+
+## Optional PDF assembly
+
+Install `requirements-pdf.txt`, then run `python3 scripts/build_pdf_example.py --outdir output/pdf-demo` from the package root. This authors a generic vector layout and embeds the original public pipette, with a native label and a reopened-output preservation proof. It recreates the [public preview](../assets/examples/pdf-embedding/figure.png). The layout contains no experimental results and is not the private research figure used during development.

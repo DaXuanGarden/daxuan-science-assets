@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "ok": true,
+  "source_pdf": "source.pdf",
+  "source_pdf_sha256": "4d5e1373cba9a727b2141c902811575cd1754b2ecffdb29ffda8eb11b84bbe40",
+  "asset": "assets/examples/pipette/asset.png",
+  "asset_sha256": "4cee5115ee53245da50028488cb17c780175fae296c744e76947f77cfc405dd4",
+  "source_hash_unchanged": true,
+  "asset_hash_unchanged": true,
+  "output_pdf_sha256": "044e4cffdaf4e648e676f032311002e5385105be981309f81164ca6fc779165c",
+  "preview_sha256": "86374b3ecd4ee9159b73d180ce240534dc30b8b782348f751e48f3ba55492a89",
+  "page_count": 1,
+  "page": 1,
+  "placement_rect_pt": [
+    188.0,
+    100.0,
+    292.0,
+    257.0
+  ],
+  "actual_asset_rect_pt": [
+    188.0,
+    103.38888888888889,
+    292.0,
+    253.61111111111111
+  ],
+  "image_alpha": {
+    "size_px": [
+      540,
+      780
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "nonopaque_pixels": 387131,
+    "fully_transparent_pixels": 382844
+  },
+  "effective_asset_dpi": 373.84615384615387,
+  "label": {
+    "text": "PIPETTE",
+    "font": "Helvetica-Bold",
+    "size_pt": 10,
+    "origin_pt": [
+      219.1600000858307,
+      302
+    ],
+    "bbox_pt": [
+      219.1600000858307,
+      291.2999994754791,
+      260.8399999141693,
+      305.07000011205673
+    ],
+    "color_rgb": [
+      0.17,
+      0.26,
+      0.29
+    ],
+    "native_text_verified": true
+  },
+  "verification_dpi": 150,
+  "pages": [
+    {
+      "changed_pixels": 7528,
+      "changed_pixels_outside_allowed_regions": 0,
+      "allowed_pixel_rects_with_2px_margin": [
+        [
+          389,
+          206,
+          611,
+          538
+        ],
+        [
+          454,
+          604,
+          546,
+          638
+        ]
+      ],
+      "page": 1,
+      "original_text_preserved": true,
+      "original_drawings_preserved": true,
+      "drawing_count": 9,
+      "page_boxes_preserved": true
+    }
+  ],
+  "scope": "One raster PNG overlaid on the original PDF objects; existing text and vector drawings retained. The asset remains raster. Outside-region pixels match at the recorded verification DPI; this does not certify science, safe whitespace, beauty, or all renderer behavior."
+}

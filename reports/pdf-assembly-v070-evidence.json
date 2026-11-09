@@ -1,0 +1,44 @@
+{
+  "version": "0.7.0",
+  "checked_on": "2026-11-09",
+  "unit_tests": {
+    "passed": 139,
+    "failed": 0,
+    "skipped": 0
+  },
+  "package_validation": {
+    "ok": true,
+    "lexical_cases_passed": 28,
+    "lexical_cases_total": 28
+  },
+  "real_replays": [
+    {
+      "case": "private circular vector figure plus approved transparent person scene",
+      "original_drawing_count": 1065,
+      "original_text_preserved": true,
+      "outside_region_changed_pixels": 0,
+      "native_label": "LST",
+      "verification_dpi": 150,
+      "artwork_method": "Deterministic local color/value polish after two new image edit requests failed HTTP 403. Prior generated artwork retained; no new generation success claimed."
+    },
+    {
+      "case": "public authored vector layout plus original pipette fixture",
+      "original_drawings_and_text_preserved": true,
+      "outside_region_changed_pixels": 0,
+      "native_label": "PIPETTE",
+      "verification_dpi": 150,
+      "rebuild": "python3 scripts/build_pdf_example.py --outdir output/pdf-demo"
+    }
+  ],
+  "independent_review": {
+    "code": "Independent agent read and 6 included tests plus 5 supplemental PDF scenarios; no blocking integrity defect found. Conservative annotation refusal documented.",
+    "visual": "Independent agent inspected base/revision, all evidence views and full figure; selected modest local polish, with actual user acceptance pending."
+  },
+  "ci": "Optional pinned PyMuPDF dependency installed so PDF regressions run rather than skip.",
+  "claim_limits": [
+    "Raster illustration remains raster inside the retained vector PDF.",
+    "Exterior pixel equality is established only for recorded renderer/DPI.",
+    "No scientific peer review, journal acceptance, or human preference experiment.",
+    "No private research artwork is distributed."
+  ]
+}

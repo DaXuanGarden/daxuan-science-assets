@@ -10,6 +10,8 @@
 
 **Already have an image?** Ask for a [visual audit](references/visual-audit.md): the agent inspects appeal, drawing quality, and scientific figure fit, preserves what works, and identifies at most three useful changes. A single image is enough; the review can recommend keeping it. Local tools prepare hash-bound views and validate the review record; they do not measure beauty or call an image service.
 
+**Need the complete PDF?** The optional [PDF assembly tool](references/pdf-embedding.md) places an approved transparent PNG and exact native label in a copy of an existing figure, retains original text/vector objects, and verifies unchanged pixels outside the placement. PyMuPDF is required only for this route; inspect the saved full figure for visual acceptance.
+
 ![Actual native SVG fixtures and their render checks](assets/showcase/demo.gif)
 
 The GIF replays rendered bundled assets and their checks; it does not show an image model generating artwork. Display backgrounds and checkerboards are separate from the transparent individual files. [Rebuild it](examples/README.md).
@@ -37,6 +39,19 @@ This skill keeps shapes, labels, and relationships as native vectors. It separat
 The README uses a white display background so labels remain visible in dark themes. Download the [transparent SVG](assets/examples/deseq2-method/asset.svg) or [alpha PNG](assets/examples/deseq2-method/asset.png) for your figure.
 
 The DESeq2 example is based on inspected passages from [Love et al. (2014)](https://doi.org/10.1186/s13059-014-0550-8), with [source locators and attribution](assets/examples/deseq2-method/diagram.json). It is an original-model dependency overview, not a current-software tutorial or empirical result. The proposed assay and color demonstration use authored examples. No private manuscript or patient data is included.
+
+## Assemble an existing PDF
+
+![Public original pipette placed in an authored vector layout](assets/examples/pdf-embedding/figure.png)
+
+This is an authored layout demonstration, not a statistical result. The [source PDF](assets/examples/pdf-embedding/source.pdf) keeps its vector objects and original labels in the [assembled PDF](assets/examples/pdf-embedding/figure.pdf); only the original pipette illustration is raster. [Preservation evidence](assets/examples/pdf-embedding/evidence.json).
+
+```bash
+python3 -m pip install -r requirements-pdf.txt
+python3 scripts/build_pdf_example.py --outdir output/pdf-demo
+```
+
+The command rebuilds the source and assembly from the bundled pipette; no image-service account is used. [Place your own approved asset](references/pdf-embedding.md).
 
 ## Install
 

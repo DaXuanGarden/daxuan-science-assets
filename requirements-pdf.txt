@@ -1,0 +1,2 @@
+# Optional local PDF assembly and its regression checks.
+PyMuPDF==1.26.5

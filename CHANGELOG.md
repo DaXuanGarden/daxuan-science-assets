@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.0 - 2026-11-09
+
+- Close the review-to-delivery loop with optional local PDF assembly: place the approved transparent PNG and exact native label in a copy of the original figure.
+- Reopen the serialized result and verify all original text/vector drawings, page geometry and pixels outside declared overlay/label regions before writing deliverables. Save source/output fingerprints, alpha and effective-resolution evidence.
+- Refuse rotated target pages, invalid rectangles, opaque or invisible assets, nonempty outputs and unsupported text rather than guessing or overwriting.
+- Preserve the original vector figure; the inserted PNG remains raster. Inspect the final actual slot and whole figure independently of structural checks.
+- Add six synthetic PDF regressions and run them in CI with the optional pinned dependency. Real private-figure replay remains outside the distributable package.
+- Document reproducible local value/color refinement with honest provenance when a new image request fails; no provider fallback is added.
+
 ## 0.6.1 - 2026-11-09
 
 - Fix candidate and placement previews stretching non-square scientific objects. Preserve aspect ratio, center within the canvas/slot and record actual rendered bounds.
