@@ -6,7 +6,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageOps
 
 
 def main() -> int:
@@ -25,7 +25,7 @@ def main() -> int:
         planned.update({"placement.png", "placement-crop.png"})
     if not args.force and any((args.asset_dir / name).exists() for name in planned):
         parser.error("preview output exists; choose a new directory or use --force")
-    evidence = {"asset_sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "outputs": sorted(planned - {"preview-evidence.json"}), "scope": "Display previews only; the transparent source asset is unchanged."}
+    evidence = {"asset_sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "asset_size_px": list(asset.size), "fit_policy": "contain_centered_preserve_aspect", "rendered_boxes": {}, "outputs": sorted(planned - {"preview-evidence.json"}), "scope": "Display previews only; the transparent source asset is unchanged."}
     figure = None
     if args.figure:
         figure = Image.open(args.figure).convert("RGBA")
@@ -34,11 +34,17 @@ def main() -> int:
             parser.error("slot must fit inside the figure")
     for name, background, side in (("preview-white.png", "#FFFFFF", 600), ("preview-dark.png", "#223542", 600), ("thumbnail_200px.png", "#FFFFFF", 200)):
         preview = Image.new("RGBA", (side, side), background)
-        preview.alpha_composite(asset.resize((side, side), Image.Resampling.LANCZOS))
+        contained = ImageOps.contain(asset, (side, side), Image.Resampling.LANCZOS)
+        left, top = (side - contained.width) // 2, (side - contained.height) // 2
+        preview.alpha_composite(contained, (left, top))
+        evidence["rendered_boxes"][name] = [left, top, contained.width, contained.height]
         preview.convert("RGB").save(args.asset_dir / name)
     if figure is not None:
         x, y, width, height = args.slot
-        figure.alpha_composite(asset.resize((width, height), Image.Resampling.LANCZOS), (x, y))
+        contained = ImageOps.contain(asset, (width, height), Image.Resampling.LANCZOS)
+        left, top = x + (width - contained.width) // 2, y + (height - contained.height) // 2
+        figure.alpha_composite(contained, (left, top))
+        evidence["rendered_boxes"]["placement.png"] = [left, top, contained.width, contained.height]
         figure.convert("RGB").save(args.asset_dir / "placement.png")
         margin = max(30, round(max(width, height) * .26))
         crop = (max(0, x-margin), max(0, y-margin), min(figure.width, x+width+margin), min(figure.height, y+height+margin))

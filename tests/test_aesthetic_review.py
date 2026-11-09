@@ -83,6 +83,58 @@ class AestheticReviewTests(unittest.TestCase):
         self.assertFalse(result["ok"])
         self.assertTrue(any("missing required gates" in error for error in result["errors"]))
 
+    def test_explicit_brief_scopes_transparency_and_scene_gates(self):
+        cases = (("opaque", "scene_centered", {"verified_alpha"}),
+                 ("transparent", "process_chain", {"single_anchor", "no_detached_objects"}),
+                 ("opaque", "icon_composite", {"verified_alpha", "single_anchor", "no_detached_objects"}))
+        for background, composition, excluded in cases:
+            for representation in ("omitted", "false"):
+                with self.subTest(background=background, composition=composition, representation=representation):
+                    review = valid_review()
+                    for gate in excluded:
+                        if representation == "omitted":
+                            del review["hard_gates"][gate]
+                        else:
+                            review["hard_gates"][gate] = False
+                    result = review_tool.validate_review(review, background=background, composition_mode=composition)
+                    self.assertTrue(result["ok"], result["errors"])
+                    self.assertTrue(result["hard_gates_passed"])
+                    self.assertTrue(excluded.isdisjoint(result["required_gates"]))
+
+    def test_explicit_transparent_scene_keeps_all_original_gates(self):
+        for gate in ("verified_alpha", "single_anchor", "no_detached_objects"):
+            with self.subTest(gate=gate):
+                review = valid_review()
+                del review["hard_gates"][gate]
+                result = review_tool.validate_review(review, background="transparent", composition_mode="scene_centered")
+                self.assertFalse(result["ok"])
+                self.assertIn(gate, result["required_gates"])
+
+    def test_invalid_explicit_modes_do_not_silently_disable_gates(self):
+        for options in ({"background": "typo"}, {"composition_mode": "typo"}):
+            with self.subTest(options=options):
+                result = review_tool.validate_review(valid_review(), **options)
+                self.assertFalse(result["ok"])
+
+    def test_cli_uses_explicit_brief_gate_scope(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            asset = root / "asset.png"
+            asset.write_bytes(b"fixture image bytes")
+            review = valid_review()
+            review["asset_sha256"] = hashlib.sha256(asset.read_bytes()).hexdigest()
+            for gate in ("verified_alpha", "single_anchor", "no_detached_objects"):
+                del review["hard_gates"][gate]
+            (root / "aesthetic-review.json").write_text(json.dumps(review))
+            (root / "brief.json").write_text(json.dumps({"background": "opaque", "composition_mode": "process_chain"}))
+            command = [sys.executable, str(ROOT / "scripts/aesthetic_review.py"), str(root)]
+            accepted = subprocess.run(command, capture_output=True, text=True, timeout=15)
+            self.assertEqual(accepted.returncode, 0, accepted.stdout + accepted.stderr)
+            (root / "brief.json").write_text(json.dumps({"background": "transparent", "composition_mode": "scene_centered"}))
+            rejected = subprocess.run(command, capture_output=True, text=True, timeout=15)
+            self.assertEqual(rejected.returncode, 1, rejected.stdout + rejected.stderr)
+            self.assertIn("missing required gates", rejected.stdout)
+
     def test_high_score_cannot_override_failed_gate(self):
         review = valid_review()
         for criterion in review["criteria"].values():

@@ -21,9 +21,21 @@ WEIGHTS = {
 REQUIRED_GATES = {"no_extra_text_or_watermark", "verified_alpha", "single_anchor", "no_detached_objects", "thumbnail_recognition", "no_clipping", "brief_style_match"}
 
 
-def validate_review(review: dict, action_contract: dict | None = None, refinement_contract: dict | None = None) -> dict:
+def validate_review(review: dict, action_contract: dict | None = None, refinement_contract: dict | None = None, *, background: str | None = None, composition_mode: str | None = None) -> dict:
     errors: list[str] = []
     required_gates = set(REQUIRED_GATES)
+    # Missing options preserve the original transparent-scene caller contract.
+    # Explicit brief values scope gates to the requested delivery/composition.
+    if background is not None:
+        if background not in {"transparent", "opaque", "auto"}:
+            errors.append("background must be transparent, opaque, or auto")
+        elif background != "transparent":
+            required_gates.discard("verified_alpha")
+    if composition_mode is not None:
+        if composition_mode not in {"scene_centered", "icon_composite", "process_chain"}:
+            errors.append("composition_mode must be scene_centered, icon_composite, or process_chain")
+        elif composition_mode != "scene_centered":
+            required_gates.difference_update({"single_anchor", "no_detached_objects"})
     if action_contract:
         required_gates.add("required_behavior_match")
     if refinement_contract:
@@ -117,6 +129,8 @@ def validate_review(review: dict, action_contract: dict | None = None, refinemen
             errors.append(f"hard_gates.{key} must be boolean")
     if not required_gates.issubset(gates):
         errors.append("hard_gates is missing required gates: " + ", ".join(sorted(required_gates - gates.keys())))
+    scoped_gates = {"verified_alpha", "single_anchor", "no_detached_objects"}
+    applicable_gates = {key: value for key, value in gates.items() if key not in scoped_gates or key in required_gates}
     if not review.get("selected_candidate"):
         errors.append("selected_candidate is required")
     if not review.get("science_boundary"):
@@ -126,14 +140,16 @@ def validate_review(review: dict, action_contract: dict | None = None, refinemen
             errors.append("pass requires weighted_score >= 80")
         if any(score < 3 for score in scores.values()):
             errors.append("pass requires every criterion score >= 3")
-        if gates and not all(gates.values()):
+        if applicable_gates and not all(applicable_gates.values()):
             errors.append("pass requires every hard gate to be true")
     return {
         "ok": not errors,
         "errors": errors,
         "weighted_score": round(weighted, 1) if weighted is not None else None,
         "criteria_checked": len(scores),
-        "hard_gates_passed": required_gates.issubset(gates) and all(gates.values()),
+        "hard_gates_passed": required_gates.issubset(gates) and all(applicable_gates.values()),
+        "required_gates": sorted(required_gates),
+        "nonapplicable_gates": sorted(set(gates) - set(applicable_gates)),
         "required_behavior_reviewed": bool(action_contract) and isinstance(gates.get("required_behavior_match"), bool),
         "selected_base_refinement_reviewed": bool(refinement_contract) and {"selected_base_preserved", "requested_edits_addressed"}.issubset(gates),
         "science_boundary_reviewed": bool(review.get("science_boundary")),
@@ -177,7 +193,7 @@ def main() -> int:
     except (OSError, ValueError) as exc:
         print(json.dumps({"ok": False, "errors": [f"cannot read brief.json: {exc}"]}, ensure_ascii=False, indent=2))
         return 1
-    result = validate_review(review, brief.get("action_contract"), brief.get("refinement_contract"))
+    result = validate_review(review, brief.get("action_contract"), brief.get("refinement_contract"), background=brief.get("background"), composition_mode=brief.get("composition_mode"))
     source_errors = refinement_source_errors(brief.get("refinement_contract"), brief.get("iteration_mode"))
     if source_errors:
         result["errors"].extend(source_errors)

@@ -55,13 +55,13 @@ Required fields:
 - `review_scope`: `target_px`, `thumbnail_px`, and `slot_px` as [width, height].
 - `reviewed_images`: local image paths actually inspected, including the thumbnail and placement.
 - `criteria`: each criterion contains `score` and `note`; `weighted_score` holds the rounded total.
-- `hard_gates`: booleans for `no_extra_text_or_watermark`, `verified_alpha`, `single_anchor`, `no_detached_objects`, `thumbnail_recognition`, `no_clipping`, and `brief_style_match`. Add `required_behavior_match` when `brief.action_contract` is nonempty; leave legacy static-object reviews compatible when no contract exists.
+- `hard_gates`: booleans for `no_extra_text_or_watermark`, `thumbnail_recognition`, `no_clipping`, and `brief_style_match`. Require `verified_alpha` for transparent delivery, and `single_anchor` plus `no_detached_objects` for `scene_centered`. Explicit `opaque`/`auto` backgrounds and `icon_composite`/`process_chain` compositions omit irrelevant gates; legacy callers without these options retain the original checks. Add `required_behavior_match` when `brief.action_contract` is nonempty. The CLI and raster QA use the brief to determine applicability.
 - `defects`: concrete residual issues and their action; use an empty list when none are found.
 - `candidate_comparison`: each candidate's path, strengths, defects, and verdict.
 - `selected_candidate`, `selection_reason`, and `science_boundary`.
 
 If any required gate fails, record `revise` or `fail`. After selection, permit at most one further focused correction to the highest-impact remaining defect. Keep failed candidates as evidence; do not present all of them as recommended finals. In exploration, explicitly record which outputs are genuinely different directions and which are close variants; do not infer diversity from the number of saved files.
 
-Build repeatable previews with `python3 scripts/build_review_previews.py <asset-directory> --figure <figure.png> --slot <x> <y> <width> <height>`. Without a target figure, omit both figure and slot arguments; white/dark and 200 px previews are still produced. Use `--force` only to refresh existing preview files.
+Build repeatable previews with `python3 scripts/build_review_previews.py <asset-directory> --figure <figure.png> --slot <x> <y> <width> <height>`. Without a target figure, omit both figure and slot arguments; white/dark and 200 px previews are still produced. Non-square sources use aspect-preserving containment and centering in display canvases and destination slots; preview evidence records the rendered bounds. Use `--force` only to refresh existing preview files.
 
 Run `python3 scripts/aesthetic_review.py <asset-directory>` for schema/arithmetic checks, then the normal raster QA. The validator does not inspect pixels, judge beauty, or replace scientific review. Review the individual transparent asset on white and a darker preview field to expose pale edges. Keep user assets and feedback outside the distributable Skill; only generic instructions and verification tools belong in the package.

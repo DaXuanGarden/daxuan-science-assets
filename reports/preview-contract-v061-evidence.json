@@ -1,0 +1,21 @@
+{
+  "version": "0.6.1",
+  "checked_on": "2026-11-09",
+  "unit_tests": {
+    "passed": 133,
+    "failed": 0,
+    "skipped": 0
+  },
+  "package_validation": {
+    "ok": true,
+    "lexical_cases_passed": 28,
+    "lexical_cases_total": 28
+  },
+  "regressions": [
+    "Portrait asset contained in white, dark and thumbnail canvases without stretching.",
+    "Landscape asset contained in a tall destination slot; exact source and figure bytes unchanged.",
+    "Missing/null/false/non-boolean verbatim declarations and malformed text lists rejected.",
+    "Explicit opaque and multi-object compositions use applicable visual gates; transparent scene gates remain mandatory."
+  ],
+  "scope": "Deterministic contracts and rendering geometry, not measured aesthetic quality."
+}

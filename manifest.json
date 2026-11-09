@@ -1,6 +1,6 @@
 {
   "name": "daxuan-science-assets",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "owner": "Daxuan",
   "updated_at": "2026-11-09",
   "status": "public-preview",
@@ -80,7 +80,7 @@
     "local_install": "Historical 0.5.0 installation remains in install-evidence.json; current publication installation is recorded in publication-checks.json.",
     "methodology": "One primary-paper excerpt-to-SVG example (Love et al., 2014), with verified local extract hashes and quotation containment, plus one authored idea fixture. Native output reproduces from the explicit plan; agent source/visual review only, not an independent scientific benchmark.",
     "color_context": "Local paint/raster inspection and color-decision checks pass 12 focused tests. A two-material local revision passes alpha, source, role-lock and geometry checks, with agent slot/full-figure inspection; no independent perception benchmark.",
-    "aesthetic_review": "Agent inspection of real candidate/refinement assets for one screen-time topic and standalone single-image reviews of a person scene and a public pipette fixture. Hash/schema checks do not certify beauty, human preference, science or journal acceptance."
+    "aesthetic_review": "Agent inspection of real candidate/refinement assets for one screen-time topic and standalone single-image reviews of a person scene and a public pipette fixture. Hash/schema checks do not certify beauty, human preference, science or journal acceptance. Non-square comparison previews preserve aspect ratio; applicability gates follow explicit background and composition mode."
   },
   "display_name": "Daxuan Scientific Assets",
   "language": {

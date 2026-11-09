@@ -3,7 +3,7 @@ name: daxuan-science-assets
 description: Create, refine, generate, or visually audit scientific illustration assets, scene-centered mini-illustrations, and methodology schematics. Review existing images for visual appeal, craft, and scientific figure fit without generating a replacement. Use raster images or transparent editable SVGs according to the requested delivery mode. Ground content in supplied papers, user ideas, and figure briefs; preserve sources, scientific relationships, labels, and palette roles. Use the active official or configured relay source for explicit generation. Exclude statistical result plots, invented evidence, unsupported mechanisms, and explanation-only requests without an image to review.
 metadata:
   author: Daxuan
-  version: "0.6.0"
+  version: "0.6.1"
 ---
 
 # Daxuan Scientific Assets

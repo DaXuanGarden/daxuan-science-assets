@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.1 - 2026-11-09
+
+- Fix candidate and placement previews stretching non-square scientific objects. Preserve aspect ratio, center within the canvas/slot and record actual rendered bounds.
+- Apply aesthetic gates to the explicit background/composition: opaque images do not claim alpha; process chains and icon composites do not require a single isolated anchor. Transparent scene requirements remain enforced.
+- Reject missing, null or non-boolean exact-text declarations rather than silently accepting an incomplete manifest.
+- Add actual-CLI regressions for aspect fitting and contract applicability; no provider/API changes.
+
 ## 0.6.0 - 2026-11-09
 
 - Publish the previously validated generated-raster workflow alongside editable native SVG, with scene-centered composition and explicit behavior contracts.

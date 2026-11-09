@@ -98,7 +98,7 @@ def main() -> int:
         if validate_review is None:
             errors.append("aesthetic review validator is unavailable")
         else:
-            aesthetic_qa = validate_review(aesthetic, brief.get("action_contract"), brief.get("refinement_contract"))
+            aesthetic_qa = validate_review(aesthetic, brief.get("action_contract"), brief.get("refinement_contract"), background=brief.get("background"), composition_mode=brief.get("composition_mode"))
             errors.extend("aesthetic review: " + error for error in aesthetic_qa.get("errors", []))
             errors.extend(refinement_source_errors(brief.get("refinement_contract"), brief.get("iteration_mode")))
     image = find_image(root)
@@ -109,8 +109,12 @@ def main() -> int:
         facts = image_facts(image, errors, brief.get("target_size_px"), brief.get("background"))
     if texts.get("no_extra_text") is not True:
         errors.append("text_manifest.no_extra_text must be true")
-    for item in texts.get("texts", []):
-        if not item.get("id") or item.get("verbatim") is False:
+    text_items = texts.get("texts", [])
+    if not isinstance(text_items, list):
+        errors.append("text_manifest.texts must be a list")
+        text_items = []
+    for item in text_items:
+        if not isinstance(item, dict) or not isinstance(item.get("id"), str) or not item["id"].strip() or item.get("verbatim") is not True:
             errors.append("every listed visible text needs an id and verbatim=true")
     if relations.get("no_unlisted_arrows") is not True:
         errors.append("relation_manifest.no_unlisted_arrows must be true")
