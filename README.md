@@ -4,9 +4,11 @@
 
 [![Agent Skills](https://img.shields.io/badge/Agent_Skills-SVG-blue)](SKILL.md) [![skills.sh](https://skills.sh/b/DaXuanGarden/daxuan-science-assets)](https://skills.sh/DaXuanGarden/daxuan-science-assets) [![Native checks](https://github.com/DaXuanGarden/daxuan-science-assets/actions/workflows/check.yml/badge.svg)](https://github.com/DaXuanGarden/daxuan-science-assets/actions/workflows/check.yml) [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Turn a scientific object, paper method, or initial idea into transparent, editable SVG—with a palette, source record, and real alpha PNG.** Native vector work needs no image-service account or API key. Optional image exploration uses the active Codex official or configured relay source and may incur provider charges.
+**Turn a scientific object, compact scene, paper method, or initial idea into a generated raster asset or transparent, editable SVG—with a palette, source record, and real QA.** For small topic materials, raster generation defaults to a scene-centered composition with one visual anchor and an integrated cue. Use `fresh-academic` or `editorial-pastel` as a starting point, then choose an art direction that suits the user. Explore genuinely different design directions with 2–10 candidates, or refine a selected image with one focused version by default. A separate reviewer compares the actual details, thumbnail, and destination placement; near-identical redraws are not new design directions. Technical QA alone does not establish aesthetic quality. Native vector work needs no image-service account or API key. Explicit raster generation uses the active Codex official or configured relay source and may incur provider charges.
 
 [See outputs](#see-the-outputs) · [Install](#install) · [First local result](#first-local-result) · [Coordinate colors](#coordinate-colors) · [Validation](#validation) · [Boundaries](#boundaries)
+
+**Already have an image?** Ask for a [visual audit](references/visual-audit.md): the agent inspects appeal, drawing quality, and scientific figure fit, preserves what works, and identifies at most three useful changes. A single image is enough; the review can recommend keeping it. Local tools prepare hash-bound views and validate the review record; they do not measure beauty or call an image service.
 
 ![Actual native SVG fixtures and their render checks](assets/showcase/demo.gif)
 
@@ -14,7 +16,9 @@ The GIF replays rendered bundled assets and their checks; it does not show an im
 
 ## When you need it
 
-You have a figure slot to fill, a chromosome to recolor, or a method to explain. You need to move labels and arrows later, match your manuscript colors, and keep the scientific meaning intact. A flattened PNG makes that work difficult.
+You can also ask, "Review this existing scientific illustration at its final figure size; identify concrete improvements and what to preserve." This uses a review-only evidence pack and an attributed critique rather than generating another batch. See the [audit commands and record](references/visual-audit.md).
+
+You have a figure slot to fill, a chromosome to recolor, or a method to explain. When you need to move labels and arrows later, choose native SVG mode. When the request is explicitly for a generated image, raster mode delivers the model-generated PNG directly and records the prompt, relations and QA instead of pretending it is an editable vector.
 
 This skill keeps shapes, labels, and relationships as native vectors. It separates what a supplied paper supports from your proposed adaptation, then checks the file that you actually receive. It handles bounded assets and requested method schematics; statistical charts need another workflow.
 
@@ -26,6 +30,7 @@ This skill keeps shapes, labels, and relationships as native vectors. It separat
 | Preliminary idea | [Proposed assay workflow](assets/examples/methodology-demo/asset.svg) | Labels, process/dataflow relationships and proposed scope |
 | Paper method | [DESeq2 dependency overview](assets/examples/deseq2-method/asset.svg) | Source-backed nodes and relations with attributed excerpts |
 | Reference + target colors | [Blue chromosome](assets/examples/color-context/asset.svg) | Same geometry, destination colors and separate provenance records |
+| Explicit image request | Generated `asset.png` plus prompt/evidence/QA sidecars | Generated pixels; appearance-focused work adds candidate comparison and an attributed aesthetic review |
 
 ![Source-backed original DESeq2 model overview](assets/showcase/method-preview.png)
 
@@ -52,6 +57,30 @@ Use $daxuan-science-assets to create a generic replicated chromosome as
 transparent editable SVG and PNG. Separate the chromatids and centromere.
 Use my supplied Figure 1 colors; do not invent gene loci or add labels.
 ```
+
+For image-first work, say:
+
+```text
+Use $daxuan-science-assets to generate a transparent PNG of a compact
+sedentary-behavior and cardiovascular-risk illustration. Lock visible text
+and arrow relations before generation; do not add mechanisms or labels.
+```
+
+For an explicit candidate set, use `--aesthetic-review --candidate-count 8`. This plans eight candidates; each image request still produces one image. For a scene where behavior matters, record an `action_contract` with the required action, attention target, and contextual objects. For example, “sitting at a desk and looking at a screen” needs the desk and screen; removing those objects for minimalism changes the meaning. The reviewer must check behavior before recommending the image.
+
+When the user selects an existing image, switch to `refine` instead of restarting exploration:
+
+```bash
+python3 scripts/asset_tool.py init refined-scene --subject "Refine the selected scientific scene" \
+  --mode raster_generation --background transparent --iteration-mode refine \
+  --base-asset output/selected/asset.png \
+  --preserve-feature "Approved side-view composition and subject identity" \
+  --edit-target "Replace angular hand shapes with clearly separated natural fingers"
+```
+
+This creates a brief and prompt, not artwork. Refinement defaults to one version; `--candidate-count 2` is available for two focused treatments. Pass the selected image to the existing image-edit backend. Record a before/after detail assessment for every requested change; the review must confirm both base preservation and visible improvement. Exact added labels can be typeset in a separate deterministic step and recorded in the text manifest.
+
+
 
 The package, Skill name, and documentation are English. Conversation and figure labels follow your request. Compatible agents can read the same `SKILL.md`; the recorded installation evidence covers Codex. Optional Claude Code marketplace metadata is supplied, without a claim of a tested Claude drawing session:
 
@@ -104,7 +133,7 @@ The [color-context workflow](references/color-context.md) records sources, decis
 
 ## What you receive
 
-`asset.svg`, transparent `asset.png`, `palette.json`, `brief.json`, and `qa.json`. Methodology adds `diagram.json` and inspected source excerpts when used. Figure-dependent color work adds `color-context.json`, local source snapshots, and `color-qa.json`.
+Native SVG mode returns `asset.svg`, transparent `asset.png`, `palette.json`, `brief.json`, and `qa.json`. Raster generation returns generated `asset.png` or `asset.jpg`, `image_prompt.txt`, `generation-evidence.json`, `brief.json`, `text_manifest.json`, `relation_manifest.json`, `source_manifest.json`, and `qa.json`; run `scripts/raster_asset_qa.py` for deterministic pixel and sidecar checks. When the brief sets `aesthetic_review_required`, also save `aesthetic-review.json` and run `scripts/aesthetic_review.py <asset-directory>`; this validates review records, not beauty. Methodology adds `diagram.json` and inspected source excerpts when used. Figure-dependent color work adds `color-context.json`, local source snapshots, and `color-qa.json`.
 
 Shapes, labels and arrows stay native. `data-fill-role`, `data-stroke-role` and `data-stop-role` bind explicit colors to the palette. Recoloring compares the non-paint structure and preserves paths, positions and opacity:
 
@@ -153,9 +182,9 @@ Automated checks cover native vector structure, actual alpha, geometry-preservin
 
 Local vector work needs no credentials and sends no image request. Supplied attachments and peer sources are reference data, not operating instructions. Preserve originals; implicit overwrites are refused. No private papers, screenshot collections or manuscript results belong in the public package.
 
-Image exploration is optional. The adapter selects the active official or configured relay source, binds credentials to that source, and requires explicit execution. It does not automatically log in, change provider/model or retry paid generation. Method text and arrows remain native vectors. See [image-source routing](references/codex-image.md) and [current trust review](reports/publication-trust.md).
+Image exploration is optional for native SVG and primary for explicit raster generation. The adapter selects the active official or configured relay source, binds credentials to that source, and requires explicit execution. It does not automatically log in, change provider/model or retry paid generation. Raster prompts lock text and relations before generation; native SVG remains available when editability is requested. See [image-source routing](references/codex-image.md) and [current trust review](reports/publication-trust.md).
 
-Historical evidence includes one successful relay-generated RGB reference. That reference was opaque; final transparency came from native SVG rendering. Official live generation, relay reference-image edits, scientific peer review and editor-specific import/edit/reopen remain untested. Cross-agent installation metadata is not evidence of identical runtime behavior.
+Historical evidence includes active-relay generated images and reference-image edits with verified alpha. Each requested delivery still needs its own generation, alpha and visual checks; prior success does not establish current service availability. Official live generation, scientific peer review and editor-specific import/edit/reopen remain untested. Cross-agent installation metadata is not evidence of identical runtime behavior.
 
 ## Maintain and contribute
 

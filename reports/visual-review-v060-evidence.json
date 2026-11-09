@@ -1,0 +1,35 @@
+{
+  "version": "0.6.0",
+  "checked_on": "2026-11-09",
+  "scope": "Previously validated generated-asset refinement and single-image audit workflow",
+  "unit_tests": {
+    "passed": 124,
+    "failed": 0,
+    "skipped": 0
+  },
+  "package_validation": {
+    "ok": true,
+    "lexical_cases_passed": 28,
+    "lexical_cases_total": 28
+  },
+  "real_replays": [
+    {
+      "subject": "desk-seated person in circular results figure",
+      "route": "review_only",
+      "verdict": "keep",
+      "evidence": "Actual asset, white/dark views, thumbnail, native-size slot and composed destination inspected by agents."
+    },
+    {
+      "subject": "original public pipette fixture",
+      "route": "review_only",
+      "verdict": "keep",
+      "evidence": "Single non-square source reviewed; preview aspect bug corrected and regression-tested."
+    }
+  ],
+  "claim_limits": [
+    "Review-record validation is not computer vision or an objective beauty model.",
+    "Agent review is not user acceptance, scientific peer review or journal acceptance.",
+    "Private research figures and provider URLs are excluded from the package."
+  ],
+  "historical_reports": "Earlier versioned reports retain their original scope; this report supersedes current-workflow claims only."
+}

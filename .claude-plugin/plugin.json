@@ -1,10 +1,14 @@
 {
   "name": "daxuan-science-assets",
-  "version": "0.5.1",
-  "description": "Transparent editable scientific SVG assets and source-backed methodology schematics.",
-  "author": {"name": "Daxuan"},
+  "version": "0.6.0",
+  "description": "Generate, refine or review scientific illustration assets; create editable source-backed SVG schematics.",
+  "author": {
+    "name": "Daxuan"
+  },
   "homepage": "https://github.com/DaXuanGarden/daxuan-science-assets",
   "repository": "https://github.com/DaXuanGarden/daxuan-science-assets",
   "license": "MIT",
-  "skills": ["./"]
+  "skills": [
+    "./"
+  ]
 }

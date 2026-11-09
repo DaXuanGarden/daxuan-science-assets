@@ -107,7 +107,10 @@ def resolve_route(config, env, auth=None, route="auto", base_url=None, profile=N
 
 
 def public_plan(plan):
-    return {k: v for k, v in plan.items() if not k.startswith("_")}
+    result = {k: v for k, v in plan.items() if not k.startswith("_")}
+    if result.get("base_url"):
+        result["base_url"] = "configured relay (URL redacted)"
+    return result
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -115,8 +118,32 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         return None
 
 
+def custom_user_agent():
+    raw = os.environ.get("OPENAI_CUSTOM_HEADERS")
+    if raw is None or not raw.strip():
+        return None
+    user_agent = None
+    for line in raw.splitlines():
+        if not line.strip():
+            continue
+        name, separator, value = line.partition(":")
+        if not separator or name.strip().lower() != "user-agent":
+            raise BackendError("OPENAI_CUSTOM_HEADERS accepts only newline-delimited User-Agent headers; no request sent")
+        value = value.strip()
+        if not value or "\r" in value or "\n" in value:
+            raise BackendError("User-Agent header is empty or malformed; no request sent")
+        user_agent = value
+    if not user_agent:
+        raise BackendError("OPENAI_CUSTOM_HEADERS contains no User-Agent header; no request sent")
+    return user_agent
+
+
 def request_bytes(url, headers=None, body=None, timeout=30):
-    request = urllib.request.Request(url, data=body, headers=headers or {})
+    request_headers = dict(headers or {})
+    user_agent = custom_user_agent()
+    if user_agent:
+        request_headers["User-Agent"] = user_agent
+    request = urllib.request.Request(url, data=body, headers=request_headers)
     try:
         with urllib.request.build_opener(NoRedirect).open(request, timeout=timeout) as response:
             return response.read(64 * 1024 * 1024), response.status

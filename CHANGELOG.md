@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.6.0 - 2026-11-09
+
+- Publish the previously validated generated-raster workflow alongside editable native SVG, with scene-centered composition and explicit behavior contracts.
+- Separate genuinely different design exploration from selected-base refinement; bind the base file and assess each requested edit at the actual destination size.
+- Add standalone single-image review for visual appeal, craft and scientific/destination fit. Keep is a valid outcome; record localized actions and strengths without claiming objective beauty.
+- Preserve source/preview hashes and reject pending or incomplete review records. Keep alpha and generation evidence separate from attributed visual judgments.
+- Support the already-configured image source's restricted User-Agent compatibility header without changing credentials, model or billing route.
+- Real local person/instrument reviews exposed and fixed a non-square audit-preview distortion. Public examples retain their original artwork.
+
+## Unreleased — visual selection
+
+User feedback showed that technically valid images could remain unattractive. Appearance-focused requests now compare real candidates in the destination slot, permit expressive art styles, and record a separately attributed visual review. Added review-record validation, hash binding, preview generation, and regression checks. Agent opinions are not presented as human acceptance or scientific certification.
+
 ## 0.5.1 - 2026-10-19
 
 - Prepare the first public GitHub distribution with a source install command, pinned direct Python dependencies and a clone-to-first-render walkthrough.

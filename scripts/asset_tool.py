@@ -24,7 +24,10 @@ PRESET_VALUES = {
     "slate-blue": ("#719AB1", "#ADC9D7", "#4E758C", "#43657A", "#6E8D9C", "#D4E4EC", "#D2876F", "#ADBCC4", "#ECF1F4", "#8D9AA2"),
     "teal": ("#78A79A", "#AFCDC3", "#527D72", "#436E62", "#709288", "#DCECE6", "#CD8974", "#AFBFB8", "#EDF3EF", "#91A29B"),
     "neutral": ("#A8A69E", "#D0CEC6", "#85837B", "#706E67", "#96938A", "#E7E5DF", "#AD8074", "#C0BDB4", "#F0EFEA", "#9D9B93"),
+    "fresh-academic": ("#A9C7CB", "#DCEBED", "#7F9FA5", "#47636F", "#73939B", "#F1F7F7", "#E4867F", "#B3C4C9", "#F7FAFA", "#8DA2AA"),
+    "editorial-pastel": ("#9BC4C1", "#DDEFEA", "#73989A", "#3F5963", "#6F8D91", "#F8FBF8", "#E98E7E", "#B9C8C7", "#FBFCF9", "#8FA6A8"),
 }
+COMPOSITION_MODES = ("scene_centered", "icon_composite", "process_chain")
 PAINT = {"fill", "stroke", "stop-color", "color"}
 ROLE_ATTRS = {"data-fill-role": "fill", "data-stroke-role": "stroke", "data-stop-role": "stop-color"}
 
@@ -230,9 +233,72 @@ def init_asset(args):
     if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", args.slug):
         raise ValueError("Use a lowercase hyphenated asset slug")
     target = Path(args.outdir) if args.outdir else Path("figures/assets")/args.slug
-    colors = preset(args.palette)
-    brief = {"name": args.slug, "subject": args.subject, "use": "isolated asset for a scientific flowchart", "scientific_scope": "generic schematic unless the user supplied a more specific supported scope", "sources": [{"type":"user_brief", "description":args.subject}], "invariants": [], "allowed_simplifications": [], "editable_parts": [], "labels": [], "palette": args.palette, "route": "undecided", "image_generation": {"executed":False}, "status": "brief_only_not_artwork"}
-    prompt = "\n".join(("Scientific illustration reference for ONE isolated research-flowchart asset.", "Subject: "+args.subject, "Style: clean original vector-like scientific illustration; restrained highlights; clear silhouette.", "Colors: "+", ".join(k+" "+v for k,v in colors["colors"].items()), "No text, watermark, logo, arrows, surrounding scene, or invented mechanisms unless specifically requested.", "Background: request native transparency only if the active image model supports it; otherwise use a plain white reference background. Final delivery will be rebuilt as transparent native SVG.", "This file is a prompt, not generated artwork. Preserve the supported structures in brief.json."))+"\n"
+    colors = preset(getattr(args, "palette", "warm-gold"))
+    mode = getattr(args, "mode", "native_svg")
+    route = {"native_svg": "native-svg", "raster_generation": "image-backend", "hybrid": "image-backend-plus-native-svg"}[mode]
+    composition_mode = getattr(args, "composition_mode", "scene_centered")
+    if composition_mode not in COMPOSITION_MODES:
+        raise ValueError("composition_mode must be one of: "+", ".join(COMPOSITION_MODES))
+    use = "generated raster asset for a scientific figure" if mode == "raster_generation" else "scientific asset with an explicit composition contract"
+    background = getattr(args, "background", "auto")
+    iteration_mode = getattr(args, "iteration_mode", "explore")
+    if iteration_mode not in {"explore", "refine"}:
+        raise ValueError("iteration_mode must be explore or refine")
+    aesthetic_review_required = bool(getattr(args, "aesthetic_review", False) or iteration_mode == "refine")
+    candidate_count = getattr(args, "candidate_count", None)
+    if candidate_count is None:
+        candidate_count = 1 if iteration_mode == "refine" else 2
+    count_min, count_max = (1, 2) if iteration_mode == "refine" else (2, 10)
+    if isinstance(candidate_count, bool) or not isinstance(candidate_count, int) or not count_min <= candidate_count <= count_max:
+        raise ValueError(f"candidate_count must be an integer from {count_min} to {count_max} in {iteration_mode} mode")
+    base_asset = getattr(args, "base_asset", None)
+    edit_targets = getattr(args, "edit_target", None) or []
+    preserve_features = getattr(args, "preserve_feature", None) or []
+    refinement_contract = None
+    if iteration_mode == "refine":
+        if not base_asset or not edit_targets or not preserve_features:
+            raise ValueError("refine needs --base-asset, at least one --edit-target, and at least one --preserve-feature")
+        base = Path(base_asset).resolve()
+        if not base.is_file():
+            raise ValueError("base_asset must name an existing selected asset")
+        if any(not isinstance(item, str) or not item.strip() for item in edit_targets + preserve_features):
+            raise ValueError("Edit targets and preserved features must be non-empty descriptions")
+        refinement_contract = {"base_asset": {"path": str(base), "sha256": hashlib.sha256(base.read_bytes()).hexdigest()}, "edit_targets": edit_targets, "preserve_features": preserve_features}
+    elif base_asset or edit_targets or preserve_features:
+        raise ValueError("Selected-base edit arguments require --iteration-mode refine")
+    action = getattr(args, "action", None)
+    attention_target = getattr(args, "attention_target", None)
+    required_context = getattr(args, "required_context", None) or []
+    if (attention_target or required_context) and not action:
+        raise ValueError("An attention target or required context needs an explicit action")
+    action_contract = {"action": action, "attention_target": attention_target, "required_context": required_context} if action else None
+    brief = {"name": args.slug, "subject": args.subject, "use": use, "scientific_scope": "generic schematic unless the user supplied a more specific supported scope", "sources": [{"type":"user_brief", "description":args.subject}], "invariants": [], "allowed_simplifications": [], "editable_parts": [], "labels": [], "palette": getattr(args, "palette", "warm-gold"), "delivery_mode": mode, "background": background, "route": route, "composition_mode": composition_mode, "storyboard": {"visual_anchor": "single main subject", "environment": "minimal context that explains the subject", "state_cue": "one visible state or symptom cue", "integrated_secondary_cue": "one compact cue embedded in the scene", "relation_semantics": "conceptual association unless the brief explicitly supports causality", "avoid_list": ["isolated object chain", "detached icon satellites", "unlisted mechanism", "unlisted text"]}, "action_contract": action_contract, "aesthetic_review_required": aesthetic_review_required, "aesthetic_spec": {"candidate_count": candidate_count, "revision_round_limit": 1, "criteria": ["visual_hierarchy", "silhouette_readability", "palette_harmony", "composition_balance", "style_coherence", "detail_economy", "destination_slot_readability"], "science_boundary": "Aesthetic scores describe visual finish only; they do not certify scientific truth."}, "image_generation": {"executed":False, "requested": mode in {"raster_generation", "hybrid"}}, "status": "brief_only_not_artwork"}
+    brief["iteration_mode"] = iteration_mode
+    brief["refinement_contract"] = refinement_contract
+    if mode == "raster_generation":
+        style = "clean original scientific raster illustration; restrained highlights; clear silhouette; coherent art direction suited to the user and destination; natural proportions and intentional color contrast; preserve the requested composition without adding text"
+        ending = "Final delivery is the generated PNG/JPEG. Do not reconstruct it as SVG unless the user separately requests a vector branch."
+    elif mode == "hybrid":
+        style = "clean original scientific illustration suitable for later native SVG reconstruction; restrained highlights; clear silhouette; coherent art direction suited to the user and destination"
+        ending = "The generated PNG is a visual asset and may be accompanied by a separately authored editable SVG."
+    else:
+        style = "clean original vector-like scientific illustration; restrained highlights; clear silhouette; coherent art direction suited to the user and destination"
+        ending = "Final delivery for this mode is a transparent native SVG with a rendered PNG companion."
+    composition_instruction = {
+        "scene_centered": "Build one coherent compact scene around a single visual anchor. Put the environment and state cue in the same scene; embed the secondary scientific cue into the subject or setting. Do not arrange detached icons as a chain.",
+        "icon_composite": "Use a compact composite of a few explicitly requested objects, with clear grouping and no unlisted satellites.",
+        "process_chain": "Use a deliberate process chain only when the brief explicitly requests ordered steps and relations."
+    }[composition_mode]
+    aesthetic_instruction = "Aesthetic goals: graceful composition, natural subject proportions, coherent rendering, harmonious colors with useful contrast, an appealing silhouette, and recognition at thumbnail size. This prompt requests ONE image. Candidate comparison and scientific review occur outside the image model." if aesthetic_review_required else "Aesthetic review is optional; preserve a coherent visual hierarchy and inspect the asset at the destination size."
+    action_instruction = "Required behavior: "+json.dumps(action_contract, ensure_ascii=False)+". Preserve the action, attention target, and necessary context in this image; do not simplify away the behavior." if action_contract else "No additional behavior contract is specified."
+    prompt = "\n".join(("Scientific illustration asset request with composition mode: "+composition_mode+".", "Subject: "+args.subject, "Style: "+style+".", "Composition contract: "+composition_instruction, "Storyboard fields: visual_anchor=single main subject; environment=minimal explanatory context; state_cue=one visible state or symptom cue; integrated_secondary_cue=one compact cue embedded in the scene; relation_semantics=conceptual association unless explicitly supported.", action_instruction, aesthetic_instruction, "Colors: "+", ".join(k+" "+v for k,v in colors["colors"].items()), "No watermark, logo, invented mechanisms, unsupported anatomy, genes, loci, numerical claims, or extra text/arrows unless specifically requested.", "Background request: "+background+"; use true alpha when supported and never draw a checkerboard to imitate transparency.", ending, "This file is a prompt. Preserve the supported structures, aesthetic contract, and evidence boundaries in brief.json."))+"\n"
+    if refinement_contract:
+        prompt += "Iteration mode: refine the supplied selected-base image; do not restart composition or replace the subject. Send that image as an edit reference through the existing backend. Additional references may guide specified detail or finish only.\n"
+        prompt += "Preserve: "+json.dumps(preserve_features, ensure_ascii=False)+".\n"
+        prompt += "Observable edit targets: "+json.dumps(edit_targets, ensure_ascii=False)+".\n"
+        prompt += "Request ONE refined image. Compare its changed details directly with the selected base; a near-identical redraw does not prove that the requested edits improved.\n"
+    else:
+        prompt += "Iteration mode: explore. Candidate diversity is reviewed outside this one-image request; mirrored views, demographic swaps, or small recolors alone are not new design directions.\n"
     outputs = {"brief.json": json.dumps(brief,ensure_ascii=False,indent=2)+"\n", "palette.json": json.dumps(colors,ensure_ascii=False,indent=2)+"\n", "image_prompt.txt": prompt}
     if any((target/name).exists() for name in outputs):
         raise FileExistsError("Asset brief already exists; use a new directory/version")
@@ -247,6 +313,18 @@ def main():
     p = sub.add_parser("init", help="Create a brief and palette; does not generate artwork")
     p.add_argument("slug"); p.add_argument("--subject", required=True); p.add_argument("--outdir")
     p.add_argument("--palette", choices=sorted(PRESET_VALUES), default="warm-gold")
+    p.add_argument("--mode", choices=("native_svg", "raster_generation", "hybrid"), default="native_svg")
+    p.add_argument("--composition-mode", choices=COMPOSITION_MODES, default="scene_centered")
+    p.add_argument("--aesthetic-review", action="store_true", help="Require an attributed visual review sidecar and candidate comparison")
+    p.add_argument("--iteration-mode", choices=("explore", "refine"), default="explore", help="Explore designs or refine one selected base")
+    p.add_argument("--candidate-count", type=int, choices=range(1, 11), help="Explore: 2–10 (default 2); refine: 1–2 (default 1); does not execute requests")
+    p.add_argument("--base-asset", help="Existing selected image/vector for refine mode; its hash is recorded")
+    p.add_argument("--edit-target", action="append", default=[], help="Observable detail to improve in refine mode; repeat as needed")
+    p.add_argument("--preserve-feature", action="append", default=[], help="Approved feature to retain in refine mode; repeat as needed")
+    p.add_argument("--action", help="Behavior that must remain visible in every candidate")
+    p.add_argument("--attention-target", help="Where the subject must look or direct attention")
+    p.add_argument("--required-context", action="append", default=[], help="Necessary contextual object or setting; repeat as needed")
+    p.add_argument("--background", choices=("opaque", "transparent", "auto"), default="auto")
     p = sub.add_parser("check", help="Inspect native SVG structure; not a scientific review")
     p.add_argument("svg"); p.add_argument("--output"); p.add_argument("--force", action="store_true")
     p = sub.add_parser("render", help="Render a transparent PNG and inspect its alpha")
