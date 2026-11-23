@@ -46,6 +46,8 @@ The DESeq2 example is based on inspected passages from [Love et al. (2014)](http
 
 This is an authored layout demonstration, not a statistical result. The [source PDF](assets/examples/pdf-embedding/source.pdf) keeps its vector objects and original labels in the [assembled PDF](assets/examples/pdf-embedding/figure.pdf); only the original pipette illustration is raster. [Preservation evidence](assets/examples/pdf-embedding/evidence.json).
 
+For a configured Mac or Linux server, the [server relay workflow](references/server-relay-workflow.md) documents installation, updates, image-route checks, a single authorized generation, asset review, and verified placement into a multipage PDF. It uses the server's existing Codex profile; no relay address or credential is part of the package.
+
 ```bash
 python3 -m pip install -r requirements-pdf.txt
 python3 scripts/build_pdf_example.py --outdir output/pdf-demo
@@ -64,6 +66,14 @@ For a noninteractive global Codex installation:
 ```bash
 npx skills add DaXuanGarden/daxuan-science-assets --skill daxuan-science-assets --agent codex --global --copy --yes
 ```
+
+Update a Skill installed with the Skills CLI with:
+
+```bash
+npx skills update daxuan-science-assets
+```
+
+For a Git-managed Codex installation, clone the repository into `~/.agents/skills/daxuan-science-assets` and update it with `git -C ~/.agents/skills/daxuan-science-assets pull --ff-only`. Use one installation method for a given Codex account so duplicate copies cannot drift. The [server relay workflow](references/server-relay-workflow.md) includes dependency setup and end-to-end commands.
 
 Then say:
 

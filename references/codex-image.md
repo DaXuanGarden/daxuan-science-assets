@@ -18,6 +18,8 @@ Use `generation-evidence.json` to preserve the selected route, model, background
 
 `scripts/image_backend.py` reads the selected Codex config/profile and normalizes a bare host to `/v1`. It supports the active provider's `env_key`, `experimental_bearer_token`, Bearer Authorization header, and API-key auth-file/environment mode. An explicit image-only key/base can override the image source. It does not write accounts, credentials, provider settings, or environment files. Python 3.9–3.10 needs `tomli`; Python 3.11+ has `tomllib`.
 
+For installing the package on a second Codex host that already has the same relay configured, use the host-local setup and verification sequence in [server relay workflow](server-relay-workflow.md). Do not copy relay credentials into this repository.
+
 Do not assume a working Responses provider supports Images. A config/key check, a model listing, a saved generated PNG, and actual alpha are different evidence levels. Report each separately. In particular, absence of the optional OAuth file does not make a configured relay unavailable.
 
 ```bash

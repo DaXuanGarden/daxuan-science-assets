@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.0 - 2026-11-23
+
+- Document the Mac/Linux server path for installing or updating the complete Skill package and its local scripts.
+- Explain how the image adapter reuses the server's active Codex relay profile and matching credential, with a no-generation route/model probe and no credential copying.
+- Connect the existing generation, transparency QA, aesthetic review, and PDF embedding tools into one reproducible asset-to-multipage-PDF workflow.
+- No provider, endpoint, credential, private figure, or paid image-generation result is added. This revision did not run on a remote server or issue an image-generation request.
+
 ## 0.7.0 - 2026-11-09
 
 - Close the review-to-delivery loop with optional local PDF assembly: place the approved transparent PNG and exact native label in a copy of the original figure.
