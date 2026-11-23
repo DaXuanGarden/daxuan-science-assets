@@ -1,13 +1,15 @@
 interface:
   display_name: "Daxuan Scientific Assets"
-  short_description: "Editable scientific assets and methodology SVG schematics"
-  default_prompt: "Use $daxuan-science-assets to create a transparent editable SVG and PNG, either an individual scientific object or a methodology schematic grounded in my papers and idea, with traceable sources and native labels and relations."
+  short_description: "Generated scientific images and editable assets"
+  default_prompt: "Use $daxuan-science-assets to create either a model-generated raster illustration with an explicit art direction and visual review, or an editable scientific SVG/methodology schematic grounded in my papers and idea. Preserve evidence boundaries and use the requested delivery mode."
   examples:
     - "Build a transparent methodology schematic from these papers and my adaptation; retain source locators."
     - "Show my preliminary idea as a proposed method, with editable labels and typed arrows."
     - "Create a warm-gold chromosome asset as transparent SVG."
     - "Redraw this liver reference; preserve the approved outline and palette."
     - "Explore a mitochondrion with Codex images, then rebuild editable SVG."
+    - "Create three genuinely different raster art directions for this small scientific scene; keep the scientific meaning fixed."
+    - "Review these candidate images at thumbnail and final-figure size, including edge, material, and light finish."
     - "Improve only the gold colors; preserve the shapes."
     - "Coordinate this paper-inspired asset with my Figure 1 colors; preserve explicit color meanings and record both sources."
 compatibility:

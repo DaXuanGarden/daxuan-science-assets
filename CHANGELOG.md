@@ -1,8 +1,13 @@
 # Changelog
 
-## Unreleased
+## 0.9.0 - 2026-11-23
 
-- Pin native CI to an Ubuntu image that supports the Python 3.9 matrix entry, and update Actions to Node 24-compatible versions.
+- Fix the native CI Python 3.9 runner failure by pinning Ubuntu 22.04 and updating Actions to Node 24-compatible releases.
+- Add a structured raster art-direction plan with per-candidate composition, rendering language, silhouette, lighting/material, signature detail, and design intent.
+- Require pairwise-distinct direction cards before aesthetic exploration prompts are written; each candidate remains one explicit image request through the existing backend.
+- Require the visual review to compare every planned candidate pair and add a surface/light craft criterion alongside hierarchy, silhouette, palette, composition, and destination fit.
+- Document transferable methods from design and scientific-illustration skills without importing their backends, webpage conventions, or abstract-graphic-abstract layouts.
+- No image request was executed for this update; aesthetic judgement remains attributed and subjective.
 
 ## 0.8.0 - 2026-11-23
 

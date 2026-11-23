@@ -4,7 +4,7 @@ For a standalone critique of one existing image, use [visual audit](visual-audit
 
 Use this review for appearance-focused requests or after the user rejects a technically valid image as unattractive. Choose the iteration mode from context before choosing a count.
 
-- `explore`: default to two candidates; honor a requested count of 2–10. Before generation, name each direction's visible design difference and user value. For larger sets, record a variation matrix. Camera mirroring, demographic swaps, and small recolors alone do not establish a new design direction. Inspect actual output pairs; a varied prompt list is not evidence of varied images. Label close variants honestly instead of claiming broad design diversity.
+- `explore`: default to three generated-raster candidates; honor a requested count of 2–10. Before generation, use [art direction](art-direction.md) to write one direction card per candidate and initialize each in a separate output directory. Camera mirroring, demographic swaps, and small recolors alone do not establish a new design direction. Inspect actual output pairs; a varied prompt list is not evidence of varied images. Label close variants honestly instead of claiming broad design diversity.
 - `refine`: when the user selects an existing image, default to one focused revision; at most two treatments belong in this pass. Use the actual selected base as an edit reference, record its path and SHA-256 in `brief.refinement_contract.base_asset`, list `edit_targets`, and list `preserve_features`. Do not restart composition or replace approved features just to make a new image look different. Declare any second reference's limited role, such as hand anatomy or soft shading.
 
 The CLI initializes these fields with `--iteration-mode`, `--base-asset`, repeated `--edit-target`, and repeated `--preserve-feature`. Initialization plans the work; it does not send image requests. Save each actual prompt and generation report.
@@ -35,13 +35,14 @@ Record `aesthetic-review.json` beside the selected image. Scores below are subje
 
 | Criterion | Weight | Review question |
 |---|---:|---|
-| `visual_hierarchy` | 20 | Does one subject and the intended cue lead attention? |
-| `silhouette_readability` | 15 | Do pose and gesture read at 200 px? |
-| `palette_harmony` | 15 | Are colors coordinated, lively enough, and sufficiently distinct? |
-| `composition_balance` | 15 | Are proportions, visual weight, and whitespace balanced? |
-| `style_coherence` | 15 | Are face, body, chair, lines, and shading part of the same style? |
-| `detail_economy` | 10 | Does detail improve expression without introducing clutter? |
-| `destination_slot_readability` | 10 | Does the asset work in the actual figure slot? |
+| `visual_hierarchy` | 18 | Does one subject and the intended cue lead attention? |
+| `silhouette_readability` | 14 | Do pose and gesture read at 200 px? |
+| `palette_harmony` | 12 | Are colors coordinated, lively enough, and sufficiently distinct? |
+| `composition_balance` | 14 | Are proportions, visual weight, and whitespace balanced? |
+| `style_coherence` | 14 | Are face, body, chair, lines, and shading part of the same style? |
+| `surface_light_craft` | 12 | Do edges, light, material cues, and shading transitions look deliberate and consistent? |
+| `detail_economy` | 8 | Does detail improve expression without introducing clutter? |
+| `destination_slot_readability` | 8 | Does the asset work in the actual figure slot? |
 
 Each criterion uses 1–5 with a concrete note. Convert to a score out of 100 using these weights. A reviewer `pass` requires at least 80 overall, every criterion at least 3, and all required gates true. The threshold is a selection rule, not a calibrated perception model. A high score cannot override a specific visible defect or negative user feedback.
 
@@ -57,10 +58,11 @@ Required fields:
 - `criteria`: each criterion contains `score` and `note`; `weighted_score` holds the rounded total.
 - `hard_gates`: booleans for `no_extra_text_or_watermark`, `thumbnail_recognition`, `no_clipping`, and `brief_style_match`. Require `verified_alpha` for transparent delivery, and `single_anchor` plus `no_detached_objects` for `scene_centered`. Explicit `opaque`/`auto` backgrounds and `icon_composite`/`process_chain` compositions omit irrelevant gates; legacy callers without these options retain the original checks. Add `required_behavior_match` when `brief.action_contract` is nonempty. The CLI and raster QA use the brief to determine applicability.
 - `defects`: concrete residual issues and their action; use an empty list when none are found.
-- `candidate_comparison`: each candidate's path, strengths, defects, and verdict.
+- `candidate_comparison`: every planned candidate's path, `direction_id`, strengths, defects, and verdict, plus `content_match` and a concrete `science_note` checking the visible action and scientific relationship against the fixed brief.
+- `direction_comparison`: for each candidate pair, record `direction_a`, `direction_b`, observed `visible_axes`, `verdict` (`distinct_direction|close_variant`), and a concrete note. Allowed axes are `composition`, `rendering_language`, `silhouette`, `lighting_material`, and `signature_detail`.
 - `selected_candidate`, `selection_reason`, and `science_boundary`.
 
-If any required gate fails, record `revise` or `fail`. After selection, permit at most one further focused correction to the highest-impact remaining defect. Keep failed candidates as evidence; do not present all of them as recommended finals. In exploration, explicitly record which outputs are genuinely different directions and which are close variants; do not infer diversity from the number of saved files.
+If any required gate fails, record `revise` or `fail`. For a planned raster exploration, inspect every candidate against the same fixed subject, action, source boundary, and relation semantics. Set `hard_gates.candidate_content_fidelity` to true only when every candidate preserves them; an unsupported diagnosis, anatomy, or causal relation fails this gate even when attractive. Cover every candidate pair and set `hard_gates.candidate_directions_distinct` to true only when each pair differs visibly on at least two named design axes, including at least one material change in composition, rendering language, or silhouette. A prompt-only difference cannot pass this gate. After selection, permit at most one further focused correction to the highest-impact remaining defect. Keep failed candidates as evidence; do not present all of them as recommended finals.
 
 Build repeatable previews with `python3 scripts/build_review_previews.py <asset-directory> --figure <figure.png> --slot <x> <y> <width> <height>`. Without a target figure, omit both figure and slot arguments; white/dark and 200 px previews are still produced. Non-square sources use aspect-preserving containment and centering in display canvases and destination slots; preview evidence records the rendered bounds. Use `--force` only to refresh existing preview files.
 

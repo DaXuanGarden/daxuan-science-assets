@@ -10,18 +10,80 @@ import re
 from pathlib import Path
 
 WEIGHTS = {
-    "visual_hierarchy": 20,
-    "silhouette_readability": 15,
-    "palette_harmony": 15,
-    "composition_balance": 15,
-    "style_coherence": 15,
-    "detail_economy": 10,
-    "destination_slot_readability": 10,
+    "visual_hierarchy": 18,
+    "silhouette_readability": 14,
+    "palette_harmony": 12,
+    "composition_balance": 14,
+    "style_coherence": 14,
+    "surface_light_craft": 12,
+    "detail_economy": 8,
+    "destination_slot_readability": 8,
 }
 REQUIRED_GATES = {"no_extra_text_or_watermark", "verified_alpha", "single_anchor", "no_detached_objects", "thumbnail_recognition", "no_clipping", "brief_style_match"}
+DIRECTION_AXES = {"composition", "rendering_language", "silhouette", "lighting_material", "signature_detail"}
 
 
-def validate_review(review: dict, action_contract: dict | None = None, refinement_contract: dict | None = None, *, background: str | None = None, composition_mode: str | None = None) -> dict:
+def validate_direction_review(review: dict, aesthetic_spec: dict | None) -> tuple[bool, bool, list[str]]:
+    directions = aesthetic_spec.get("design_directions") if isinstance(aesthetic_spec, dict) else None
+    if not isinstance(directions, list) or len(directions) < 2:
+        return False, False, []
+    errors: list[str] = []
+    expected_ids = [item.get("id") for item in directions if isinstance(item, dict)]
+    if len(expected_ids) != len(directions) or any(not isinstance(item, str) or not item for item in expected_ids) or len(set(expected_ids)) != len(expected_ids):
+        return False, False, ["brief design_directions must have unique non-empty ids"]
+    candidates = review.get("candidate_comparison")
+    candidate_rows = [item for item in candidates if isinstance(item, dict)] if isinstance(candidates, list) else []
+    candidate_ids = [item.get("direction_id") for item in candidate_rows]
+    candidate_map_valid = len(candidate_ids) == len(expected_ids) and not any(not isinstance(item, str) or not item for item in candidate_ids) and set(candidate_ids) == set(expected_ids)
+    content_fidelity = candidate_map_valid
+    if not candidate_map_valid:
+        errors.append("candidate_comparison must include each planned direction_id exactly once")
+    for item in candidate_rows:
+        if not isinstance(item.get("content_match"), bool) or not isinstance(item.get("science_note"), str) or not item["science_note"].strip():
+            errors.append("each candidate_comparison needs content_match and a concrete science_note")
+            content_fidelity = False
+        elif not item["content_match"]:
+            content_fidelity = False
+    expected_pairs = {tuple(sorted((left, right))) for index, left in enumerate(expected_ids) for right in expected_ids[index + 1:]}
+    comparisons = review.get("direction_comparison")
+    if not isinstance(comparisons, list):
+        comparisons = []
+        errors.append("direction_comparison must review every pair of planned candidates")
+    seen_pairs: set[tuple[str, str]] = set()
+    all_distinct = True
+    for item in comparisons:
+        if not isinstance(item, dict):
+            errors.append("each direction_comparison needs two ids, visible_axes, verdict, and note")
+            all_distinct = False
+            continue
+        left, right = item.get("direction_a"), item.get("direction_b")
+        pair = tuple(sorted((left, right))) if isinstance(left, str) and isinstance(right, str) else None
+        if pair not in expected_pairs or pair in seen_pairs:
+            errors.append("direction_comparison pairs must match the plan exactly once")
+            all_distinct = False
+            continue
+        seen_pairs.add(pair)
+        axes = item.get("visible_axes")
+        if not isinstance(axes, list) or any(not isinstance(axis, str) or axis not in DIRECTION_AXES for axis in axes) or len(set(axes)) != len(axes):
+            errors.append("direction_comparison.visible_axes must list unique observed design axes")
+            axes = []
+            all_distinct = False
+        verdict = item.get("verdict")
+        if not isinstance(verdict, str) or verdict not in {"distinct_direction", "close_variant"} or not isinstance(item.get("note"), str) or not item["note"].strip():
+            errors.append("direction_comparison needs a distinct_direction/close_variant verdict and visible note")
+            all_distinct = False
+        elif verdict == "distinct_direction" and len(axes) < 2:
+            errors.append("distinct_direction requires at least two visibly different design axes")
+            all_distinct = False
+        elif verdict == "close_variant":
+            all_distinct = False
+    if seen_pairs != expected_pairs:
+        errors.append("direction_comparison is missing planned candidate pairs")
+        all_distinct = False
+    return all_distinct and candidate_map_valid and seen_pairs == expected_pairs and not any("direction_comparison" in error for error in errors), content_fidelity, errors
+
+
+def validate_review(review: dict, action_contract: dict | None = None, refinement_contract: dict | None = None, *, background: str | None = None, composition_mode: str | None = None, aesthetic_spec: dict | None = None, iteration_mode: str | None = None) -> dict:
     errors: list[str] = []
     required_gates = set(REQUIRED_GATES)
     # Missing options preserve the original transparent-scene caller contract.
@@ -38,6 +100,10 @@ def validate_review(review: dict, action_contract: dict | None = None, refinemen
             required_gates.difference_update({"single_anchor", "no_detached_objects"})
     if action_contract:
         required_gates.add("required_behavior_match")
+    planned_directions = aesthetic_spec.get("design_directions") if isinstance(aesthetic_spec, dict) else None
+    directions_required = iteration_mode == "explore" and isinstance(planned_directions, list) and len(planned_directions) >= 2
+    if directions_required:
+        required_gates.update({"candidate_directions_distinct", "candidate_content_fidelity"})
     if refinement_contract:
         if not isinstance(refinement_contract, dict):
             errors.append("refinement_contract must be an object")
@@ -127,6 +193,14 @@ def validate_review(review: dict, action_contract: dict | None = None, refinemen
     for key, value in gates.items():
         if not isinstance(value, bool):
             errors.append(f"hard_gates.{key} must be boolean")
+    direction_distinct, content_fidelity, direction_errors = validate_direction_review(review, aesthetic_spec) if directions_required else (False, False, [])
+    errors.extend(direction_errors)
+    direction_gate_consistent = not directions_required or gates.get("candidate_directions_distinct") is direction_distinct
+    if not direction_gate_consistent:
+        errors.append("hard_gates.candidate_directions_distinct must match the observed pairwise direction review")
+    content_gate_consistent = not directions_required or gates.get("candidate_content_fidelity") is content_fidelity
+    if not content_gate_consistent:
+        errors.append("hard_gates.candidate_content_fidelity must match the per-candidate science review")
     if not required_gates.issubset(gates):
         errors.append("hard_gates is missing required gates: " + ", ".join(sorted(required_gates - gates.keys())))
     scoped_gates = {"verified_alpha", "single_anchor", "no_detached_objects"}
@@ -147,11 +221,13 @@ def validate_review(review: dict, action_contract: dict | None = None, refinemen
         "errors": errors,
         "weighted_score": round(weighted, 1) if weighted is not None else None,
         "criteria_checked": len(scores),
-        "hard_gates_passed": required_gates.issubset(gates) and all(applicable_gates.values()),
+        "hard_gates_passed": required_gates.issubset(gates) and all(applicable_gates.values()) and direction_gate_consistent and content_gate_consistent and (not directions_required or direction_distinct and content_fidelity),
         "required_gates": sorted(required_gates),
         "nonapplicable_gates": sorted(set(gates) - set(applicable_gates)),
         "required_behavior_reviewed": bool(action_contract) and isinstance(gates.get("required_behavior_match"), bool),
         "selected_base_refinement_reviewed": bool(refinement_contract) and {"selected_base_preserved", "requested_edits_addressed"}.issubset(gates),
+        "candidate_direction_diversity_reviewed": directions_required and not direction_errors and "candidate_directions_distinct" in gates,
+        "candidate_content_fidelity_reviewed": directions_required and not direction_errors and "candidate_content_fidelity" in gates,
         "science_boundary_reviewed": bool(review.get("science_boundary")),
         "review_status": review.get("status"),
         "reviewer_type": review.get("reviewer_type"),
@@ -193,7 +269,7 @@ def main() -> int:
     except (OSError, ValueError) as exc:
         print(json.dumps({"ok": False, "errors": [f"cannot read brief.json: {exc}"]}, ensure_ascii=False, indent=2))
         return 1
-    result = validate_review(review, brief.get("action_contract"), brief.get("refinement_contract"), background=brief.get("background"), composition_mode=brief.get("composition_mode"))
+    result = validate_review(review, brief.get("action_contract"), brief.get("refinement_contract"), background=brief.get("background"), composition_mode=brief.get("composition_mode"), aesthetic_spec=brief.get("aesthetic_spec"), iteration_mode=brief.get("iteration_mode"))
     source_errors = refinement_source_errors(brief.get("refinement_contract"), brief.get("iteration_mode"))
     if source_errors:
         result["errors"].extend(source_errors)

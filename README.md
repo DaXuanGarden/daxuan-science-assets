@@ -4,7 +4,7 @@
 
 [![Agent Skills](https://img.shields.io/badge/Agent_Skills-SVG-blue)](SKILL.md) [![skills.sh](https://skills.sh/b/DaXuanGarden/daxuan-science-assets)](https://skills.sh/DaXuanGarden/daxuan-science-assets) [![Native checks](https://github.com/DaXuanGarden/daxuan-science-assets/actions/workflows/check.yml/badge.svg)](https://github.com/DaXuanGarden/daxuan-science-assets/actions/workflows/check.yml) [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Turn a scientific object, compact scene, paper method, or initial idea into a generated raster asset or transparent, editable SVG—with a palette, source record, and real QA.** For small topic materials, raster generation defaults to a scene-centered composition with one visual anchor and an integrated cue. Use `fresh-academic` or `editorial-pastel` as a starting point, then choose an art direction that suits the user. Explore genuinely different design directions with 2–10 candidates, or refine a selected image with one focused version by default. A separate reviewer compares the actual details, thumbnail, and destination placement; near-identical redraws are not new design directions. Technical QA alone does not establish aesthetic quality. Native vector work needs no image-service account or API key. Explicit raster generation uses the active Codex official or configured relay source and may incur provider charges.
+**Turn a scientific object, compact scene, paper method, or initial idea into a generated raster asset or transparent, editable SVG—with a palette, source record, and real QA.** For small topic materials, raster generation defaults to a scene-centered composition with one visual anchor and an integrated cue. Use `fresh-academic` or `editorial-pastel` as a starting point, then choose an art direction that suits the user. Aesthetic exploration plans three distinct directions by default (2–10 when requested), each with its own image prompt. A separate reviewer checks actual differences at thumbnail and destination size, including finish and material craft. Planning does not execute image requests; explicit raster generation uses the active Codex official or configured relay source and may incur provider charges. Native vector work needs no image-service account or API key.
 
 [See outputs](#see-the-outputs) · [Install](#install) · [First local result](#first-local-result) · [Coordinate colors](#coordinate-colors) · [Validation](#validation) · [Boundaries](#boundaries)
 
@@ -91,7 +91,7 @@ sedentary-behavior and cardiovascular-risk illustration. Lock visible text
 and arrow relations before generation; do not add mechanisms or labels.
 ```
 
-For an explicit candidate set, use `--aesthetic-review --candidate-count 8`. This plans eight candidates; each image request still produces one image. For a scene where behavior matters, record an `action_contract` with the required action, attention target, and contextual objects. For example, “sitting at a desk and looking at a screen” needs the desk and screen; removing those objects for minimalism changes the meaning. The reviewer must check behavior before recommending the image.
+For aesthetic raster exploration, first write one direction card per candidate, then initialize each card into a fresh directory with the same `--direction-plan`, its `--candidate-id`, and matching `--candidate-count`. The plan must vary at least two visual axes for every pair, including composition, rendering language, or silhouette; color alone is insufficient. `asset_tool.py init` only writes briefs and prompts. The image backend remains a separate, explicit one-image request per prompt. See the [art-direction guide](references/art-direction.md) for commands and the three-card example. For a scene where behavior matters, record an `action_contract` with the required action, attention target, and contextual objects. For example, “sitting at a desk and looking at a screen” needs the desk and screen; removing those objects for minimalism changes the meaning. The reviewer must check behavior before recommending the image.
 
 When the user selects an existing image, switch to `refine` instead of restarting exploration:
 
@@ -158,7 +158,7 @@ The [color-context workflow](references/color-context.md) records sources, decis
 
 ## What you receive
 
-Native SVG mode returns `asset.svg`, transparent `asset.png`, `palette.json`, `brief.json`, and `qa.json`. Raster generation returns generated `asset.png` or `asset.jpg`, `image_prompt.txt`, `generation-evidence.json`, `brief.json`, `text_manifest.json`, `relation_manifest.json`, `source_manifest.json`, and `qa.json`; run `scripts/raster_asset_qa.py` for deterministic pixel and sidecar checks. When the brief sets `aesthetic_review_required`, also save `aesthetic-review.json` and run `scripts/aesthetic_review.py <asset-directory>`; this validates review records, not beauty. Methodology adds `diagram.json` and inspected source excerpts when used. Figure-dependent color work adds `color-context.json`, local source snapshots, and `color-qa.json`.
+Native SVG mode returns `asset.svg`, transparent `asset.png`, `palette.json`, `brief.json`, and `qa.json`. Raster generation returns generated `asset.png` or `asset.jpg`, `image_prompt.txt`, `generation-evidence.json`, `brief.json`, `text_manifest.json`, `relation_manifest.json`, `source_manifest.json`, and `qa.json`. A planned aesthetic candidate also has `design-direction.json`; its review compares every candidate pair and scores surface/light craft separately. Run `scripts/raster_asset_qa.py` for deterministic pixel and sidecar checks. When the brief sets `aesthetic_review_required`, also save `aesthetic-review.json` and run `scripts/aesthetic_review.py <asset-directory>`; this validates review records, not beauty. Methodology adds `diagram.json` and inspected source excerpts when used. Figure-dependent color work adds `color-context.json`, local source snapshots, and `color-qa.json`.
 
 Shapes, labels and arrows stay native. `data-fill-role`, `data-stroke-role` and `data-stop-role` bind explicit colors to the palette. Recoloring compares the non-paint structure and preserves paths, positions and opacity:
 
@@ -189,6 +189,8 @@ Edit a copied palette to change colors. Use the individual transparent asset in 
 
 These are task distinctions from inspected documentation, not a comparative quality benchmark. [Peer evidence](reports/publication-peers.json).
 
+For this raster-art direction workflow, the most useful references and the parts adapted from each are recorded in [aesthetic design peers](reports/aesthetic-design-peers.md). The short version: borrow composition and visual-direction planning from canvas/design skills, silhouette and gesture checks from character design, image-prompt structure from image-generation skills, and evidence limits from scientific-schematic and graphical-abstract skills. None of these changes the configured image relay.
+
 ## Validation
 
 From the repository root, using the installed dependencies:
@@ -199,7 +201,7 @@ From the repository root, using the installed dependencies:
 .venv/bin/python scripts/evaluate_examples.py --output output/example-checks.json
 ```
 
-[CI](.github/workflows/check.yml) also rebuilds the method and color examples and uploads the actual outputs. [Publication checks](reports/publication-checks.json) and [independent acceptance](reports/publication-review.json) distinguish executed checks, editorial estimates and untested workflows. [Changelog](CHANGELOG.md).
+[CI](.github/workflows/check.yml) also rebuilds the method, color, and PDF examples and uploads the actual outputs. [Current aesthetic-workflow evidence](reports/aesthetic-workflow-v090.json), historical [publication checks](reports/publication-checks.json), and [independent acceptance](reports/publication-review.json) distinguish executed checks, editorial estimates and untested workflows. [Changelog](CHANGELOG.md).
 
 Automated checks cover native vector structure, actual alpha, geometry-preserving recoloring, source-extract consistency and declared palette decisions. They do not prove scientific validity, visual harmony or readability. Inspect the isolated asset at its intended size and in the complete destination figure.
 

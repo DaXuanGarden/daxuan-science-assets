@@ -49,6 +49,31 @@ def valid_review():
     }
 
 
+def direction_plan():
+    return [
+        {"id": "side-gouache", "title": "Quiet profile"},
+        {"id": "oblique-pencil", "title": "Three-quarter study"},
+    ]
+
+
+def direction_review():
+    review = valid_review()
+    review["candidate_comparison"] = [
+        {"candidate": "a", "direction_id": "side-gouache", "note": "The open profile reads cleanly.", "content_match": True, "science_note": "The seated action and associative brief remain unchanged."},
+        {"candidate": "b", "direction_id": "oblique-pencil", "note": "The diagonal composition feels more expressive.", "content_match": True, "science_note": "No new mechanism or causal relation is visible."},
+    ]
+    review["direction_comparison"] = [{
+        "direction_a": "side-gouache",
+        "direction_b": "oblique-pencil",
+        "visible_axes": ["composition", "rendering_language", "silhouette"],
+        "verdict": "distinct_direction",
+        "note": "The view, image-making method, and outer body contour differ at thumbnail size.",
+    }]
+    review["hard_gates"]["candidate_directions_distinct"] = True
+    review["hard_gates"]["candidate_content_fidelity"] = True
+    return review
+
+
 class AestheticReviewTests(unittest.TestCase):
     def test_complete_agent_review_does_not_claim_human_acceptance(self):
         result = review_tool.validate_review(valid_review())
@@ -115,6 +140,58 @@ class AestheticReviewTests(unittest.TestCase):
             with self.subTest(options=options):
                 result = review_tool.validate_review(valid_review(), **options)
                 self.assertFalse(result["ok"])
+
+    def test_exploration_review_requires_observed_pairwise_direction_differences(self):
+        review = direction_review()
+        plan = {"design_directions": direction_plan()}
+        accepted = review_tool.validate_review(review, aesthetic_spec=plan, iteration_mode="explore")
+        self.assertTrue(accepted["ok"], accepted["errors"])
+        self.assertTrue(accepted["candidate_direction_diversity_reviewed"])
+        self.assertTrue(accepted["candidate_content_fidelity_reviewed"])
+        self.assertIn("candidate_directions_distinct", accepted["required_gates"])
+        self.assertIn("candidate_content_fidelity", accepted["required_gates"])
+
+        review["status"] = "revise"
+        review["direction_comparison"][0]["visible_axes"] = ["composition"]
+        review["direction_comparison"][0]["verdict"] = "close_variant"
+        review["hard_gates"]["candidate_directions_distinct"] = False
+        close = review_tool.validate_review(review, aesthetic_spec=plan, iteration_mode="explore")
+        self.assertTrue(close["ok"], close["errors"])
+        self.assertFalse(close["hard_gates_passed"])
+        self.assertFalse(close["recommendation_eligible"])
+
+    def test_pairwise_direction_review_cannot_be_replaced_by_a_high_score(self):
+        review = direction_review()
+        review["direction_comparison"][0]["visible_axes"] = ["composition"]
+        review["direction_comparison"][0]["verdict"] = "close_variant"
+        result = review_tool.validate_review(review, aesthetic_spec={"design_directions": direction_plan()}, iteration_mode="explore")
+        self.assertFalse(result["ok"])
+        self.assertFalse(result["hard_gates_passed"])
+        self.assertTrue(any("candidate_directions_distinct must match" in error for error in result["errors"]))
+
+    def test_science_fidelity_is_checked_for_every_candidate(self):
+        review = direction_review()
+        review["candidate_comparison"][1]["content_match"] = False
+        review["candidate_comparison"][1]["science_note"] = "This version implies a causal disease mechanism absent from the brief."
+        review["hard_gates"]["candidate_content_fidelity"] = False
+        plan = {"design_directions": direction_plan()}
+        rejected = review_tool.validate_review(review, aesthetic_spec=plan, iteration_mode="explore")
+        self.assertFalse(rejected["ok"])
+        self.assertFalse(rejected["hard_gates_passed"])
+
+        review["status"] = "revise"
+        recorded = review_tool.validate_review(review, aesthetic_spec=plan, iteration_mode="explore")
+        self.assertTrue(recorded["ok"], recorded["errors"])
+        self.assertTrue(recorded["candidate_content_fidelity_reviewed"])
+        self.assertFalse(recorded["recommendation_eligible"])
+
+    def test_direction_review_must_cover_every_planned_pair(self):
+        review = direction_review()
+        plan = {"design_directions": direction_plan() + [{"id": "paper-relief", "title": "Layered relief"}]}
+        review["candidate_comparison"].append({"candidate": "c", "direction_id": "paper-relief", "note": "The layered relief remains legible."})
+        result = review_tool.validate_review(review, aesthetic_spec=plan, iteration_mode="explore")
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("missing planned candidate pairs" in error for error in result["errors"]))
 
     def test_cli_uses_explicit_brief_gate_scope(self):
         with tempfile.TemporaryDirectory() as directory:

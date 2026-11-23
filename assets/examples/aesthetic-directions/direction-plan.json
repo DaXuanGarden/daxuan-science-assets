@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "directions": [
+    {
+      "id": "side-gouache",
+      "title": "Quiet editorial profile",
+      "composition": "Use a close lateral view with the desk and screen on a calm horizontal axis, leaving clean negative space around the seated figure.",
+      "rendering_language": "Use softly layered gouache with crisp focal edges and restrained, tactile shadow transitions.",
+      "silhouette": "Keep an open profile silhouette with a clearly readable head, neck, shoulder, forearm, and seated leg shape.",
+      "lighting_material": "Use cool window daylight across matte clothing and a quiet screen surface, with one restrained warm accent.",
+      "signature_detail": "Finish the hand-to-desk contact and the boundary between shoulder and screen with deliberate edge control.",
+      "design_intent": "Make the desk action immediate and composed while keeping the image light enough for a small figure inset."
+    },
+    {
+      "id": "oblique-pencil",
+      "title": "Expressive three-quarter study",
+      "composition": "Use a compact front three-quarter view with the desk entering diagonally and the screen framing, but not hiding, the face.",
+      "rendering_language": "Use fine colored-pencil contours under transparent watercolor glazing, with a polished editorial finish rather than sketchy roughness.",
+      "silhouette": "Build a gently curved shoulder-to-back line and a separated forearm gesture that remains legible at thumbnail scale.",
+      "lighting_material": "Use soft reflected room light, layered fabric tones, and a muted glass highlight on the monitor.",
+      "signature_detail": "Give the hand and sleeve cuff precise, natural edges without adding extra objects or symbols.",
+      "design_intent": "Bring more personality and bodily presence to the same desk action without increasing scene clutter."
+    },
+    {
+      "id": "paper-relief",
+      "title": "Layered paper relief",
+      "composition": "Use a near-orthographic side view organized as two broad interlocking shapes: the seated person and a compact desk-screen unit.",
+      "rendering_language": "Use refined layered-paper forms with subtle paper grain, clean cut edges, and dimensional but quiet tonal shading.",
+      "silhouette": "Use broad, continuous shapes with a distinct head-shoulder-arm contour and a compact seated lower-body profile.",
+      "lighting_material": "Use diffuse skylight and shallow cast shadows that separate paper layers without a dramatic background.",
+      "signature_detail": "Make the overlaps at the screen frame, forearm, and desk edge especially crisp and intentional.",
+      "design_intent": "Create a more graphic, crafted read that stays distinctive when reduced inside a dense scientific figure."
+    }
+  ]
+}

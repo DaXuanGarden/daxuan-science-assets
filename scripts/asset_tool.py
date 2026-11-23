@@ -28,8 +28,15 @@ PRESET_VALUES = {
     "editorial-pastel": ("#9BC4C1", "#DDEFEA", "#73989A", "#3F5963", "#6F8D91", "#F8FBF8", "#E98E7E", "#B9C8C7", "#FBFCF9", "#8FA6A8"),
 }
 COMPOSITION_MODES = ("scene_centered", "icon_composite", "process_chain")
+DIRECTION_AXES = ("composition", "rendering_language", "silhouette", "lighting_material", "signature_detail")
+DIRECTION_CORE_AXES = {"composition", "rendering_language", "silhouette"}
+DIRECTION_FIELDS = ("id", "title", *DIRECTION_AXES, "design_intent")
 PAINT = {"fill", "stroke", "stop-color", "color"}
 ROLE_ATTRS = {"data-fill-role": "fill", "data-stroke-role": "stroke", "data-stop-role": "stop-color"}
+
+
+def normalized_direction_text(value):
+    return " ".join(re.findall(r"\w+", value.casefold()))
 
 
 def preset(name):
@@ -49,6 +56,43 @@ def write_text(path, content, force=False):
 
 def write_json(path, value, force=False):
     write_text(path, json.dumps(value, ensure_ascii=False, indent=2)+"\n", force)
+
+
+def validate_direction_plan(plan, expected_count):
+    if not isinstance(plan, dict) or plan.get("schema_version") != "1.0":
+        raise ValueError("direction plan must be an object with schema_version 1.0")
+    directions = plan.get("directions")
+    if not isinstance(directions, list) or len(directions) != expected_count:
+        raise ValueError(f"direction plan must contain exactly {expected_count} directions")
+    seen_ids, seen_titles = set(), set()
+    for index, direction in enumerate(directions, start=1):
+        if not isinstance(direction, dict):
+            raise ValueError(f"direction {index} must be an object")
+        for field in DIRECTION_FIELDS:
+            value = direction.get(field)
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"direction {index} needs a non-empty {field}")
+            direction[field] = value.strip()
+        direction_id = direction["id"].strip()
+        title = normalized_direction_text(direction["title"])
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", direction_id):
+            raise ValueError(f"direction {index} id must be lowercase hyphenated text")
+        if direction_id in seen_ids or title in seen_titles:
+            raise ValueError("direction ids and titles must be unique")
+        seen_ids.add(direction_id)
+        seen_titles.add(title)
+    for index, left in enumerate(directions):
+        for right in directions[index + 1:]:
+            changed = {
+                axis for axis in DIRECTION_AXES
+                if normalized_direction_text(left[axis]) != normalized_direction_text(right[axis])
+            }
+            if len(changed) < 2 or not changed.intersection(DIRECTION_CORE_AXES):
+                raise ValueError(
+                    f"directions {left['id']} and {right['id']} need at least two changed design axes, "
+                    "including composition, rendering_language, or silhouette"
+                )
+    return directions
 
 
 def parse_svg(path):
@@ -244,13 +288,39 @@ def init_asset(args):
     iteration_mode = getattr(args, "iteration_mode", "explore")
     if iteration_mode not in {"explore", "refine"}:
         raise ValueError("iteration_mode must be explore or refine")
-    aesthetic_review_required = bool(getattr(args, "aesthetic_review", False) or iteration_mode == "refine")
+    direction_plan_path = getattr(args, "direction_plan", None)
+    candidate_id = getattr(args, "candidate_id", None)
+    aesthetic_review_required = bool(getattr(args, "aesthetic_review", False) or iteration_mode == "refine" or direction_plan_path)
     candidate_count = getattr(args, "candidate_count", None)
     if candidate_count is None:
-        candidate_count = 1 if iteration_mode == "refine" else 2
+        candidate_count = 1 if iteration_mode == "refine" else 3 if aesthetic_review_required and mode in {"raster_generation", "hybrid"} else 2
     count_min, count_max = (1, 2) if iteration_mode == "refine" else (2, 10)
     if isinstance(candidate_count, bool) or not isinstance(candidate_count, int) or not count_min <= candidate_count <= count_max:
         raise ValueError(f"candidate_count must be an integer from {count_min} to {count_max} in {iteration_mode} mode")
+    design_directions = None
+    selected_direction = None
+    direction_plan_sha256 = None
+    if direction_plan_path:
+        if iteration_mode != "explore":
+            raise ValueError("--direction-plan is only used in explore mode")
+        if mode not in {"raster_generation", "hybrid"}:
+            raise ValueError("--direction-plan is for generated raster candidates")
+        try:
+            plan_bytes = Path(direction_plan_path).read_bytes()
+            direction_plan = json.loads(plan_bytes.decode("utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise ValueError("cannot read direction plan: " + type(exc).__name__) from exc
+        design_directions = validate_direction_plan(direction_plan, candidate_count)
+        direction_plan_sha256 = hashlib.sha256(plan_bytes).hexdigest()
+        if not candidate_id:
+            raise ValueError("--direction-plan requires --candidate-id to select this one image request")
+        selected_direction = next((item for item in design_directions if item["id"] == candidate_id), None)
+        if selected_direction is None:
+            raise ValueError("--candidate-id must match a direction id in the direction plan")
+    elif candidate_id:
+        raise ValueError("--candidate-id requires --direction-plan")
+    elif aesthetic_review_required and mode in {"raster_generation", "hybrid"} and iteration_mode == "explore":
+        raise ValueError("aesthetic exploration requires --direction-plan and --candidate-id before generation")
     base_asset = getattr(args, "base_asset", None)
     edit_targets = getattr(args, "edit_target", None) or []
     preserve_features = getattr(args, "preserve_feature", None) or []
@@ -272,7 +342,7 @@ def init_asset(args):
     if (attention_target or required_context) and not action:
         raise ValueError("An attention target or required context needs an explicit action")
     action_contract = {"action": action, "attention_target": attention_target, "required_context": required_context} if action else None
-    brief = {"name": args.slug, "subject": args.subject, "use": use, "scientific_scope": "generic schematic unless the user supplied a more specific supported scope", "sources": [{"type":"user_brief", "description":args.subject}], "invariants": [], "allowed_simplifications": [], "editable_parts": [], "labels": [], "palette": getattr(args, "palette", "warm-gold"), "delivery_mode": mode, "background": background, "route": route, "composition_mode": composition_mode, "storyboard": {"visual_anchor": "single main subject", "environment": "minimal context that explains the subject", "state_cue": "one visible state or symptom cue", "integrated_secondary_cue": "one compact cue embedded in the scene", "relation_semantics": "conceptual association unless the brief explicitly supports causality", "avoid_list": ["isolated object chain", "detached icon satellites", "unlisted mechanism", "unlisted text"]}, "action_contract": action_contract, "aesthetic_review_required": aesthetic_review_required, "aesthetic_spec": {"candidate_count": candidate_count, "revision_round_limit": 1, "criteria": ["visual_hierarchy", "silhouette_readability", "palette_harmony", "composition_balance", "style_coherence", "detail_economy", "destination_slot_readability"], "science_boundary": "Aesthetic scores describe visual finish only; they do not certify scientific truth."}, "image_generation": {"executed":False, "requested": mode in {"raster_generation", "hybrid"}}, "status": "brief_only_not_artwork"}
+    brief = {"name": args.slug, "subject": args.subject, "use": use, "scientific_scope": "generic schematic unless the user supplied a more specific supported scope", "sources": [{"type":"user_brief", "description":args.subject}], "invariants": [], "allowed_simplifications": [], "editable_parts": [], "labels": [], "palette": getattr(args, "palette", "warm-gold"), "delivery_mode": mode, "background": background, "route": route, "composition_mode": composition_mode, "storyboard": {"visual_anchor": "single main subject", "environment": "minimal context that explains the subject", "state_cue": "one visible state or symptom cue", "integrated_secondary_cue": "one compact cue embedded in the scene", "relation_semantics": "conceptual association unless the brief explicitly supports causality", "avoid_list": ["isolated object chain", "detached icon satellites", "unlisted mechanism", "unlisted text"]}, "action_contract": action_contract, "aesthetic_review_required": aesthetic_review_required, "aesthetic_spec": {"candidate_count": candidate_count, "revision_round_limit": 1, "criteria": ["visual_hierarchy", "silhouette_readability", "palette_harmony", "composition_balance", "style_coherence", "surface_light_craft", "detail_economy", "destination_slot_readability"], "design_directions": design_directions, "selected_direction_id": selected_direction["id"] if selected_direction else None, "direction_plan_sha256": direction_plan_sha256, "science_boundary": "Aesthetic scores describe visual finish only; they do not certify scientific truth."}, "image_generation": {"executed":False, "requested": mode in {"raster_generation", "hybrid"}}, "status": "brief_only_not_artwork"}
     brief["iteration_mode"] = iteration_mode
     brief["refinement_contract"] = refinement_contract
     if mode == "raster_generation":
@@ -289,9 +359,19 @@ def init_asset(args):
         "icon_composite": "Use a compact composite of a few explicitly requested objects, with clear grouping and no unlisted satellites.",
         "process_chain": "Use a deliberate process chain only when the brief explicitly requests ordered steps and relations."
     }[composition_mode]
-    aesthetic_instruction = "Aesthetic goals: graceful composition, natural subject proportions, coherent rendering, harmonious colors with useful contrast, an appealing silhouette, and recognition at thumbnail size. This prompt requests ONE image. Candidate comparison and scientific review occur outside the image model." if aesthetic_review_required else "Aesthetic review is optional; preserve a coherent visual hierarchy and inspect the asset at the destination size."
+    aesthetic_instruction = "Aesthetic goals: a deliberate art direction, natural subject proportions, a graceful silhouette, controlled light and material rendering, balanced negative space, and recognition at thumbnail size. Preserve palette roles and color meanings. This prompt requests ONE image; candidate comparison and scientific review occur outside the image model." if aesthetic_review_required else "Aesthetic review is optional; preserve a coherent visual hierarchy and inspect the asset at the destination size."
     action_instruction = "Required behavior: "+json.dumps(action_contract, ensure_ascii=False)+". Preserve the action, attention target, and necessary context in this image; do not simplify away the behavior." if action_contract else "No additional behavior contract is specified."
     prompt = "\n".join(("Scientific illustration asset request with composition mode: "+composition_mode+".", "Subject: "+args.subject, "Style: "+style+".", "Composition contract: "+composition_instruction, "Storyboard fields: visual_anchor=single main subject; environment=minimal explanatory context; state_cue=one visible state or symptom cue; integrated_secondary_cue=one compact cue embedded in the scene; relation_semantics=conceptual association unless explicitly supported.", action_instruction, aesthetic_instruction, "Colors: "+", ".join(k+" "+v for k,v in colors["colors"].items()), "No watermark, logo, invented mechanisms, unsupported anatomy, genes, loci, numerical claims, or extra text/arrows unless specifically requested.", "Background request: "+background+"; use true alpha when supported and never draw a checkerboard to imitate transparency.", ending, "This file is a prompt. Preserve the supported structures, aesthetic contract, and evidence boundaries in brief.json."))+"\n"
+    if selected_direction:
+        prompt += "Art direction card for candidate "+selected_direction["id"]+" (visual form only):\n"
+        prompt += "Title: "+selected_direction["title"]+".\n"
+        prompt += "Composition: "+selected_direction["composition"]+".\n"
+        prompt += "Rendering language: "+selected_direction["rendering_language"]+".\n"
+        prompt += "Silhouette and gesture: "+selected_direction["silhouette"]+".\n"
+        prompt += "Lighting and material: "+selected_direction["lighting_material"]+".\n"
+        prompt += "Signature detail: "+selected_direction["signature_detail"]+".\n"
+        prompt += "Design intent: "+selected_direction["design_intent"]+".\n"
+        prompt += "Keep the scientific subject, action, evidence boundary, relation semantics, text, and palette roles fixed across this candidate set. A direction card cannot add a diagnosis, mechanism, causal claim, anatomy, data, or label. Render only this candidate, not a contact sheet.\n"
     if refinement_contract:
         prompt += "Iteration mode: refine the supplied selected-base image; do not restart composition or replace the subject. Send that image as an edit reference through the existing backend. Additional references may guide specified detail or finish only.\n"
         prompt += "Preserve: "+json.dumps(preserve_features, ensure_ascii=False)+".\n"
@@ -300,6 +380,8 @@ def init_asset(args):
     else:
         prompt += "Iteration mode: explore. Candidate diversity is reviewed outside this one-image request; mirrored views, demographic swaps, or small recolors alone are not new design directions.\n"
     outputs = {"brief.json": json.dumps(brief,ensure_ascii=False,indent=2)+"\n", "palette.json": json.dumps(colors,ensure_ascii=False,indent=2)+"\n", "image_prompt.txt": prompt}
+    if selected_direction:
+        outputs["design-direction.json"] = json.dumps(selected_direction, ensure_ascii=False, indent=2)+"\n"
     if any((target/name).exists() for name in outputs):
         raise FileExistsError("Asset brief already exists; use a new directory/version")
     for name, content in outputs.items():
@@ -317,7 +399,9 @@ def main():
     p.add_argument("--composition-mode", choices=COMPOSITION_MODES, default="scene_centered")
     p.add_argument("--aesthetic-review", action="store_true", help="Require an attributed visual review sidecar and candidate comparison")
     p.add_argument("--iteration-mode", choices=("explore", "refine"), default="explore", help="Explore designs or refine one selected base")
-    p.add_argument("--candidate-count", type=int, choices=range(1, 11), help="Explore: 2–10 (default 2); refine: 1–2 (default 1); does not execute requests")
+    p.add_argument("--candidate-count", type=int, choices=range(1, 11), help="Explore: 2–10 (default 3 for aesthetic raster review); refine: 1–2 (default 1); does not execute requests")
+    p.add_argument("--direction-plan", help="JSON art-direction plan for an aesthetic raster candidate set")
+    p.add_argument("--candidate-id", help="One direction id to write as this single candidate prompt")
     p.add_argument("--base-asset", help="Existing selected image/vector for refine mode; its hash is recorded")
     p.add_argument("--edit-target", action="append", default=[], help="Observable detail to improve in refine mode; repeat as needed")
     p.add_argument("--preserve-feature", action="append", default=[], help="Approved feature to retain in refine mode; repeat as needed")

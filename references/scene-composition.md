@@ -20,7 +20,7 @@ For compact scenes, keep the setting quiet and the subject expressive. Natural s
 
 ## Exploration versus selected-base refinement
 
-Choose from the user’s intent before generating. `explore` compares design directions with a stated visible difference and purpose. A mirrored view, demographic change, or small recolor alone is a detail variant, not a new design direction. Keep the action and science fixed while varying a meaningful composition, silhouette, or rendering choice. Review actual images; a diverse-looking prompt matrix does not prove output diversity.
+Choose from the user’s intent before generating. `explore` compares design directions with a stated visible difference and purpose. Use the [art-direction cards](art-direction.md), keep the action, science, text, and palette roles fixed, and vary at least two meaningful visual axes per pair. A mirrored view, demographic change, hue-only shift, or small recolor alone is a detail variant, not a new design direction. Review actual images; a diverse-looking prompt matrix does not prove output diversity. The review must include every pair, and the `candidate_directions_distinct` gate cannot pass if images converge.
 
 When the user selects a base, use `refine`: preserve the approved composition and identity, send the actual base as an edit reference, and describe observable changes to named details. A second image can guide specified finish or detail without replacing the base composition. Save the base hash and compare before/after crops at useful magnification plus the final figure size. A higher overall aesthetic score cannot replace evidence that those edits improved.
 

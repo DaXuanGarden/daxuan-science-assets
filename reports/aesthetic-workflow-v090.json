@@ -1,0 +1,50 @@
+{
+  "version": "0.9.0",
+  "checked_on": "2026-11-23",
+  "status": "local_checks_passed",
+  "scope": "Pre-generation art-direction cards, one prompt per raster candidate, pairwise visual-difference review, candidate-level science fidelity review, and the CI runner repair.",
+  "executed_checks": {
+    "package_validation": {
+      "passed": true,
+      "failures": 0,
+      "trigger_cases_passed": 28,
+      "trigger_cases_total": 28
+    },
+    "unit_tests": {
+      "passed": 148,
+      "total": 148,
+      "python": "3.9.6"
+    },
+    "example_evaluation": {
+      "passed": 5,
+      "total": 5,
+      "image_generation_executed": false
+    },
+    "source_backed_method_build": {
+      "passed": true,
+      "actual_alpha": true,
+      "image_generation_executed": false
+    },
+    "color_context_example": {
+      "passed": true,
+      "geometry_preserved": true,
+      "actual_alpha": true,
+      "image_generation_executed": false
+    },
+    "pdf_assembly_example": {
+      "passed": true,
+      "original_vector_drawings_preserved": true,
+      "outside_region_changed_pixels": 0
+    },
+    "python_syntax_and_diff_check": {
+      "passed": true
+    }
+  },
+  "design_references": "reports/aesthetic-design-peers.md",
+  "limitations": [
+    "No image-generation request was made; actual model adherence to art-direction cards and rendered candidate diversity remain unverified.",
+    "No human blind preference study was conducted. Scores and candidate comparisons remain attributed subjective judgments.",
+    "Automated checks validate prompt-plan structure, review completeness, and arithmetic; they do not judge beauty or scientific truth.",
+    "No publisher acceptance or journal-specific aesthetic standard is claimed."
+  ]
+}

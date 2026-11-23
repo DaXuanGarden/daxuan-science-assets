@@ -14,17 +14,31 @@ spec.loader.exec_module(tool)
 
 class CandidateActionContractTests(unittest.TestCase):
     def make_args(self, output, **changes):
-        fields = dict(slug="desk-scene", subject="Seated computer use", outdir=str(output), palette="editorial-pastel", mode="raster_generation", background="transparent", aesthetic_review=True)
+        fields = dict(slug="desk-scene", subject="Seated computer use", outdir=str(output), palette="editorial-pastel", mode="raster_generation", background="transparent", aesthetic_review=False)
         fields.update(changes)
         return Namespace(**fields)
 
     def test_explicit_eight_candidate_plan_still_requests_one_image(self):
         with tempfile.TemporaryDirectory() as directory:
-            output = Path(directory) / "eight"
-            result = tool.init_asset(self.make_args(output, candidate_count=8))
+            root = Path(directory)
+            output = root / "eight"
+            plan = {"schema_version": "1.0", "directions": [
+                {"id": f"direction-{index}", "title": f"Direction {index}",
+                 "composition": f"Composition strategy number {index} with a different layout.",
+                 "rendering_language": f"Rendering approach number {index} with a distinct material finish.",
+                 "silhouette": "One clearly readable seated human figure with natural proportions.",
+                 "lighting_material": "Soft, controlled light with a coherent material treatment.",
+                 "signature_detail": "Careful edges at the main figure and its desk.",
+                 "design_intent": "Keep the subject recognizable at small scale."}
+                for index in range(1, 9)
+            ]}
+            plan_path = root / "directions.json"
+            plan_path.write_text(json.dumps(plan), encoding="utf-8")
+            result = tool.init_asset(self.make_args(output, aesthetic_review=True, candidate_count=8, direction_plan=str(plan_path), candidate_id="direction-1"))
             brief = json.loads((output / "brief.json").read_text())
             self.assertEqual(brief["aesthetic_spec"]["candidate_count"], 8)
             self.assertIn("This prompt requests ONE image", (output / "image_prompt.txt").read_text())
+            self.assertEqual(brief["aesthetic_spec"]["selected_direction_id"], "direction-1")
             self.assertFalse(result["artwork_generated"])
             self.assertFalse((output / "asset.png").exists())
 

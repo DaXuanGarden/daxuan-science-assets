@@ -98,7 +98,7 @@ def main() -> int:
         if validate_review is None:
             errors.append("aesthetic review validator is unavailable")
         else:
-            aesthetic_qa = validate_review(aesthetic, brief.get("action_contract"), brief.get("refinement_contract"), background=brief.get("background"), composition_mode=brief.get("composition_mode"))
+            aesthetic_qa = validate_review(aesthetic, brief.get("action_contract"), brief.get("refinement_contract"), background=brief.get("background"), composition_mode=brief.get("composition_mode"), aesthetic_spec=brief.get("aesthetic_spec"), iteration_mode=brief.get("iteration_mode"))
             errors.extend("aesthetic review: " + error for error in aesthetic_qa.get("errors", []))
             errors.extend(refinement_source_errors(brief.get("refinement_contract"), brief.get("iteration_mode")))
     image = find_image(root)
