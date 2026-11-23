@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Pin native CI to an Ubuntu image that supports the Python 3.9 matrix entry, and update Actions to Node 24-compatible versions.
+
 ## 0.8.0 - 2026-11-23
 
 - Document the Mac/Linux server path for installing or updating the complete Skill package and its local scripts.
