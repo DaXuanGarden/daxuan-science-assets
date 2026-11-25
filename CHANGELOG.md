@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.1 - 2026-11-25
+
+- Add a figure-slot integration contract that separates generated illustration pixels from exact labels, anchors, and editable leader routes.
+- Record connector geometry in a reusable placement plan and require review of the fully assembled figure at publication size and thumbnail scale.
+- Add restrained route-selection and refusal-handling guidance; preserve the active image route and never retry a refusal as a bypass.
+- Carry the image-model-first requirement for new or revised illustration artwork into the public entrypoint.
+- No image request or private project asset was added to this release; package and documentation checks cover the new template.
+
 ## 0.9.0 - 2026-11-23
 
 - Fix the native CI Python 3.9 runner failure by pinning Ubuntu 22.04 and updating Actions to Node 24-compatible releases.

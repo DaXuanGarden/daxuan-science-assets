@@ -1,8 +1,8 @@
 {
   "name": "daxuan-science-assets",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "owner": "Daxuan",
-  "updated_at": "2026-11-23",
+  "updated_at": "2026-11-25",
   "status": "public-preview",
   "maturity_tier": "production",
   "lifecycle_stage": "public-preview",
@@ -10,7 +10,7 @@
   "review_cadence": "After scientific or visual feedback, workflow or image-backend changes; otherwise quarterly",
   "upstream_inspiration": "Rimagination/scansci-svg; lgwrightlab/schematic-figure; K-Dense-AI/scientific-agent-skills; qiaomu-meta-skill; daxuan-image-relay; skill-creator",
   "intent": {
-    "job_to_be_done": "Create generated raster scientific assets or transparent native SVG objects and source-traceable methodology schematics, with art-directed candidates, explicit evidence, and QA for the selected delivery mode.",
+    "job_to_be_done": "Create image-model-generated scientific illustration assets and source-traceable methodology schematics; keep exact labels, data marks, and connector geometry in deterministic layout, with editable SVG derivatives and explicit QA.",
     "target_users": [
       "Daxuan",
       "Researchers assembling scientific flowcharts"
@@ -21,7 +21,8 @@
       "Palette and edit requirements",
       "Supplied papers, inspected methods, figures or supplements",
       "Preliminary idea, proposed adaptation, and figure scope/size/detail budget",
-      "Reference-author colors and the destination figure, with explicit color meanings or author palette reports"
+      "Reference-author colors and the destination figure, with explicit color meanings or author palette reports",
+      "For composite placements: figure size, asset slot bounds, connector sources, target anchors, and route geometry"
     ],
     "outputs": [
       "Generated PNG/JPEG when image-first delivery is requested",
@@ -36,6 +37,7 @@
       "Attributed aesthetic candidate review and thumbnail/placement previews when appearance is part of the request",
       "Candidate-specific raster prompts from art-direction cards and pairwise visible-difference review",
       "Attributed single-image review with localized findings, preserved strengths and actual-slot evidence",
+      "Optional figure-slot plan for connector geometry and a final assembled-composite review",
       "Optional assembled PDF with retained original text/vector objects, exact native label, actual-slot preview and bounded-change evidence"
     ],
     "exclusions": [
@@ -75,7 +77,8 @@
     "selected_base_refinement_contract",
     "pdf_original_objects_preserved",
     "pdf_outside_region_pixel_match",
-    "server_relay_workflow_documentation"
+    "server_relay_workflow_documentation",
+    "figure_slot_plan_and_final_composite_review"
   ],
   "evidence_boundary": {
     "native_svg_tooling": "Existing native vector tools and three bundled fixtures remain unchanged; source-selection and alpha checks are covered by current tests.",
@@ -88,6 +91,7 @@
     "methodology": "One primary-paper excerpt-to-SVG example (Love et al., 2014), with verified local extract hashes and quotation containment, plus one authored idea fixture. Native output reproduces from the explicit plan; agent source/visual review only, not an independent scientific benchmark.",
     "color_context": "Local paint/raster inspection and color-decision checks pass 12 focused tests. A two-material local revision passes alpha, source, role-lock and geometry checks, with agent slot/full-figure inspection; no independent perception benchmark.",
     "aesthetic_review": "Historical agent inspection of real candidate/refinement assets for one screen-time topic and standalone single-image reviews of a person scene and a public pipette fixture. Version 0.9.0 adds offline validation for distinct pre-generation direction cards, pairwise observed-difference records, and a surface/light craft criterion; no live image request or human preference study was performed for this update. Hash/schema checks do not certify beauty, scientific truth or journal acceptance.",
+    "figure_slot_integration": "A historical project artifact review informed the route-planning guidance. The new template and local package checks are covered; this release did not make a live image request or add private project artwork, and no independent blind review was performed.",
     "pdf_assembly": "Actual clean vector figure and synthetic multipage/non-square-source replays preserve original drawings/text/page boxes and match outside declared overlay regions at the recorded DPI. Inserted illustration remains raster; unknown publication width and other renderer behavior remain outside these checks.",
     "server_runtime": "Installation, update, relay-selection, probe, one-request generation, raster QA, and PDF assembly commands are documented for Mac/Linux Codex hosts. This revision did not execute on a remote server or issue a live image request."
   },

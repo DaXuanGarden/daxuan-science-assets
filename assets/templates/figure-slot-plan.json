@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "coordinate_system": "figure_normalized_0_1",
+  "target_figure": {
+    "id": "replace-with-figure-id",
+    "physical_size_mm": [null, null],
+    "slot_xywh": [null, null, null, null]
+  },
+  "asset": {
+    "file": "asset.png",
+    "sha256": null,
+    "bounds_xywh": [null, null, null, null],
+    "raster_text": "none-unless-explicitly-requested",
+    "anchors": []
+  },
+  "route_record_template": {
+    "id": "replace-with-route-id",
+    "relation_id": "match-relation-manifest",
+    "source": {
+      "panel_id": "replace-with-source-panel",
+      "figure_xy": [null, null]
+    },
+    "target_anchor_id": "replace-with-asset-anchor-id",
+    "path": {
+      "type": "cubic_bezier",
+      "figure_xy": [[null, null], [null, null], [null, null], [null, null]]
+    },
+    "style": {
+      "color_role": "connector-neutral",
+      "width_mm": null,
+      "dash": "replace-with-print-readable-dash"
+    },
+    "layer": "above_asset",
+    "status": "planned"
+  },
+  "routes": [],
+  "review": {
+    "assembled_preview": null,
+    "preview_px": [null, null],
+    "expected_routes": null,
+    "rendered_routes": null,
+    "intentional_crossings": null,
+    "unintended_crossings": null,
+    "clipped_or_hidden_routes": null,
+    "protected_content_obscured": null,
+    "reviewed_at_final_size": false
+  }
+}
